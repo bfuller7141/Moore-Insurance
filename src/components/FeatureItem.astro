@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+  desc?: string; 
+}
+
+const { title, desc } = Astro.props as Props;
+---
+
+<div class="wrapper-feature">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32">
+    <path d="M16,0A16,16,0,1,0,32,16,16,16,0,0,0,16,0m8.75,12.326c-3.656,3.664-6.314,6.653-10.056,10.4l-1.354,1.354-1.462-1.235L7.369,19.034,5.776,17.69l2.687-3.175,1.593,1.344,3.023,2.557c2.974-3.045,5.477-5.773,8.723-9.026l1.474-1.474,2.947,2.937Z" fill="var(--accent-500)"/>
+  </svg>
+  <h3 class="body-lg">
+    <strong>{title}</strong>
+  </h3>
+</div>
+{desc && (
+  <p class="body-regular">
+    {desc}
+  </p>
+)}

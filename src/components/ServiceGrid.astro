@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+import ServiceCard from "./ServiceCard.astro";
+
+// Fetch all service entries from the "service" collection
+const allServices = await getCollection("service");
+
+// Log the fetched services (for debugging)
+console.log("All Services:", allServices);
+
+const { categoryFilter } = Astro.props;
+
+// If no filter is provided, or for testing, comment out the filter:
+const filteredServices = categoryFilter
+  ? allServices.filter(service => service.data.category === categoryFilter)
+  : allServices;
+
+console.log("Filtered Services:", filteredServices);
+---
+<div class="service-grid">
+  {filteredServices.map(service => (
+    <ServiceCard
+      image={service.data.image}
+      alt={service.data.serviceName}
+      title={service.data.serviceName}
+      link={`/services/${service.slug}`}
+    />
+  ))}
+</div>
+
+<style>
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xxxl) var(--spacing-lg);
+  }
+  @media (max-width: 768px) {
+    .service-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

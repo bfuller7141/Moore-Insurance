@@ -1,0 +1,340 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import FeatureItem from "../components/FeatureItem.astro";
+import SkipMain from "../components/SkipMain.astro";
+import NavMain from "../components/NavMain.astro";
+import TableIcon from "../components/TableIcon.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import ReviewGrid from "../components/ReviewGrid.astro";
+import FAQHome from "../components/FAQHome.astro";
+import FooterMain from "../components/FooterMain.astro";
+import AnimatedHeadline from "../components/Animations/AnimatedHeadline";
+import FadeInUp from "../components/Animations/FadeInUp"
+---
+<!DOCTYPE html>
+<html lang="en">
+  <BaseHead
+    title="Home"
+    description="This is the home page"
+    keywords="insurance, home, auto, life, umbrella"
+    image="https://moore-insurance.com/images/og-image.jpg"
+  />
+  <body>
+    <SkipMain />
+    <header>
+      <NavMain />
+    </header>
+    <main>
+      <section class="hero" role="banner">
+        <div class="padding-hero">
+          <div class="container">
+            <div class="wrapper-hero">
+              <AnimatedHeadline client:load>
+                Find The <span class="highlight">Right</span>
+                <br />
+                Coverage For
+                <br />
+                The <span class="highlight">Right</span> Price
+              </AnimatedHeadline>
+              <FadeInUp delay={0.5} duration={1} client:load>
+                <div class="wrapper-btn">
+                  <a class="btn">Get A Quote</a>
+                </div>
+              </FadeInUp>
+              <FadeInUp delay={0.5} duration={1} client:load>
+                <div class="wrapper-reviews">
+                  <div class="rating">★ ★ ★ ★ ★</div>
+                  <div class="body-regular"><strong>50+ Five Star Reviews</strong></div>
+                </div>
+              </FadeInUp>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-main">
+        <div class="padding-section-sm">
+          <div class="container">
+            <div class="wrapper-logos">
+              <div class="container-logo">
+                <img class="logo-carrier" src="/images/carrier-logos/travelers.svg" alt="Travelers Logo" />
+              </div>
+              <div class="container-logo">
+                <img src="/images/carrier-logos/allstate.svg" alt="Allstate Logo" />
+              </div>
+              <div class="container-logo">
+                <img class="logo-carrier" src="/images/carrier-logos/geico.svg" alt="Geico Logo" />
+              </div>
+              <div class="container-logo">
+                <img class="logo-carrier" src="/images/carrier-logos/statefarm.svg" alt="State Farm Logo" />
+              </div>
+              <div class="container-logo">
+                <img class="logo-carrier" src="/images/carrier-logos/progressive.svg" alt="Progressive Logo" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <FadeInUp delay={0.125} duration={1} client:load>
+        <section class="section-main">
+          <div class="padding-section">
+            <div class="container">
+              <div class="wrapper-col">
+                <div class="wrapper">
+                  <h2 class="section-title">
+                    Why Work With
+                    <br />
+                    <span class="highlight">Moore</span> Insurance?
+                  </h2>
+                  <FeatureItem
+                    title="More Choices, Better Coverage"
+                    desc="We compare multiple providers to find the best policy for you."
+                  />
+                  <FeatureItem
+                    title="Personalized Support & Service"
+                    desc="We provide expert guidance and service tailored to your needs."
+                  />
+                  <FeatureItem
+                    title="Save Time & Money"
+                    desc="We do the shopping so you get the best value without the hassle."
+                  />
+                  <FeatureItem
+                    title="Unbiased Professional Advice"
+                    desc="Unlike big-name insurers, we work for you, not a single company."
+                  />
+                  <div class="wrapper-btn">
+                    <a class="btn">
+                      Get A Quote
+                    </a>
+                    <a class="btn secondary">
+                      Our Services
+                    </a>
+                  </div>
+                </div>
+                <div class="wrapper-img">
+                  <img class="img-reg" src="/images/static/phx-city-1.webp" alt="A modern light rail train with a “TBOUND PHOENIX” sign approaches a station on a bustling city street, surrounded by tall reflective buildings." />
+                </div>
+            </div>
+          </div>
+        </section>
+      </FadeInUp>
+      <FadeInUp delay={0.125} duration={1} client:load>
+        <section>
+          <div class="padding-section small-top">
+            <div class="container">
+              <table class="comparison-table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="header-empty"></th>
+                    <th scope="col" data-label="Moore Insurance">Moore Insurance</th>
+                    <th scope="col" data-label="Captive Agent">Captive Agent</th>
+                    <th scope="col" data-label="Online Marketplace">Online Marketplace</th>
+                    <th scope="col" data-label="Direct Company">Direct Company</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" data-label="Feature">Shop Multiple Carriers</th>
+                    <td data-label="Moore Insurance"><TableIcon status={true} /></td>
+                    <td data-label="Captive Agent"><TableIcon status={false} /></td>
+                    <td data-label="Online Marketplace"><TableIcon status={true} /></td>
+                    <td data-label="Direct Company"><TableIcon status={false} /></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Feature">Personalized Advice</th>
+                    <td data-label="Moore Insurance"><TableIcon status={true} /></td>
+                    <td data-label="Captive Agent"><TableIcon status={true} /></td>
+                    <td data-label="Online Marketplace"><TableIcon status={false} /></td>
+                    <td data-label="Direct Company"><TableIcon status={false} /></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Feature">Direct Help With Claims</th>
+                    <td data-label="Moore Insurance"><TableIcon status={true} /></td>
+                    <td data-label="Captive Agent"><TableIcon status={true} /></td>
+                    <td data-label="Online Marketplace"><p class="body-regular"><strong>Varies</strong></p></td>
+                    <td data-label="Direct Company"><TableIcon status={true} /></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Feature">Easy Policy Comparison</th>
+                    <td data-label="Moore Insurance"><TableIcon status={true} /></td>
+                    <td data-label="Captive Agent"><TableIcon status={false} /></td>
+                    <td data-label="Online Marketplace"><TableIcon status={true} /></td>
+                    <td data-label="Direct Company"><TableIcon status={false} /></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Feature">Dedicated Agent</th>
+                    <td data-label="Moore Insurance"><TableIcon status={true} /></td>
+                    <td data-label="Captive Agent"><TableIcon status={true} /></td>
+                    <td data-label="Online Marketplace">
+                      <p class="body-regular"><strong>Varies</strong></p>
+                    </td>
+                    <td data-label="Direct Company">
+                      <p class="body-regular"><strong>Varies</strong></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-label="Feature">Representation</th>
+                    <td data-label="Moore Insurance">
+                      <p class="body-regular"><strong>You</strong></p>
+                    </td>
+                    <td data-label="Captive Agent">
+                      <p class="body-regular"><strong>Company</strong></p>
+                    </td>
+                    <td data-label="Online Marketplace">
+                      <p class="body-regular"><strong>Varies</strong></p>
+                    </td>
+                    <td data-label="Direct Company">
+                      <p class="body-regular"><strong>Company</strong></p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </FadeInUp>
+      <section>
+        <div class="padding-section">
+          <div class="container">
+            <div class="wrapper-center">
+              <FadeInUp delay={0.125} duration={1} client:load>
+                <h2 class="section-title center">
+                  Coverage for <span class="highlight">Every</span>
+                  <br />
+                  Part of Your Life
+                </h2>
+              </FadeInUp>
+            </div>
+            <FadeInUp delay={0.125} duration={1} client:load>
+              <div class="wrapper-grid-3">
+                <ServiceCard
+                  image="/images/static/home-insurance.webp"
+                  alt="A car insurance policy document with a car key and a calculator on a wooden table."
+                  title="Personal Insurance"
+                  link="/home-insurance"
+                />
+                <ServiceCard
+                  image="/images/static/car-insurance.webp"
+                  alt="A house insurance policy document with a house key and a calculator on a wooden table."
+                  title="Auto Insurance"
+                  link="/auto-insurance"
+                />
+                <ServiceCard
+                  image="/images/static/business-insurance.webp"
+                  alt="A life insurance policy document with a family photo and a calculator on a wooden table."
+                  title="Business Insurance"
+                  link="/business-insurance"
+                />
+              </div>
+            </FadeInUp>
+
+            <div class="card-ad-services">
+              <h3 class="title-lg center">
+                Additional Coverages
+              </h3>
+              <div class="wrapper-grid-flex">
+                <FeatureItem
+                  title="Golf Cart Insurance"
+                  />
+                <FeatureItem
+                  title="Motorcycle Insurance"
+                  />
+                <FeatureItem
+                  title="RV Insurance"
+                  />
+                <FeatureItem
+                  title="Boat Insurance"
+                  />
+                <FeatureItem
+                  title="General Liability"
+                  />
+                <FeatureItem
+                  title="Umbrella Insurance"
+                  />
+                <FeatureItem
+                  title="Flood Insurance"
+                  />
+                <FeatureItem
+                  title="Life Insurance"
+                  />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="city-bg">
+        <div class="padding-section">
+          <div class="container">
+            <div class="wrapper-center">
+              <h2 class="page-title center">
+                Start <span class="highlight">Protecting</span>
+                <br />
+                What Matters
+              </h2>
+              <div class="wrapper-btn short-padding">
+                <a class="btn">
+                  Get A Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <FadeInUp delay={0.125} duration={1} client:load>
+        <section>
+          <div class="padding-section">
+            <div class="container">
+              <ReviewGrid
+              />
+              <div class="wrapper-center">
+                <div class="wrapper-btn">
+                  <a class="btn">
+                    Get A Quote
+                  </a>
+                  <a class="btn secondary">
+                    More Reviews
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </FadeInUp>
+      <FadeInUp delay={0.125} duration={1} client:load>
+        <section class="section-main">
+          <div class="padding-section">
+            <div class="container">
+              <div class="wrapper-center">
+                <h2 class="section-title center">
+                  Some <span class="highlight">Frequently</span>
+                  <br />
+                  Asked Questions
+                </h2>
+                <FAQHome />
+              </div>
+            </div>
+          </div>
+        </section>
+      </FadeInUp>
+      <FadeInUp delay={0.125} duration={1} client:load>
+        <section>
+          <div class="padding-section lg-bottom">
+            <div class="container">
+              <div class="wrapper-center">
+                <h2 class="page-title center">
+                  Let's <span class="highlight">Find</span> Your
+                  <br />
+                  Perfect Policy
+                </h2>
+                <div class="wrapper-btn short-padding">
+                  <a class="btn">
+                    Get My Quote Today
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </FadeInUp>
+    </main>
+    <FooterMain />
+  </body>

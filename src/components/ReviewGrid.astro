@@ -1,0 +1,179 @@
+---
+import ReviewCard from "./ReviewCard.astro";
+
+const reviews = import.meta.glob("../content/reviews/*.md", { eager: true });
+
+// Shuffle the array of reviews
+function shuffleArray(array: any[]) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const parsedReviews = Object.entries(reviews).map(([path, module]) => {
+  if (typeof module === "object" && module !== null) {
+    return {
+      ...module,
+      slug: path.split("/").pop()?.replace(".md", ""),
+    };
+  }
+  return {
+    slug: path.split("/").pop()?.replace(".md", ""),
+  };
+});
+
+// Select up to six random reviews
+const shuffledReviews = shuffleArray(parsedReviews).slice(0, 6);
+---
+
+<div class="review-container">
+  <!-- Grid Layout for Larger Screens -->
+  <ul class="review-grid">
+    {shuffledReviews.map((review) => (
+      <li>
+        <ReviewCard
+          rating={review.frontmatter.rating}
+          name={review.frontmatter.name}
+          review={review.frontmatter.review}
+        />
+      </li>
+    ))}
+  </ul>
+
+  <!-- Slider Layout for Smaller Screens -->
+  <div class="review-slider">
+    <div class="review-slider-wrapper">
+      {shuffledReviews.map((review) => (
+        <div class="review-card-wrapper">
+          <ReviewCard
+            rating={review.frontmatter.rating}
+            name={review.frontmatter.name}
+            review={review.frontmatter.review}
+          />
+        </div>
+      ))}
+    </div>
+    <div class="review-dots">
+      {shuffledReviews.map((review, index) => (
+        <div class="review-dot" data-index={index}></div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    gap: 2rem;
+    padding: 0;
+    margin: 3rem 0 0 0;
+    list-style: none;
+  }
+
+  /* Slider Layout for Smaller Screens */
+  @media screen and (max-width: 867px) {
+    .review-grid {
+      display: none;
+    }
+
+    .review-slider {
+      display: block;
+      overflow: hidden;
+    }
+
+    .review-slider-wrapper {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1rem;
+      scroll-behavior: smooth;
+    }
+
+    .review-card-wrapper {
+      flex: 0 0 auto;
+      width: 90%;
+      scroll-snap-align: center;
+      box-sizing: border-box;
+    }
+
+    .review-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .review-dot {
+      width: 10px;
+      height: 10px;
+      background-color: var(--accent-200);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .review-dot.active {
+      background-color: var(--accent-500);
+    }
+  }
+
+  /* Hide slider for larger screens */
+  @media screen and (min-width: 868px) {
+    .review-slider {
+      display: none;
+    }
+  }
+
+  /* Hide scrollbar for slider in smaller screens */
+  @media screen and (max-width: 867px) {
+    .review-slider-wrapper {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+    .review-slider-wrapper::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+  }
+</style>
+
+<script type="module">
+  // Wait for the DOM to be ready
+  document.addEventListener("DOMContentLoaded", () => {
+    const sliderWrapper = document.querySelector(".review-slider-wrapper");
+    const dots = document.querySelectorAll(".review-dot");
+    const slides = document.querySelectorAll(".review-card-wrapper");
+
+    if (!sliderWrapper || slides.length === 0 || dots.length === 0) return;
+
+    function updateActiveDot() {
+      // Calculate active slide index based on scroll position
+      const slideWidth = sliderWrapper.scrollWidth / slides.length;
+      const index = Math.round(sliderWrapper.scrollLeft / slideWidth);
+
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.add("active");
+        } else {
+          dot.classList.remove("active");
+        }
+      });
+    }
+
+    // Update active dot on scroll
+    sliderWrapper.addEventListener("scroll", updateActiveDot);
+
+    // Add click events to dots to scroll to the corresponding slide
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        const slideWidth = sliderWrapper.scrollWidth / slides.length;
+        sliderWrapper.scrollTo({ left: index * slideWidth, behavior: "smooth" });
+      });
+    });
+
+    // Initialize active dot
+    updateActiveDot();
+  });
+</script>

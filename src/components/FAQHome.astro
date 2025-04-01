@@ -1,0 +1,54 @@
+---
+// FAQSection.astro
+import FAQCard from "./FAQCard.astro";
+---
+<div class="faq-section">
+  <FAQCard
+    question="Is Moore Insurance an insurance carrier?"
+    answer="Moore Insurance is an independent agency that partners with multiple insurance companies to offer you a range of coverage options."
+  />
+  <FAQCard
+    question="Who am I buying my policy from?"
+    answer="You purchase your policy from one of our partner carriers – we help you compare and choose the best option."
+  />
+  <FAQCard
+    question="Do I have to have the same carrier for home & auto?"
+    answer="No. You can mix and match carriers for home and auto insurance to find the best rates and coverage for each."
+  />
+  <FAQCard
+    question="Are there extra fees for your services?"
+    answer="There are no extra fees. Our compensation comes from commissions paid by the insurance carriers, not from you."
+  />
+  <FAQCard
+    question="What is the difference between an insurance agent and a broker?"
+    answer="An insurance agent represents one or more insurance companies and sells their products, while a broker works on behalf of the client to find the best coverage options from multiple insurers."
+  />
+</div>
+
+<style>
+  .faq-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+</style>
+
+<script type="module">
+  // Wait for the DOM to be ready
+  document.addEventListener("DOMContentLoaded", () => {
+    const faqCards = document.querySelectorAll("details.faq-card");
+
+    faqCards.forEach(card => {
+      card.addEventListener("toggle", function() {
+        // When this card is opened, close all others
+        if (this.open) {
+          faqCards.forEach(other => {
+            if (other !== this && other.open) {
+              other.open = false;
+            }
+          });
+        }
+      });
+    });
+  });
+</script>

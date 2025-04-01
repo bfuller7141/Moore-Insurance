@@ -1,0 +1,60 @@
+---
+interface Props {
+  question: string;
+  answer: string;
+}
+
+const { question, answer } = Astro.props as Props;
+---
+<details class="card faq-card">
+  <summary class="faq-header">
+    <span class="body-lg"><strong>{question}</strong></span>
+    <span class="faq-arrow">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 19.398">
+        <path id="Path_71" data-name="Path 71" d="M28.6,0,16,12.531,3.4,0,0,3.4l16,16,16-16Z" transform="translate(0 0)" fill="#fecf08"/>
+      </svg>
+    </span>
+  </summary>
+  <div class="body-regular">
+    {answer}
+  </div>
+</details>
+
+<style>
+  .faq-card {
+    margin: 1.5rem 0 1rem 0;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary {
+    list-style: none;
+    cursor: pointer;
+  }
+  
+  .faq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .faq-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1rem;
+    width: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  details[open] .faq-arrow {
+    transform: rotate(180deg);
+  }
+
+  @media (max-width: 800px) {
+    .faq-arrow {
+        display: none;
+    }
+  }
+</style>

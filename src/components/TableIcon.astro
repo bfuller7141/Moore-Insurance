@@ -1,0 +1,25 @@
+---
+interface Props {
+  status: boolean;
+}
+
+const { status } = Astro.props as Props;
+---
+
+{status ? (
+  <svg viewBox="0 0 63.962 64" fill="var(--accent-500)" aria-hidden="true" focusable="false" class="icon">
+    <path d="M52.955,0H11.007A11.03,11.03,0,0,0,0,11.008V52.955A11.039,11.039,0,0,0,11.007,64H52.955A11.039,11.039,0,0,0,63.962,52.955V11.008A11.03,11.03,0,0,0,52.955,0M51.69,23.726c-8.256,8.256-14.243,14.987-22.647,23.428L25.994,50.2l-3.31-2.789L12.531,38.824l-3.57-3.012,6.061-7.177,3.57,3.049L25.4,37.448c6.694-6.88,12.347-13.015,19.636-20.342l3.309-3.31L55,20.417Z" />
+  </svg>
+) : (
+  <svg viewBox="0 0 40 40.017" fill="var(--error-500)" aria-hidden="true" focusable="false" class="icon">
+    <path d="M34.051,0,20.016,14.05,5.966,0,0,5.981,14.05,20.016,0,34.066l5.966,5.951L20.016,26,34.051,40.017,40,34.066,25.983,20.016,40,5.981Z" />
+  </svg>
+)}
+
+<style>
+  .icon {
+    width: clamp(2rem, 2vw, 3rem);
+    height: clamp(2rem, 2vw, 3rem);
+    margin: 0 auto;
+  }
+</style>

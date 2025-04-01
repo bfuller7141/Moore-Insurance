@@ -1,0 +1,65 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "post"
+    label: "Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", date_format: "MM/DD/YYYY", time_format: "HH:mm" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "YouTube Video URL", name: "youtubeUrl", widget: "string", hint: "Paste the full YouTube URL (e.g., https://youtu.be/VIDEO_ID)." }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "service"
+    label: "Services"
+    folder: "content/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Service Name", name: "serviceName", widget: "string" }
+      - { label: "Image", name: "image", widget: "image"}
+      - 
+        label: "Page Title"
+        name: "pageTitle"
+        widget: "object"
+        fields:
+          - { label: "Pre", name: "pre", widget: "string" }
+          - { label: "Highlight", name: "highlight", widget: "string" }
+          - { label: "Post", name: "post", widget: "string", required: false }
+      - { label: "Description", name: "description", widget: "markdown", required: false }
+      - { label: "About Services", name: "aboutServices", widget: "markdown", hint: "For your peace of mind starts here", required: false }
+      - 
+        label: "Benefits"
+        name: "benefits"
+        widget: "list"
+        field:
+          { label: "Benefit", name: "text", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["Personal Coverage", "Business Coverage", "Auto Coverage", "Other"] }
+
+  - name: "faq"
+    label: "FAQs"
+    folder: "content/faqs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Question", name: "question", widget: "string" }
+      - { label: "Answer", name: "answer", widget: "markdown" }
+      - { label: "Category", name: "category", widget: "select", options: ["General", "Service"] }
+
+  - name: "review"
+    label: "Reviews"
+    folder: "content/reviews"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Reviewer Name", name: "name", widget: "string" }
+      - { label: "Rating", name: "rating", widget: "number", hint: "Rating as a number (e.g., 5 for five stars)" }
+      - { label: "Review", name: "review", widget: "text", required: false }

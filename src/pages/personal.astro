@@ -1,0 +1,106 @@
+---
+import BaseHead from "../components/BaseHead.astro"
+import SkipMain from "../components/SkipMain.astro"
+import NavMain from "../components/NavMain.astro"
+import AnimatedHeadline from "../components/Animations/AnimatedHeadline"
+import FadeInUp from "../components/Animations/FadeInUp"
+import FeatureItem from "../components/FeatureItem.astro"
+import ServiceGrid from "../components/ServiceGrid.astro"
+---
+<!DOCTYPE html>
+<html lang="en">
+  <BaseHead
+    title="Home"
+    description="This is the home page"
+    keywords="insurance, home, auto, life, umbrella"
+    image="https://moore-insurance.com/images/og-image.jpg"
+  />
+  <body>
+    <SkipMain />
+    <header>
+      <NavMain />
+    </header>
+    <main>
+        <section class="hero-sub" role="banner">
+            <div class="padding-hero">
+                <div class="container">
+                    <div class="wrapper-hero">
+                        <AnimatedHeadline client:load>
+                            <h1 class="page-title">Personal <span class="highlight">Coverage</span></h1>
+                        </AnimatedHeadline>
+                        <FadeInUp delay={0.5} duration={1} client:load>
+                            <div class="wrapper-short">
+                                <p class="body-regular">
+                                    Protect what matters most with insurance solutions tailored to your home, family, and future. Whether you're looking for home, life, or umbrella coverage, we’ll help you find the right protection at the best value—without the hassle of shopping around.
+                                </p>
+                                <div class="wrapper-btn">
+                                    <a class="btn">
+                                        Get A Quote
+                                    </a>
+                                    <a class="btn secondary">
+                                        Our Services
+                                    </a>
+                                </div>
+                            </div>
+                        </FadeInUp>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <FadeInUp delay={0.125} duration={1} client:load>
+            <section class="section-main">
+              <div class="padding-section">
+                <div class="container">
+                  <div class="wrapper-col">
+                    <div class="wrapper">
+                      <h2 class="section-title">
+                        Moore Insurance
+                        <br />
+                        Policy <span class="highlight">Advantage</span>
+                      </h2>
+                      <FeatureItem
+                        title="More Flexibility, More Carriers"
+                        desc="We shop top insurance companies so you get better options and better value."
+                      />
+                      <FeatureItem
+                        title="Coverage That Fits Your Life"
+                        desc="From homes to umbrella policies, we match you with a plan designed for your real-world needs."
+                      />
+                      <FeatureItem
+                        title="Claims Support That Has Your Back"
+                        desc="We’re not just here to sell you a policy—we help you navigate claims and advocate for your best outcome."
+                      />
+                      <div class="wrapper-btn">
+                        <a class="btn">
+                          Get A Quote
+                        </a>
+                        <a class="btn secondary">
+                          Our Services
+                        </a>
+                      </div>
+                    </div>
+                    <div class="wrapper-img">
+                      <img class="img-reg" src="/images/static/family-1.webp" alt="A modern light rail train with a “TBOUND PHOENIX” sign approaches a station on a bustling city street, surrounded by tall reflective buildings." />
+                    </div>
+                </div>
+              </div>
+            </section>
+        </FadeInUp>
+        <FadeInUp delay={0.125} duration={1} client:load>
+            <section>
+                <div class="padding-section">
+                    <div class="container">
+                        <div class="wrapper-center">
+                            <h2 class="section-title">
+                                Coverage for <span class="highlight">Every</span> Part of Life
+                            </h2>
+                        </div>
+                        <ServiceGrid categoryFilter="Personal Coverage" />
+                        <div class="wrapper-btn center">
+                          <a class="btn">Get a Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </FadeInUp>
+    </main>

@@ -1,0 +1,25 @@
+---
+// ReviewCard.astro
+interface Props {
+  rating: number;
+  name: string;
+  review: string;
+}
+
+const { rating, name, review } = Astro.props as Props;
+const solidStars = Array(rating).fill("★").join(" ");
+const outlineStars = Array(5 - rating).fill("✩").join(" ");
+const starDisplay = [solidStars, outlineStars].filter(Boolean).join(" ");
+---
+
+<div class="card">
+  <p class="rating">
+    {starDisplay}
+  </p>
+  <p class="body-lg">
+    <strong>{name}</strong>
+  </p>
+  <p class="body-regular">
+    {review}
+  </p>
+</div>

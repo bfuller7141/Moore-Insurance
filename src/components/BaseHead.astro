@@ -1,0 +1,110 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+}
+
+const {
+  title = "Moore Insurance Agency",
+  description = "Independent insurance broker serving Surprise, Arizona. Specializes in helping families with household incomes over $100k and multiple cars find the right coverage.",
+  keywords = "Insurance, Auto, Home, Life, Surprise, AZ",
+  image = "https://www.mooreinsure.net/office-front.jpg"
+} = Astro.props as Props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "InsuranceAgency",
+  "name": "Moore Insurance Agency LLC",
+  "description": description,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "15282 W Brookside Ln, Suite 110",
+    "addressLocality": "Surprise",
+    "addressRegion": "AZ",
+    "postalCode": "85374",
+    "addressCountry": "US"
+  },
+  "telephone": "+1-623-556-1576",
+  "email": "helen@mooreinsure.net",
+  "areaServed": {
+    "@type": "City",
+    "name": "Surprise, AZ"
+  },
+  "url": canonicalUrl,
+  "logo": "https://www.mooreinsure.net/logo.png",
+  "image": image,
+  "openingHours": "Mo-Fr 09:00-17:00",
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Auto Insurance",
+        "serviceType": "Automobile Insurance"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Homeowners Insurance",
+        "serviceType": "Home Insurance"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Life Insurance",
+        "serviceType": "Life Insurance"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Umbrella Insurance",
+        "serviceType": "Umbrella Liability Coverage"
+      }
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/Moore.Insure",
+    "https://maps.google.com/?q=Moore+Insurance+Surprise+AZ"
+  ]
+};
+---
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Primary Meta Tags -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Open Graph / Social Tags -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:image" content={image} />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/xti7dmv.css">
+
+  <!--Styles -->
+  <link rel="stylesheet" href="/styles/root.css" />
+  <link rel="stylesheet" href="/styles/main-styles.css" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+    {JSON.stringify(jsonLd, null, 2)}
+  </script>
+</head>

@@ -1,0 +1,58 @@
+---
+interface Props {
+  image: string;
+  alt: string;
+  title: string;
+  link: string;
+}
+
+const {image, alt, title, link} = Astro.props;
+---
+<a class="card-service" href={link}>
+    <div class="wrapper-img-service">
+      <img class="img-service" src={image} alt={alt} />
+    </div>
+    <h3 class="body-lg">
+      <strong>{title}</strong>
+    </h3>
+</a>
+  
+<style>
+    .card-service {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+        gap: 1.25rem;
+        text-decoration: none;
+        cursor: pointer;
+    }
+  
+    .wrapper-img-service {
+        width: 100%;
+        overflow: hidden;
+        aspect-ratio: 9/8;
+        border-radius: 1.5rem;
+    }
+  
+    .img-service {
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        transition: transform 0.3s ease-in-out;
+    }
+  
+    .body-lg {
+        transition: color 0.3s ease-in-out;
+    }
+  
+    .card-service:hover .img-service {
+        transform: scale(1.05);
+    }
+  
+    .card-service:hover .body-lg {
+        color: var(--accent-500);
+    }
+</style>

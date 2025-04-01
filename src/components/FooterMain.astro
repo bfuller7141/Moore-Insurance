@@ -1,0 +1,169 @@
+---
+import FormNewsletter from '../components/FormNewsletter.astro';
+---
+<footer class="site-footer">
+    <div class="padding-section">
+      <div class="container">
+        <!-- Top Section -->
+        <div class="footer-top">
+          <div class="footer-left">
+            <div class="footer-col">
+              <div class="body-regular"><strong>Personal</strong></div>
+              <ul>
+                <li><a class="body-sm" href="/services/home-insurance">Home Insurance</a></li>
+                <li><a class="body-sm" href="/services/auto-insurance">Auto Insurance</a></li>
+                <li><a class="body-sm" href="/services/golf-cart-insurance">Golf Cart Insurance</a></li>
+                <li><a class="body-sm" href="/services/rv-insurance">RV Insurance</a></li>
+              </ul>
+            </div>
+                      
+            <div class="footer-col">
+              <div class="body-regular"><strong>Business</strong></div>
+              <ul>
+                <li><a class="body-sm" href="/services/business-liability-insurance">Business Liability Insurance</a></li>
+                <li><a class="body-sm" href="/services/commercial-auto-insurance">Commercial Auto Insurance</a></li>
+                <li><a class="body-sm" href="/services/contractor-insurance">Contractor Insurance</a></li>
+              </ul>
+            </div>
+  
+            <div class="footer-col">
+              <div class="body-regular"><strong>Our Company</strong></div>
+              <ul>
+                <li><a class="body-sm" href="/about">About Us</a></li>
+                <li><a class="body-sm" href="/blog">Our Blog</a></li>
+                <li><a class="body-sm" href="/client-portal">Client Portal</a></li>
+                <li><a class="body-sm" href="/quote">Get A Quote</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-right">
+            <FormNewsletter />
+          </div>
+        </div>
+  
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+          <div class="footer-brand">
+            <img src="/images/logo.svg" alt="Moore Insurance Agency" />
+          </div>
+          <div class="footer-legal body-sm">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <span>|</span>
+            <a href="/terms-of-service">Terms of Service</a>
+            <span>|</span>
+            <a href="/accessibility-policy">Accessibility Policy</a>
+          </div>
+          <div class="footer-social">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                <img src="/images/facebook-icon.svg" alt="Facebook" />                                 
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                <img src="/images/instagram-icon.svg" alt="Instagram" />                                  
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                <img src="/images/linkedin-icon.svg" alt="LinkedIn" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <style>
+    a {
+      text-decoration: none;
+    }
+  
+    .site-footer {
+      border-top: 0.8rem solid var(--accent-500);
+    }
+  
+    .footer-top {
+      display: grid;
+      grid-template-columns: minmax(20rem, 2fr) 1fr;
+    }
+  
+    .footer-left {
+      display: flex;
+      flex-wrap: wrap;
+      flex: 1 1 5rem;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 4rem;
+    }
+  
+    .footer-left ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  
+    .footer-left li {
+      margin: 0.5rem 0;
+    }
+  
+    .footer-col a:hover {
+      color: var(--accent-500);
+    }
+  
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 2px solid var(--accent-100);
+      padding-top: 2rem;
+      margin-top: 2rem;
+    }
+  
+    .footer-brand img {
+      max-height: 4rem;
+      width: auto;
+    }
+  
+    .footer-legal {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      text-decoration: none;
+    }
+  
+    .footer-social a {
+      margin-right: 0.5rem;
+      display: inline-block;
+      color: var(--accent-500);
+    }
+  
+    .footer-social img {
+      height: 2.5rem;
+      width: 2.5rem;
+      color: var(--accent-500);
+      transition: transform 0.2s ease;
+    }
+  
+    .footer-social a:hover img {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 1090px) {
+        .footer-top {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+    }
+  
+    @media (max-width: 768px) {
+      .footer-top {
+        flex-direction: column;
+      }
+      .footer-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+      }
+    }
+  </style>
+  

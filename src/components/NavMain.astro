@@ -1,0 +1,259 @@
+---
+---
+<nav class="navbar" id="navbar">
+  <div class="navbar-container">
+    <div class="navbar-wrapper-left">
+      <div class="navbar-logo">
+        <a href="/">
+          <img src="/images/logo.svg" alt="Moore Insurance Logo" class="nav-logo" width="150" height="50" loading="lazy" />
+        </a>
+      </div>
+      <ul class="navbar-menu" id="navbar-menu">
+        <li class="navbar-item"><a href="/personal">Personal</a></li>
+        <li class="navbar-item"><a href="/business">Business</a></li>
+        <li class="navbar-item"><a href="/auto">Auto</a></li>
+        <li class="navbar-item"><a href="/coverage">About</a></li>
+        <li class="navbar-item"><a href="/blog">Blog</a></li>
+        <!-- Mobile-only buttons -->
+        <li class="navbar-item mobile-only">
+          <a href="/login">Client Portal</a>
+        </li>
+        <li class="navbar-item mobile-only">
+          <a href="/general-quote" class="yellow-link">Get A Quote</a>
+        </li>
+      </ul>
+    </div>
+    <div class="navbar-wrapper-right">
+      <a href="/login" class="btn secondary">Client Portal</a>
+      <a href="/general-quote" class="btn">Get A Quote</a>
+    </div>
+    <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle Navigation">
+      <span class="navbar-toggle-bar"></span>
+      <span class="navbar-toggle-bar"></span>
+      <span class="navbar-toggle-bar"></span>
+    </button>
+  </div>
+</nav>
+
+<script is:inline>
+  const toggleButton = document.getElementById('navbar-toggle');
+  const menu = document.getElementById('navbar-menu');
+  const navbar = document.getElementById('navbar');
+
+  toggleButton.addEventListener('click', () => {
+    toggleButton.classList.toggle('active');
+    menu.classList.toggle('active');
+    if (menu.classList.contains('active')) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+  });
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('navbar--scrolled');
+    } else {
+      navbar.classList.remove('navbar--scrolled');
+    }
+  });
+</script>
+
+<style>
+  /* Disable scrolling when mobile menu is open */
+  .no-scroll {
+    overflow: hidden;
+  }
+
+  /* Base Navbar */
+  .nav-logo {
+    width: clamp(10rem, 12vw, 20rem);
+    height: auto;
+    transition: transform 0.3s ease;
+    margin-top: 0.4rem;
+  }
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    transition: all 0.3s ease;
+    z-index: 999;
+    font-family: var(--font-body);
+  }
+  .navbar--scrolled {
+    background: rgba(3, 15, 41, 0.90);
+    max-height: 6.5rem;
+  }
+  .navbar--scrolled .nav-logo {
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+  }
+  .navbar--scrolled .btn {
+    padding: 0.5rem 1.5rem 0.25rem 1.5rem;
+    font-size: var(--fs-body);
+  }
+  .navbar-container {
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0.75rem var(--section-spacing-horizontal) 0rem var(--section-spacing-horizontal);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .navbar-wrapper-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4rem;
+    padding: 0;
+  }
+  .navbar-wrapper-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2rem;
+    margin-top: -1.5rem;
+  }
+  .navbar-logo a {
+    font-family: var(--font-heading);
+    font-size: var(--title-lg);
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .navbar-logo a:hover {
+    color: var(--accent-500);
+  }
+  
+  /* Mobile-first: Render mobile menu by default */
+  .navbar-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    background: var(--primary-400);
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    list-style: none;
+    margin: -1.5rem 0 0 0;
+  }
+  .navbar-menu.active {
+    display: flex;
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+    padding-right: calc(var(--section-spacing-horizontal) + 0.75rem);
+  }
+  .navbar-menu.active .navbar-item {
+    padding-right: 2rem;
+  }
+  /* Hide mobile-only buttons on desktop */
+  .mobile-only {
+    display: none;
+  }
+  
+  /* Menu Items */
+  .navbar-item {
+    font-size: var(--fs-body);
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .navbar-item:hover {
+    color: var(--accent-500);
+  }
+  .yellow-link {
+    color: var(--accent-500);
+    font-weight: 700;
+  }
+  .navbar-item a {
+    text-decoration: none;
+  }
+  
+  /* Hamburger Toggle (mobile) */
+  .navbar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-top: -0.4rem;
+    z-index: 1001;
+  }
+  .navbar-toggle-bar {
+    width: 28px;
+    height: 3px;
+    background: var(--white);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  
+  /* Desktop Menu Overrides */
+  @media (min-width: 1070px) {
+    .navbar-toggle {
+      display: none;
+    }
+    .navbar-menu {
+      position: static;
+      height: auto;
+      width: auto;
+      background: transparent;
+      flex-direction: row;
+      gap: 2rem;
+      transform: none;
+      opacity: 1;
+      pointer-events: auto;
+      display: flex;
+      padding: 0;
+    }
+    .mobile-only {
+      display: none;
+    }
+  }
+  
+  /* Mobile / Tablet Styles */
+  @media (max-width: 1070px) {
+    .navbar-toggle {
+      display: flex;
+      padding: 0;
+      margin-top: -1rem;
+    }
+    .navbar--scrolled .nav-logo {
+    transform: scale(1);
+    transition: transform 0.3s ease;
+  }
+    /* Show mobile-only buttons in mobile nav */
+    .mobile-only {
+      display: block;
+    }
+    /* Increase mobile nav font size */
+    .navbar-menu .navbar-item a {
+      font-size: 1.5rem;
+    }
+    /* Hamburger-to-X Animation */
+    .navbar-toggle.active .navbar-toggle-bar:nth-child(1) {
+      transform: translateY(8px) translateX(4px) rotate(45deg);
+    }
+    .navbar-toggle.active .navbar-toggle-bar:nth-child(2) {
+      opacity: 0;
+    }
+    .navbar-toggle.active .navbar-toggle-bar:nth-child(3) {
+      transform: translateY(-10px) translateX(4px) rotate(-45deg);
+    }
+    /* Hide the desktop right wrapper on mobile */
+    .navbar-wrapper-right {
+      display: none;
+    }
+  }
+</style>
