@@ -516,3 +516,34 @@
         width: 100%;
     }
 }
+
+/* Agents Section Additional Styles */
+.agents-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+  }
+  
+  .agent-card {
+    background-color: var(--primary-400);
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem var(--primary-700);
+    padding: var(--spacing-lg);
+    text-align: center;
+  }
+  
+  .agent-img {
+    width: 100%;
+    max-width: 15rem;
+    border-radius: 50%;
+    margin: 0 auto var(--spacing-md);
+    object-fit: cover;
+  }
+  
+  /* Responsive: Stack agents on small screens */
+  @media (max-width: 768px) {
+    .agents-grid {
+      grid-template-columns: 1fr;
+    }
+  }

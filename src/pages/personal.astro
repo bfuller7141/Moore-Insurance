@@ -6,6 +6,9 @@ import AnimatedHeadline from "../components/Animations/AnimatedHeadline"
 import FadeInUp from "../components/Animations/FadeInUp"
 import FeatureItem from "../components/FeatureItem.astro"
 import ServiceGrid from "../components/ServiceGrid.astro"
+import ReviewGrid from "../components/ReviewGrid.astro"
+import FormPersonal from "../components/FormPersonal.astro"
+import FooterMain from "../components/FooterMain.astro"
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -86,21 +89,84 @@ import ServiceGrid from "../components/ServiceGrid.astro"
               </div>
             </section>
         </FadeInUp>
-        <FadeInUp delay={0.125} duration={1} client:load>
-            <section>
-                <div class="padding-section">
-                    <div class="container">
-                        <div class="wrapper-center">
-                            <h2 class="section-title">
-                                Coverage for <span class="highlight">Every</span> Part of Life
-                            </h2>
-                        </div>
-                        <ServiceGrid categoryFilter="Personal Coverage" />
-                        <div class="wrapper-btn center">
-                          <a class="btn">Get a Quote</a>
-                        </div>
-                    </div>
+        <FadeInUp delay={0} duration={1} client:load>
+          <section>
+            <div class="padding-section">
+                <div class="container">
+                  <div class="wrapper-center">
+                    <h2 class="section-title">
+                      Coverage for <span class="highlight">Every</span> Part of Life
+                    </h2>
+                  </div>
+                  <ServiceGrid categoryFilter="Personal Coverage" />
+                  <div class="wrapper-btn center">
+                    <a class="btn">Get a Quote</a>
+                  </div>
                 </div>
-            </section>
+            </div>
+          </section>
+        </FadeInUp>
+        <FadeInUp delay={0.125} duration={1} client:load>
+          <section>
+            <div class="padding-section">
+              <div class="container">
+                <div class="wrapper-center">
+                  <h2 class="section-title center">
+                    What is <span class="highlight">Personal</span> Coverage?
+                  </h2>
+                  <p class="body-regular center">
+                    Personal insurance coverage helps protect the things that matter most—your home, your family, your finances, and your future. It includes policies like home, renters, life, and umbrella insurance that are designed to safeguard you from unexpected loss, liability, or expenses. Whether you're protecting your belongings, preparing for the future, or just getting peace of mind, personal coverage is an essential part of a secure financial plan.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </FadeInUp>
+        <section class="city-bg">
+          <div class="padding-section">
+            <div class="container">
+              <div class="wrapper-center">
+                <h2 class="page-title center">
+                  Start <span class="highlight">Protecting</span>
+                  <br />
+                  What Matters
+                </h2>
+                <div class="wrapper-btn short-padding">
+                  <a class="btn">
+                    Get A Quote
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <FadeInUp delay={0.125} duration={1} client:load>
+          <section>
+            <div class="padding-section">
+              <div class="container">
+                <ReviewGrid
+                />
+                <div class="wrapper-center">
+                  <div class="wrapper-btn">
+                    <a class="btn">
+                      Get A Quote
+                    </a>
+                    <a class="btn secondary">
+                      More Reviews
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </FadeInUp>
+        <FadeInUp delay={0.125} duration={1} client:load>
+          <div class="padding-section lg-bottom">
+            <div class="container">
+              <FormPersonal />
+            </div>
+          </div>
         </FadeInUp>
     </main>
+    <FooterMain />
+  </body>

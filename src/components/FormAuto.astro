@@ -1,0 +1,313 @@
+<form
+  name="auto-coverage-quote"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="quote-form"
+>
+  <!-- Netlify form required hidden fields -->
+  <input type="hidden" name="form-name" value="auto-coverage-quote" />
+  <input
+    type="hidden"
+    name="subject"
+    id="subjectInput"
+    value="Auto Coverage Quote Request"
+  />
+
+  <!-- Honeypot field -->
+  <p class="hidden">
+    <label>Don’t fill this out if you're human:
+      <input name="bot-field" />
+    </label>
+  </p>
+
+  <h2 class="form-title">
+    Get Your <span class="highlight">Personalized</span> Auto Coverage Quote
+  </h2>
+
+  <!-- Row 1: Full Name + Email (two columns) -->
+  <div class="form-row two-col">
+    <div>
+      <label for="fullName">Full Name</label>
+      <input
+        type="text"
+        id="fullName"
+        name="fullName"
+        placeholder="John Doe"
+        required
+      />
+    </div>
+    <div>
+      <label for="email">Email Address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="john@example.com"
+        required
+      />
+    </div>
+  </div>
+
+  <!-- Row 2: Vehicle Details: Make, Model, Year (three columns) -->
+  <div class="form-row three-col">
+    <div>
+      <label for="vehicleMake">Vehicle Make</label>
+      <input
+        type="text"
+        id="vehicleMake"
+        name="vehicleMake"
+        placeholder="Toyota"
+        required
+      />
+    </div>
+    <div>
+      <label for="vehicleModel">Vehicle Model</label>
+      <input
+        type="text"
+        id="vehicleModel"
+        name="vehicleModel"
+        placeholder="Camry"
+        required
+      />
+    </div>
+    <div>
+      <label for="vehicleYear">Year</label>
+      <input
+        type="number"
+        id="vehicleYear"
+        name="vehicleYear"
+        placeholder="2020"
+        required
+      />
+    </div>
+  </div>
+
+  <!-- Row 3: Additional Vehicle Detail: Mileage -->
+  <div class="form-row">
+    <label for="mileage">Current Mileage</label>
+    <input
+      type="number"
+      id="mileage"
+      name="mileage"
+      placeholder="45000"
+      required
+    />
+  </div>
+
+  <!-- Row 4: Coverage Options (Auto Specific) -->
+  <div class="form-row coverage-section">
+    <p>Which auto coverages are you interested in?</p>
+    <div class="coverage-grid">
+      <label>
+        <input type="checkbox" name="coverage" value="Liability" />
+        Liability
+      </label>
+      <label>
+        <input type="checkbox" name="coverage" value="Collision" />
+        Collision
+      </label>
+      <label>
+        <input type="checkbox" name="coverage" value="Comprehensive" />
+        Comprehensive
+      </label>
+      <label>
+        <input type="checkbox" name="coverage" value="Uninsured Motorist" />
+        Uninsured Motorist
+      </label>
+      <label>
+        <input type="checkbox" name="coverage" value="Underinsured Motorist" />
+        Underinsured Motorist
+      </label>
+    </div>
+  </div>
+
+  <!-- Row 5: Additional Details -->
+  <div class="form-row">
+    <label for="details">Additional Details</label>
+    <textarea
+      id="details"
+      name="details"
+      rows="4"
+      placeholder="Please provide any additional details..."
+    ></textarea>
+  </div>
+
+  <!-- Row 6: Submit Button -->
+  <div class="form-row">
+    <button type="submit" class="btn">Submit</button>
+  </div>
+</form>
+
+<script>
+  // Update the hidden subject field dynamically based on the user's name
+  document.getElementById("fullName").addEventListener("input", function () {
+    const nameValue = this.value.trim();
+    const subjectInput = document.getElementById("subjectInput");
+    subjectInput.value = "Auto Coverage Quote Request from " + nameValue;
+  });
+</script>
+
+<style>
+  /* Global box-sizing reset */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  /* Hide honeypot */
+  .hidden {
+    display: none;
+  }
+
+  .quote-form {
+    width: 100%;
+    max-width: 900px; /* Adjust as desired */
+    margin: 2rem auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-title {
+    font-size: var(--section-title);
+    color: var(--gray-200);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Two-col row layout */
+  .form-row.two-col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Three-col row layout */
+  .form-row.three-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .quote-form label {
+    font-weight: 600;
+    color: var(--gray-200);
+  }
+
+  /* Style text inputs and textarea */
+  .quote-form input[type="text"],
+  .quote-form input[type="email"],
+  .quote-form input[type="number"],
+  .quote-form textarea {
+    font-family: var(--body-font);
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    color: #000;
+    outline: 2px solid transparent;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+  }
+
+  .quote-form input[type="text"]:hover,
+  .quote-form input[type="email"]:hover,
+  .quote-form input[type="number"]:hover,
+  .quote-form textarea:hover {
+    outline: 2px solid var(--primary-300);
+  }
+
+  .quote-form input[type="text"]:focus,
+  .quote-form input[type="email"]:focus,
+  .quote-form input[type="number"]:focus,
+  .quote-form textarea:focus {
+    outline: 2px solid var(--primary-300);
+  }
+
+  /* Coverage options */
+  .coverage-section p {
+    font-weight: 600;
+    color: var(--gray-200);
+    margin-bottom: 0.5rem;
+  }
+
+  .coverage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .coverage-grid label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gray-200);
+    font-weight: 600;
+  }
+
+  /* Custom checkbox styling */
+  .coverage-grid input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid var(--accent-500);
+    border-radius: 0.25rem;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+  }
+  .coverage-grid input[type="checkbox"]:checked {
+    background-color: var(--accent-500);
+    border-color: var(--accent-500);
+  }
+  .coverage-grid input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  /* Button styling */
+  .quote-form .btn {
+    padding: 0.75rem 2rem;
+    background-color: var(--accent-500);
+    color: var(--primary-500);
+    border: none;
+    border-radius: 100rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    align-self: flex-start;
+  }
+  .quote-form .btn:hover {
+    background-color: var(--hover-500);
+    transform: translateY(-2px);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .form-row.two-col,
+    .form-row.three-col {
+      display: flex;
+      flex-direction: column;
+    }
+    .coverage-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

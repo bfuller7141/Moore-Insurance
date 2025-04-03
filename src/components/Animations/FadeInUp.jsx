@@ -10,28 +10,29 @@ export default function FadeInUp({ children, delay = 0, duration = 1, fromY = 20
     const element = containerRef.current;
     if (!element) return;
 
-    const observer = new IntersectionObserver(
-      (entries, observerInstance) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            // Trigger the animation when element enters viewport
-            animate(
-              element,
-              { opacity: [0, 1], y: [fromY, 0] },
-              { duration, delay, ease: "easeOut" }
-            );
-            observerInstance.disconnect();
-          }
-        });
-      },
-      { threshold: 0.3 } // Adjust threshold as needed
-    );
+    // Adjust options: lower threshold and add a rootMargin so the animation triggers earlier.
+    const options = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -20% 0px"
+    };
+
+    const observer = new IntersectionObserver((entries, observerInstance) => {
+      entries.forEach(entry => {
+        console.log("FadeInUp entry:", entry);
+        if (entry.isIntersecting) {
+          animate(
+            element,
+            { opacity: [0, 1], y: [fromY, 0] },
+            { duration, delay, ease: "easeOut" }
+          );
+          observerInstance.disconnect();
+        }
+      });
+    }, options);
 
     observer.observe(element);
 
-    return () => {
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, [delay, duration, fromY]);
 
   return (
