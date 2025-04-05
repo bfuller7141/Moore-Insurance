@@ -1,21 +1,21 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import SkipMain from "../components/SkipMain.astro";
-import NavMain from "../components/NavMain.astro";
-import AnimatedHeadline from "../components/Animations/AnimatedHeadline";
-import FadeInUp from "../components/Animations/FadeInUp";
-import ServiceGrid from "../components/ServiceGrid.astro";
-import FormAuto from "../components/FormAuto.astro";
-import FooterMain from "../components/FooterMain.astro";
+import BaseHead from "../components/BaseHead.astro"
+import SkipMain from "../components/SkipMain.astro"
+import NavMain from "../components/NavMain.astro"
+import AnimatedHeadline from "../components/Animations/AnimatedHeadline"
+import FadeInUp from "../components/Animations/FadeInUp"
+import FeatureItem from "../components/FeatureItem.astro"
+import ServiceGrid from "../components/ServiceGrid.astro"
+import ReviewGrid from "../components/ReviewGrid.astro"
+import FooterMain from "../components/FooterMain.astro"
+import FormAuto from "../components/FormAuto.astro"
 ---
-
 <!DOCTYPE html>
 <html lang="en">
   <BaseHead
-    title="Auto Coverage"
-    description="Get Your Auto Coverage Quote"
-    keywords="insurance, auto, vehicle, coverage, quote"
-    image="https://moore-insurance.com/images/og-auto.jpg"
+    title="Home"
+    description="This is the home page"
+    image="https://moore-insurance.com/images/og-image.jpg"
   />
   <body>
     <SkipMain />
@@ -23,78 +23,149 @@ import FooterMain from "../components/FooterMain.astro";
       <NavMain />
     </header>
     <main>
-      <!-- Hero Section -->
-      <section class="hero-sub" role="banner">
-        <div class="padding-hero">
-          <div class="container">
-            <div class="wrapper-hero">
-              <AnimatedHeadline client:load>
-                <h1 class="page-title">Auto <span class="highlight">Coverage</span></h1>
-              </AnimatedHeadline>
-              <FadeInUp delay={0.5} duration={1} client:load>
-                <div class="wrapper-short">
-                  <p class="body-regular">
-                    Secure your ride with tailored auto insurance solutions. Whether you're covering a car, motorcycle, or truck, we help you find the right protection at the best value.
-                  </p>
-                  <div class="wrapper-btn">
-                    <a class="btn">Get A Quote</a>
-                    <a class="btn secondary">Our Services</a>
+        <section class="hero-sub-3" role="banner">
+            <div class="padding-hero">
+                <div class="container">
+                    <div class="wrapper-hero">
+                        <AnimatedHeadline client:load>
+                            <h1 class="page-title">Auto <span class="highlight">Coverage</span></h1>
+                        </AnimatedHeadline>
+                        <FadeInUp delay={0.5} duration={1} client:load>
+                            <div class="wrapper-short">
+                                <p class="body-regular">
+                                  Whether you’re driving across town or across the state, the right auto insurance gives you peace of mind every time you hit the road. We help Arizona drivers find reliable, affordable coverage that fits their vehicle, their lifestyle, and their budget.
+                                </p>
+                                <div class="wrapper-btn">
+                                    <a class="btn">
+                                        Get Your Free Quote
+                                    </a>
+                                    <a class="btn secondary">
+                                        See Coverage Options
+                                    </a>
+                                </div>
+                            </div>
+                        </FadeInUp>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <FadeInUp delay={0.125} duration={1} client:load>
+            <section class="section-main">
+              <div class="padding-section">
+                <div class="container">
+                  <div class="wrapper-col">
+                    <div class="wrapper">
+                      <h2 class="section-title">
+                        Moore Insurance
+                        <br />
+                        Policy <span class="highlight">Advantage</span>
+                      </h2>
+                      <FeatureItem
+                        title="Coverage That Fits"
+                        desc="From daily commutes to weekend getaways, we help you find an auto policy that matches how and where you drive."
+                      />
+                      <FeatureItem
+                        title="Savings Without The Guesswork"
+                        desc="We shop multiple top-rated providers to find the right price for the coverage you actually need."
+                      />
+                      <FeatureItem
+                        title="Here When You Need Us"
+                        desc="Accidents and claims are stressful. We’re here to answer your questions and walk you through the next steps, anytime you need support."
+                      />
+                      <div class="wrapper-btn">
+                        <a class="btn">
+                          Get Your Quote
+                        </a>
+                        <a class="btn secondary">
+                          Coverage Options
+                        </a>
+                      </div>
+                    </div>
+                    <div class="wrapper-img">
+                      <img class="img-reg" src="/images/static/car-1.webp" alt="A modern light rail train with a “TBOUND PHOENIX” sign approaches a station on a bustling city street, surrounded by tall reflective buildings." />
+                    </div>
+                </div>
+              </div>
+            </section>
+        </FadeInUp>
+        <FadeInUp delay={0} duration={1} client:load>
+          <section>
+            <div class="padding-section">
+                <div class="container">
+                  <div class="wrapper-center">
+                    <h2 class="section-title">
+                      Coverage for <span class="highlight">Every</span> Part of Life
+                    </h2>
+                  </div>
+                  <ServiceGrid categoryFilter="Auto Coverage" />
+                  <div class="wrapper-btn center">
+                    <a class="btn">Get Your Quote</a>
                   </div>
                 </div>
-              </FadeInUp>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Auto Services Grid -->
-      <FadeInUp delay={0.125} duration={1} client:load>
-        <section>
+          </section>
+        </FadeInUp>
+        <FadeInUp delay={0.125} duration={1} client:load>
+          <section>
+            <div class="padding-section">
+              <div class="container">
+                <div class="wrapper-center">
+                  <h2 class="section-title center">
+                    What is <span class="highlight">Auto</span> Coverage?
+                  </h2>
+                  <p class="body-regular center">
+                    Auto coverage is insurance that protects you, your vehicle, and others on the road. It can help cover costs from accidents, theft, weather damage, and more. Most policies include liability coverage, which pays for damage you may cause, as well as options like collision, comprehensive, and uninsured motorist protection. The right auto insurance helps you stay financially protected and legally covered every time you drive.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </FadeInUp>
+        <section class="city-bg">
           <div class="padding-section">
             <div class="container">
               <div class="wrapper-center">
-                <h2 class="section-title">
-                  Auto Insurance Options
+                <h2 class="page-title center">
+                  Stay <span class="highlight">Protected</span>
+                  <br />
+                  On The Road
                 </h2>
-              </div>
-              <ServiceGrid categoryFilter="Auto Coverage" />
-              <div class="wrapper-btn center">
-                <a class="btn">Get a Quote</a>
+                <div class="wrapper-btn short-padding">
+                  <a class="btn">
+                    Get Your Free Quote
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </section>
-      </FadeInUp>
-
-      <!-- Explanation Section -->
-      <FadeInUp delay={0.125} duration={1} client:load>
-        <section>
-          <div class="padding-section">
-            <div class="container">
-              <div class="wrapper-center">
-                <h2 class="section-title center">
-                  What is <span class="highlight">Auto</span> Coverage?
-                </h2>
-                <p class="body-regular center">
-                  Auto coverage protects your vehicle against damage, theft, accidents, and liability. Our policies are designed to fit your specific vehicle type and usage needs, ensuring you’re covered on the road.
-                </p>
+        <FadeInUp delay={0.125} duration={1} client:load>
+          <section>
+            <div class="padding-section">
+              <div class="container">
+                <ReviewGrid
+                />
+                <div class="wrapper-center">
+                  <div class="wrapper-btn">
+                    <a class="btn">
+                      Get Your Quote
+                    </a>
+                    <a class="btn secondary">
+                      Leave Us A Review
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-      </FadeInUp>
-
-      <!-- Auto Coverage Quote Form -->
-      <FadeInUp delay={0.125} duration={1} client:load>
-        <section>
+          </section>
+        </FadeInUp>
+        <FadeInUp delay={0.125} duration={1} client:load>
           <div class="padding-section lg-bottom">
             <div class="container">
               <FormAuto />
             </div>
           </div>
-        </section>
-      </FadeInUp>
+        </FadeInUp>
     </main>
     <FooterMain />
   </body>
-</html>

@@ -4,15 +4,20 @@ import ServiceCard from "./ServiceCard.astro";
 
 // Fetch all service entries from the "service" collection
 const allServices = await getCollection("service");
-
-// Log the fetched services (for debugging)
 console.log("All Services:", allServices);
 
 const { categoryFilter } = Astro.props;
 
-// If no filter is provided, or for testing, comment out the filter:
 const filteredServices = categoryFilter
-  ? allServices.filter(service => service.data.category === categoryFilter)
+  ? allServices.filter(service => {
+      const cat = service.data.category;
+      if (!cat) return false;
+      const filterVal = categoryFilter.toLowerCase().trim();
+      if (Array.isArray(cat)) {
+        return cat.map(item => item.toLowerCase().trim()).includes(filterVal);
+      }
+      return cat.toLowerCase().trim() === filterVal;
+    })
   : allServices;
 
 console.log("Filtered Services:", filteredServices);

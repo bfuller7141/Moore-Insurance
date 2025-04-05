@@ -101,6 +101,26 @@
       background-repeat: no-repeat;
       background-attachment: scroll, fixed;
     }
+    .hero-sub-2 {
+        background-image:
+        linear-gradient(to bottom, transparent 50%, var(--primary-500) 100%),
+        url('/images/backgrounds/sub hero-2.webp');
+      background-size: cover;
+      background-position-x: left;
+      background-position-y: bottom;
+      background-repeat: no-repeat;
+      background-attachment: scroll, fixed;
+    }
+    .hero-sub-3 {
+        background-image:
+        linear-gradient(to bottom, transparent 50%, var(--primary-500) 100%),
+        url('/images/backgrounds/sub hero-3.webp');
+      background-size: cover;
+      background-position-x: left;
+      background-position-y: bottom;
+      background-repeat: no-repeat;
+      background-attachment: scroll, fixed;
+    }
     .city-bg {
         background-image: 
           linear-gradient(to bottom, var(--primary-500) 0%, transparent 50%, var(--primary-500) 100%),
@@ -185,6 +205,9 @@
         align-items: center;
         gap: clamp(3rem, 2vw, 5rem);
     }
+    .wrapper-col.padding-top {
+        padding-top: var(--section-spacing-vertical-md);
+    }
 
     .wrapper-img {
         width: 100%;
@@ -216,6 +239,12 @@
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
+        gap: var(--spacing-md);
+    }
+    .wrapper-feature.vertical {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
         gap: var(--spacing-md);
     }
 
@@ -323,6 +352,13 @@
         color: var(--gray-200);
         margin: 0 0 var(--spacing-lg) 0;
     }
+    .title-card {
+        font-family: var(--font-body);
+        font-size: var(--fs-bodylg);
+        font-weight: 600;
+        color: var(--gray-200);
+        margin: 0;
+    }
     .body-lg {
         font-family: var(--font-body);
         font-size: var(--fs-bodylg);
@@ -370,6 +406,25 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 1rem;
+        box-shadow: 0 0 1rem var(--primary-700);
+        box-sizing: border-box;
+    }
+    .img-reg.short {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        border-radius: 1rem;
+        box-shadow: 0 0 1rem var(--primary-700);
+        box-sizing: border-box;
+    }
+    .svc-header-img {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 480/193;
+        object-fit: cover;
+        object-position: left;
         border-radius: 1rem;
         box-shadow: 0 0 1rem var(--primary-700);
         box-sizing: border-box;
@@ -535,8 +590,8 @@
   
   .agent-img {
     width: 100%;
-    max-width: 15rem;
-    border-radius: 50%;
+    border-radius: 1rem;
+    aspect-ratio: 16/9;
     margin: 0 auto var(--spacing-md);
     object-fit: cover;
   }

@@ -4,6 +4,7 @@ import SkipMain from "../components/SkipMain.astro";
 import NavMain from "../components/NavMain.astro";
 import ReviewGrid from "../components/ReviewGrid.astro";
 import FooterMain from "../components/FooterMain.astro";
+import FadeInUp from "../components/Animations/FadeInUp";
 ---
 
 <!DOCTYPE html>
@@ -11,7 +12,6 @@ import FooterMain from "../components/FooterMain.astro";
   <BaseHead
     title="About Moore Insurance"
     description="Learn about Moore Insurance, our agents, and our commitment to personalized insurance solutions."
-    keywords="insurance, about, Moore Insurance, agents, testimonials"
     image="https://moore-insurance.com/images/og-about.jpg"
   />
   <body>
@@ -20,78 +20,84 @@ import FooterMain from "../components/FooterMain.astro";
       <NavMain />
     </header>
     <main>
-      <!-- Company Overview / Hero Section -->
-      <section class="hero-sub" role="banner">
-        <div class="padding-hero">
-          <div class="container">
-            <div class="wrapper-center">
-              <h1 class="page-title">About <span class="highlight">Moore</span> Insurance</h1>
-              <p class="body-regular center">
-                Moore Insurance was founded on the idea that an insurance agency should tailor its products to meet the unique needs of each individual, family, or business – not offer a one‑size‑fits‑all solution. We specialize in Life, Auto, Home, and Business insurance, ensuring you get the personalized coverage you deserve.
-              </p>
+      <FadeInUp delay={0.25} duration={1} client:load>
+        <section class="hero-sub" role="banner">
+          <div class="padding-hero">
+            <div class="container">
+              <div class="wrapper-center">
+                <h1 class="page-title">About <span class="highlight">Moore</span> Insurance</h1>
+                <p class="body-regular center">
+                  Moore Insurance was founded on the idea that an insurance agency should tailor its products to meet the unique needs of each individual, family, or business – not offer a one‑size‑fits‑all solution. We specialize in Life, Auto, Home, and Business insurance, ensuring you get the personalized coverage you deserve.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </FadeInUp>
 
-      <!-- Agents Section -->
-      <section>
-        <div class="padding-section">
-          <div class="container">
-            <h2 class="section-title center">Meet Our Agents</h2>
-            <div class="agents-grid">
-              <!-- Helen on the left -->
-              <div class="agent-card">
-                <img src="/images/agents/helen-moore.jpg" alt="Helen Moore" class="agent-img" />
-                <h3 class="title-md center">Helen Moore</h3>
-                <p class="body-regular center">
-                  Helen is the owner of Moore Insurance and specializes in helping clients find the perfect coverage for their needs.
-                </p>
-                <div class="wrapper-btn center">
-                  <a class="btn" href="mailto:helen@moore-insurance.com">Contact Helen</a>
+      <FadeInUp delay={0.25} duration={1} client:load>
+        <section>
+          <div class="padding-section">
+            <div class="container">
+              <h2 class="section-title center">Meet Our Agents</h2>
+              <div class="agents-grid">
+                <!-- Helen on the left -->
+                <div class="agent-card">
+                  <img src="/images/agents/helen-moore.webp" alt="Helen Moore" class="agent-img" />
+                  <h3 class="title-md center">Helen Moore</h3>
+                  <p class="body-regular center">
+                    Helen is the owner of Moore Insurance and specializes in helping clients find the perfect coverage for their needs.
+                  </p>
+                  <div class="wrapper-btn center">
+                    <a class="btn" href="mailto:helen@moore-insurance.com">Contact Helen</a>
+                  </div>
+                </div>
+                <!-- Darrin on the right -->
+                <div class="agent-card">
+                  <img src="/images/agents/darrin-guz.webp" alt="Darrin Guz" class="agent-img" />
+                  <h3 class="title-md center">Darrin Guz</h3>
+                  <p class="body-regular center">
+                    Darrin is an experienced broker from Surprise, AZ with nearly $2M in client premiums under management.
+                  </p>
+                  <div class="wrapper-btn center">
+                    <a class="btn" href="mailto:darrin@moore-insurance.com">Contact Darrin</a>
+                  </div>
                 </div>
               </div>
-              <!-- Darrin on the right -->
-              <div class="agent-card">
-                <img src="/images/agents/darrin-guz.jpg" alt="Darrin Guz" class="agent-img" />
-                <h3 class="title-md center">Darrin Guz</h3>
-                <p class="body-regular center">
-                  Darrin is an experienced broker from Surprise, AZ with nearly $2M in client premiums under management. He provides superior, personalized service.
-                </p>
+            </div>
+          </div>
+        </section>
+      </FadeInUp>
+
+      <FadeInUp delay={0.25} duration={1} client:load>
+        <section class="city-bg">
+          <div class="padding-section">
+            <div class="container">
+              <h2 class="section-title center">What Our Clients Say</h2>
+              <ReviewGrid />
+            </div>
+          </div>
+        </section>
+      </FadeInUp>
+
+      <FadeInUp delay={0.25} duration={1} client:load>
+        <section>
+          <div class="padding-section-lg">
+            <div class="container">
+              <div class="wrapper-center">
+                <h2 class="page-title center">
+                  Experience The <span class="highlight">Moore</span> 
+                </br>
+                  Insurance Advantage
+                </h2>
                 <div class="wrapper-btn center">
-                  <a class="btn" href="mailto:darrin@moore-insurance.com">Contact Darrin</a>
+                  <a class="btn" href="/quote">Get a Quote</a>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- Testimonials Section -->
-      <section class="city-bg">
-        <div class="padding-section">
-          <div class="container">
-            <h2 class="section-title center">What Our Clients Say</h2>
-            <ReviewGrid />
-          </div>
-        </div>
-      </section>
-
-      <!-- Call-to-Action Section -->
-      <section>
-        <div class="padding-section-lg">
-          <div class="container">
-            <div class="wrapper-center">
-              <h2 class="page-title center">
-                Experience the Moore Insurance Advantage
-              </h2>
-              <div class="wrapper-btn center">
-                <a class="btn" href="/quote">Get a Quote</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </FadeInUp>
     </main>
     <FooterMain />
   </body>

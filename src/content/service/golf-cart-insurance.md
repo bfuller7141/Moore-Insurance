@@ -1,17 +1,19 @@
 ---
 serviceName: "Golf Cart Insurance"
-image: "/images/services/golf-cart-insurance.jpg"
+image: "/images/services/golf-cart.webp"
+headerImg: "/images/services/headers/golf-cart-header.webp"
 pageTitle:
-  pre: "Golf Cart"
-  highlight: "Insurance"
-  post: ""
+  pre: "Cruise"
+  highlight: "With"
+  post: "Confidence"
 description: >
-  Protect your golf cart with comprehensive coverage designed for off-course adventures.
+  Whether you use your golf cart around the neighborhood, at the course, or on private property, the right insurance keeps you protected. Moore Insurance helps Arizona cart owners get simple, reliable coverage for accidents, theft, and damage—so you can enjoy the ride without worry.
 aboutServices: >
-  Our policy covers accidents, theft, and damages, ensuring your golf cart stays on the green.
+  Golf carts might seem low-risk, but accidents and unexpected issues can still happen. We work with top providers to offer policies that cover liability, property damage, and even custom add-ons. Our team will help you choose a plan that fits how and where you drive, giving you the protection you need at a price that makes sense.
 benefits:
-  - text: "Accident coverage"
-  - text: "Theft protection"
-  - text: "Competitive rates"
-category: "Auto Coverage"
+  - text1: "Covers On-Road and Off-Road Use"
+  - text2: "Protection for Theft and Damage"
+  - text3: "Optional Coverage for Custom Upgrades"
+benefitImg: "/images/services/benefit/benefit-golf-cart.webp"
+category: [ "Auto Coverage" ]
 ---

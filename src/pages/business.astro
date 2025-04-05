@@ -1,21 +1,20 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import SkipMain from "../components/SkipMain.astro";
-import NavMain from "../components/NavMain.astro";
-import AnimatedHeadline from "../components/Animations/AnimatedHeadline";
-import FadeInUp from "../components/Animations/FadeInUp";
-import FeatureItem from "../components/FeatureItem.astro";
-import ServiceGrid from "../components/ServiceGrid.astro";
-import ReviewGrid from "../components/ReviewGrid.astro";
-import FormBusiness from "../components/FormBusiness.astro";
-import FooterMain from "../components/FooterMain.astro";
+import BaseHead from "../components/BaseHead.astro"
+import SkipMain from "../components/SkipMain.astro"
+import NavMain from "../components/NavMain.astro"
+import AnimatedHeadline from "../components/Animations/AnimatedHeadline"
+import FadeInUp from "../components/Animations/FadeInUp"
+import FeatureItem from "../components/FeatureItem.astro"
+import ServiceGrid from "../components/ServiceGrid.astro"
+import ReviewGrid from "../components/ReviewGrid.astro"
+import FooterMain from "../components/FooterMain.astro"
+import FormBusiness from "../components/FormBusiness.astro"
 ---
 <!DOCTYPE html>
 <html lang="en">
   <BaseHead
-    title="Business Coverage"
-    description="Business Coverage Quote Request"
-    keywords="insurance, business, liability, commercial"
+    title="Business Insurance Coverage in Arizona | Moore Insurance"
+    description="Protect your business with insurance that fits your needs. Moore Insurance helps Arizona business owners find the right coverage for property, liability, employees, and more. Get a quote today."
     image="https://moore-insurance.com/images/og-image.jpg"
   />
   <body>
@@ -24,165 +23,149 @@ import FooterMain from "../components/FooterMain.astro";
       <NavMain />
     </header>
     <main>
-      <!-- Hero Section -->
-      <section class="hero-sub" role="banner">
-        <div class="padding-hero">
-          <div class="container">
-            <div class="wrapper-hero">
-              <AnimatedHeadline client:load>
-                <h1 class="page-title">Business <span class="highlight">Coverage</span></h1>
-              </AnimatedHeadline>
-              <FadeInUp delay={0.5} duration={1} client:load>
-                <div class="wrapper-short">
-                  <p class="body-regular">
-                    Protect your business assets and operations with our tailored insurance solutions. Whether you need liability, commercial property, or specialized coverage, we’re here to secure your business future.
-                  </p>
-                  <div class="wrapper-btn">
-                    <a class="btn">
-                      Get A Quote
-                    </a>
-                    <a class="btn secondary">
-                      Our Services
-                    </a>
+        <section class="hero-sub-2" role="banner">
+            <div class="padding-hero">
+                <div class="container">
+                    <div class="wrapper-hero">
+                        <AnimatedHeadline client:load>
+                            <h1 class="page-title">Business <span class="highlight">Coverage</span></h1>
+                        </AnimatedHeadline>
+                        <FadeInUp delay={0.5} duration={1} client:load>
+                            <div class="wrapper-short">
+                                <p class="body-regular">
+                                  Whether you run a small local shop or manage a growing operation, your business deserves the right protection. We help Arizona business owners find smart and reliable coverage for property, liability, employees, and more. That way, you can stay focused on the work without worrying about the what-ifs.
+                                </p>
+                                <div class="wrapper-btn">
+                                    <a class="btn">
+                                        Get Your Free Quote
+                                    </a>
+                                    <a class="btn secondary">
+                                        See Coverage Options
+                                    </a>
+                                </div>
+                            </div>
+                        </FadeInUp>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <FadeInUp delay={0.125} duration={1} client:load>
+            <section class="section-main">
+              <div class="padding-section">
+                <div class="container">
+                  <div class="wrapper-col">
+                    <div class="wrapper">
+                      <h2 class="section-title">
+                        Moore Insurance
+                        <br />
+                        Policy <span class="highlight">Advantage</span>
+                      </h2>
+                      <FeatureItem
+                        title="Coverage That Works For You"
+                        desc="We help you find business insurance that fits your operations, not someone else’s checklist. Whether you need general liability or workers’ comp, we’ve got you covered."
+                      />
+                      <FeatureItem
+                        title="Straightforward Guidance"
+                        desc="You don’t have time to dig through insurance fine print. We explain your options clearly so you can make confident decisions without second-guessing."
+                      />
+                      <FeatureItem
+                        title="Support You Can Count On"
+                        desc="Business moves fast. When your coverage needs change or a question comes up, we’re here to help you adjust and move forward with confidence."
+                      />
+                      <div class="wrapper-btn">
+                        <a class="btn">
+                          Get Your Quote
+                        </a>
+                        <a class="btn secondary">
+                          Coverage Options
+                        </a>
+                      </div>
+                    </div>
+                    <div class="wrapper-img">
+                      <img class="img-reg" src="/images/static/city-2.webp" alt="A modern light rail train with a “TBOUND PHOENIX” sign approaches a station on a bustling city street, surrounded by tall reflective buildings." />
+                    </div>
+                </div>
+              </div>
+            </section>
+        </FadeInUp>
+        <FadeInUp delay={0} duration={1} client:load>
+          <section>
+            <div class="padding-section">
+                <div class="container">
+                  <div class="wrapper-center">
+                    <h2 class="section-title">
+                      Coverage for <span class="highlight">Every</span> Part of Life
+                    </h2>
+                  </div>
+                  <ServiceGrid categoryFilter="Business Coverage" />
+                  <div class="wrapper-btn center">
+                    <a class="btn">Get Your Quote</a>
                   </div>
                 </div>
-              </FadeInUp>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Policy Advantage Section (can remain similar) -->
-      <FadeInUp delay={0.125} duration={1} client:load>
-        <section class="section-main">
-          <div class="padding-section">
-            <div class="container">
-              <div class="wrapper-col">
-                <div class="wrapper">
-                  <h2 class="section-title">
-                    Moore Insurance
-                    <br />
-                    Policy <span class="highlight">Advantage</span>
+          </section>
+        </FadeInUp>
+        <FadeInUp delay={0.125} duration={1} client:load>
+          <section>
+            <div class="padding-section">
+              <div class="container">
+                <div class="wrapper-center">
+                  <h2 class="section-title center">
+                    What is <span class="highlight">Business</span> Coverage?
                   </h2>
-                  <FeatureItem
-                    title="Customized Risk Management"
-                    desc="We work with top insurers to tailor policies that address your business-specific risks."
-                  />
-                  <FeatureItem
-                    title="Comprehensive Commercial Coverage"
-                    desc="From property to liability, we ensure your business is protected from unforeseen events."
-                  />
-                  <FeatureItem
-                    title="Efficient Claims Support"
-                    desc="Our dedicated team is here to help you navigate claims quickly and efficiently."
-                  />
+                  <p class="body-regular center">
+                    Business coverage is a group of insurance policies that protect different parts of your business. This can include your building, equipment, employees, and the work you do every day. The goal is to help you avoid major losses when something unexpected happens, like an accident, lawsuit, or property damage. Whether you run a small shop, a service-based business, or something in between, the right coverage helps you stay protected and focused on growth.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </FadeInUp>
+        <section class="city-bg">
+          <div class="padding-section">
+            <div class="container">
+              <div class="wrapper-center">
+                <h2 class="page-title center">
+                  Start <span class="highlight">Protecting</span>
+                  <br />
+                  Your Business
+                </h2>
+                <div class="wrapper-btn short-padding">
+                  <a class="btn">
+                    Get Your Quote
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <FadeInUp delay={0.125} duration={1} client:load>
+          <section>
+            <div class="padding-section">
+              <div class="container">
+                <ReviewGrid
+                />
+                <div class="wrapper-center">
                   <div class="wrapper-btn">
                     <a class="btn">
-                      Get A Quote
+                      Get Your Free Quote
                     </a>
                     <a class="btn secondary">
-                      Our Services
+                      Leave Us A Review
                     </a>
                   </div>
                 </div>
-                <div class="wrapper-img">
-                  <img class="img-reg" src="/images/static/business-1.webp" alt="A modern business office with a team meeting in progress." />
-                </div>
               </div>
             </div>
-          </div>
-        </section>
-      </FadeInUp>
-
-      <!-- Service Grid: Only Business Coverage -->
-      <FadeInUp delay={0} duration={1} client:load>
-        <section>
-          <div class="padding-section">
-            <div class="container">
-              <div class="wrapper-center">
-                <h2 class="section-title">
-                  Coverage for <span class="highlight">Every</span> Business Need
-                </h2>
-              </div>
-              <ServiceGrid categoryFilter="Business Coverage" />
-              <div class="wrapper-btn center">
-                <a class="btn">Get a Quote</a>
-              </div>
-            </div>
-          </div>
-        </section>
-      </FadeInUp>
-
-      <!-- Explanation Section -->
-      <FadeInUp delay={0.125} duration={1} client:load>
-        <section>
-          <div class="padding-section">
-            <div class="container">
-              <div class="wrapper-center">
-                <h2 class="section-title center">
-                  What is <span class="highlight">Business</span> Coverage?
-                </h2>
-                <p class="body-regular center">
-                  Business insurance protects your company’s assets, employees, and operations from risks such as liability, property damage, and other unforeseen events. Our policies are designed to meet the unique needs of your business.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </FadeInUp>
-
-      <!-- Background Section -->
-      <section class="city-bg">
-        <div class="padding-section">
-          <div class="container">
-            <div class="wrapper-center">
-              <h2 class="page-title center">
-                Start <span class="highlight">Protecting</span>
-                <br />
-                Your Business Today
-              </h2>
-              <div class="wrapper-btn short-padding">
-                <a class="btn">
-                  Get A Quote
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Reviews Section -->
-      <FadeInUp delay={0.125} duration={1} client:load>
-        <section>
-          <div class="padding-section">
-            <div class="container">
-              <div class="wrapper-center">
-                <ReviewGrid />
-                <div class="wrapper-btn">
-                  <a class="btn">
-                    Get A Quote
-                  </a>
-                  <a class="btn secondary">
-                    More Reviews
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </FadeInUp>
-
-      <!-- Business Coverage Form Section -->
-      <FadeInUp delay={0.125} duration={1} client:load>
-        <section>
+          </section>
+        </FadeInUp>
+        <FadeInUp delay={0.125} duration={1} client:load>
           <div class="padding-section lg-bottom">
             <div class="container">
               <FormBusiness />
             </div>
           </div>
-        </section>
-      </FadeInUp>
+        </FadeInUp>
     </main>
     <FooterMain />
   </body>
-</html>

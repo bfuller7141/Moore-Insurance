@@ -19,6 +19,7 @@ const serviceCollection = defineCollection({
   schema: z.object({
     serviceName: z.string(),
     image: z.string(),
+    headerImg: z.string().optional(), 
     pageTitle: z.object({
       pre: z.string(),
       highlight: z.string(),
@@ -26,12 +27,16 @@ const serviceCollection = defineCollection({
     }),
     description: z.string().optional(),
     aboutServices: z.string().optional(),
-    benefits: z.array(z.object({
-      text: z.string(),
-    })),
-    category: z.enum(["Personal Coverage", "Business Coverage", "Auto Coverage", "Other"]),
+    benefits: z.array(z.record(z.string())),
+    benefitImg: z.string().optional(), 
+    category: z.union([
+      z.enum(["Personal Coverage", "Business Coverage", "Auto Coverage", "Other"]),
+      z.array(z.enum(["Personal Coverage", "Business Coverage", "Auto Coverage", "Other"]))
+    ])
   }),
 });
+
+
 
 const faqCollection = defineCollection({
   schema: z.object({

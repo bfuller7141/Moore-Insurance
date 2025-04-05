@@ -34,6 +34,7 @@ collections:
           - { label: "Pre", name: "pre", widget: "string" }
           - { label: "Highlight", name: "highlight", widget: "string" }
           - { label: "Post", name: "post", widget: "string", required: false }
+      - { label: "Header Image", name: "headerImg", widget: "image", required: false, hint: "Image for the header section" }
       - { label: "Description", name: "description", widget: "markdown", required: false }
       - { label: "About Services", name: "aboutServices", widget: "markdown", hint: "For your peace of mind starts here", required: false }
       - 
@@ -41,8 +42,11 @@ collections:
         name: "benefits"
         widget: "list"
         field:
-          { label: "Benefit", name: "text", widget: "string" }
-      - { label: "Category", name: "category", widget: "select", options: ["Personal Coverage", "Business Coverage", "Auto Coverage", "Other"] }
+          { label: "Benefit1", name: "text1", widget: "string" }
+          { label: "Benefit2", name: "text2", widget: "string" }
+          { label: "Benefit3", name: "text3", widget: "string" }
+      - { label: "Benefits Image", name: "benefitImg", widget: "image", required: false, hint: "Image for the benefits section" }
+      - { label: "Category", name: "category", widget: "select", multiple: true, options: ["Personal Coverage", "Business Coverage", "Auto Coverage", "Other"] }
 
   - name: "faq"
     label: "FAQs"
