@@ -1,5 +1,5 @@
 ---
-serviceName: "Workers' Compensation Insurance"
+serviceName: "Workers Compensation"
 image: "/images/services/work-comp.webp"
 headerImg: "/images/services/headers/workers-comp-header.webp"
 pageTitle:

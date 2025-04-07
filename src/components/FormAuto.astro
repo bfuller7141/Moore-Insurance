@@ -20,11 +20,7 @@
       <input name="bot-field" />
     </label>
   </p>
-
-  <h2 class="form-title">
-    Get Your <span class="highlight">Personalized</span> Auto Coverage Quote
-  </h2>
-
+  
   <!-- Row 1: Full Name + Email (two columns) -->
   <div class="form-row two-col">
     <div>
@@ -83,7 +79,21 @@
     </div>
   </div>
 
-  <!-- Row 3: Additional Vehicle Detail: Mileage -->
+  <!-- New Row 3: Type of Auto Insurance -->
+  <div class="form-row">
+    <label for="insuranceType">Type of Auto Insurance You Are Interested In</label>
+    <select id="insuranceType" name="insuranceType" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="Car Insurance">Car Insurance</option>
+      <option value="Motorcycle Insurance">Motorcycle Insurance</option>
+      <option value="Truck Insurance">Truck Insurance</option>
+      <option value="RV Insurance">RV Insurance</option>
+      <option value="ATV Insurance">ATV Insurance</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+
+  <!-- Row 4: Additional Vehicle Detail: Mileage -->
   <div class="form-row">
     <label for="mileage">Current Mileage</label>
     <input
@@ -95,7 +105,7 @@
     />
   </div>
 
-  <!-- Row 4: Coverage Options (Auto Specific) -->
+  <!-- Row 5: Coverage Options (Auto Specific) -->
   <div class="form-row coverage-section">
     <p>Which auto coverages are you interested in?</p>
     <div class="coverage-grid">
@@ -122,7 +132,7 @@
     </div>
   </div>
 
-  <!-- Row 5: Additional Details -->
+  <!-- Row 6: Additional Details -->
   <div class="form-row">
     <label for="details">Additional Details</label>
     <textarea
@@ -133,23 +143,55 @@
     ></textarea>
   </div>
 
-  <!-- Row 6: Submit Button -->
+  <!-- Row 7: Submit Button -->
   <div class="form-row">
     <button type="submit" class="btn">Submit</button>
   </div>
 </form>
 
 <script>
-  // Update the hidden subject field dynamically based on the user's name
+  // Dynamically update subject field based on Full Name input
   document.getElementById("fullName").addEventListener("input", function () {
     const nameValue = this.value.trim();
     const subjectInput = document.getElementById("subjectInput");
     subjectInput.value = "Auto Coverage Quote Request from " + nameValue;
   });
+
+  // Handle form submission with simulated delay and success state
+  document.getElementById("quoteForm").addEventListener("submit", async function (event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const form = event.target;
+    const submitButton = form.querySelector("button[type='submit']");
+
+    // Update button to "Submitting" state and disable it
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting...";
+
+    // Simulate a delay (e.g., 2 seconds)
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    // Update button to success state using provided green variable
+    submitButton.textContent = "Form successfully submitted";
+    submitButton.style.backgroundColor = "var(--success-500)";
+
+    // Display the success message
+    document.getElementById("formSuccessMessage").style.display = "block";
+  });
 </script>
 
+<!-- Success Message (hidden by default) -->
+<div id="formSuccessMessage" style="display: none; text-align: center; margin-top: 1rem;">
+  <p style="font-size: 1.1rem; color: var(--success-500);">
+    Form successfully submitted!
+  </p>
+  <p class="body-regular">
+    Thank you for your request. We will review your submission and get back to you as soon as possible.
+  </p>
+</div>
+
 <style>
-  /* Remove default margin/padding, set box-sizing globally */
+  /* Global Reset */
   * {
     box-sizing: border-box;
     margin: 0;
@@ -191,7 +233,7 @@
     gap: 1rem;
   }
 
-  /* Three columns for second row */
+  /* Three columns for the second row */
   .form-row.three-col {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -206,15 +248,15 @@
   .quote-form input[type="text"],
   .quote-form input[type="email"],
   .quote-form input[type="number"],
-  .quote-form textarea {
+  .quote-form textarea,
+  .quote-form select {
     font-family: var(--body-font);
     font-size: 1rem;
+    padding: 0.75rem 1rem;
     border: none;
     border-radius: 0.5rem;
-    outline: 2px solid transparent;
     background-color: #fff;
     color: #000;
-    padding: 0.75rem 1rem;
     width: 100%;
     transition: all 0.3s ease-in-out;
   }
@@ -222,13 +264,16 @@
   .quote-form input[type="text"]:hover,
   .quote-form input[type="email"]:hover,
   .quote-form input[type="number"]:hover,
-  .quote-form textarea:hover {
+  .quote-form textarea:hover,
+  .quote-form select:hover {
     outline: 2px solid var(--primary-300);
   }
+
   .quote-form input[type="text"]:focus,
   .quote-form input[type="email"]:focus,
   .quote-form input[type="number"]:focus,
-  .quote-form textarea:focus {
+  .quote-form textarea:focus,
+  .quote-form select:focus {
     outline: 2px solid var(--primary-300);
   }
 
@@ -254,7 +299,7 @@
     font-weight: 600;
   }
 
-  /* Larger, custom checkboxes with a bigger checkmark */
+  /* Custom checkboxes with a larger checkmark */
   .coverage-grid input[type="checkbox"] {
     -webkit-appearance: none;
     appearance: none;
@@ -266,10 +311,12 @@
     position: relative;
     cursor: pointer;
   }
+  
   .coverage-grid input[type="checkbox"]:checked {
     background-color: var(--accent-500);
     border-color: var(--accent-500);
   }
+  
   .coverage-grid input[type="checkbox"]:checked::after {
     content: "";
     position: absolute;
@@ -295,6 +342,7 @@
     transition: all 0.3s ease-in-out;
     align-self: flex-start;
   }
+
   .quote-form .btn:hover {
     background-color: var(--hover-500);
     transform: translateY(-2px);
@@ -307,6 +355,7 @@
       display: flex;
       flex-direction: column;
     }
+    
     .coverage-grid {
       grid-template-columns: 1fr;
     }

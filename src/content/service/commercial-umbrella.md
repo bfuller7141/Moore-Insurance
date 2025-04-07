@@ -1,5 +1,5 @@
 ---
-serviceName: "Commercial Umbrella Insurance"
+serviceName: "Commercial Umbrella"
 image: "/images/services/commercial-umbrella.webp"
 headerImg: "/images/services/headers/commercial-umbrella-header.webp"
 pageTitle:

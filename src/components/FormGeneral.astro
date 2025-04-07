@@ -1,0 +1,235 @@
+<form
+  id="quoteForm"
+  name="general-quote"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="quote-form"
+>
+  <!-- Netlify form requirements -->
+  <input type="hidden" name="form-name" value="general-quote" />
+  <input type="hidden" name="subject" id="subjectInput" value="General Quote Request" />
+
+  <!-- Honeypot field -->
+  <p class="hidden">
+    <label>
+      Don’t fill this out if you're human:
+      <input name="bot-field" />
+    </label>
+  </p>
+
+  <!-- Row 1: Full Name + Email -->
+  <div class="form-row two-col">
+    <div>
+      <label for="fullName">Full Name</label>
+      <input
+        type="text"
+        id="fullName"
+        name="fullName"
+        placeholder="John Doe"
+        required
+      />
+    </div>
+    <div>
+      <label for="email">Email Address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="john@example.com"
+        required
+      />
+    </div>
+  </div>
+
+  <!-- Row 2: Phone Number -->
+  <div class="form-row">
+    <label for="phone">Phone Number</label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      placeholder="(123) 456-7890"
+      required
+    />
+  </div>
+
+  <!-- Row 3: Type of Insurance -->
+  <div class="form-row">
+    <label for="insuranceType">Type of Insurance You Are Interested In</label>
+    <select id="insuranceType" name="insuranceType" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="Home Insurance">Home Insurance</option>
+      <option value="Auto Insurance">Auto Insurance</option>
+      <option value="Life Insurance">Life Insurance</option>
+      <option value="Business Insurance">Business Insurance</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+
+  <!-- Row 4: Message -->
+  <div class="form-row">
+    <label for="message">Message</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      placeholder="How can we help you?"
+    ></textarea>
+  </div>
+
+  <!-- Row 5: Submit Button -->
+  <div class="form-row">
+    <button type="submit" class="btn">Submit</button>
+  </div>
+</form>
+
+<!-- Success Message (hidden by default) -->
+<div id="formSuccessMessage" style="display: none; text-align: center; margin-top: 1rem;">
+  <p style="font-size: 1.1rem; color: var(--success-500);">
+    Form successfully submitted!
+  </p>
+  <p class="body-regular">
+    Thank you for your request. We will review your submission and get back to you as soon as possible.
+  </p>
+</div>
+
+<script>
+  // Update subject line dynamically based on Full Name input
+  document.getElementById("fullName").addEventListener("input", function () {
+    const nameValue = this.value.trim();
+    const subjectInput = document.getElementById("subjectInput");
+    subjectInput.value = "General Quote Request from " + nameValue;
+  });
+
+  // Handle form submission with simulated delay and success state
+  document.getElementById("quoteForm").addEventListener("submit", async function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const form = event.target;
+    const submitButton = form.querySelector("button[type='submit']");
+
+    // Set button to "Submitting" state and disable it
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting...";
+
+    // Simulate submission delay (adjust time as needed)
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    // Update button to success state using your green variables
+    submitButton.textContent = "Form successfully submitted";
+    submitButton.style.backgroundColor = "var(--success-500)";
+
+    // Show success message below the form
+    document.getElementById("formSuccessMessage").style.display = "block";
+  });
+</script>
+
+<style>
+  /* Global Reset */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .quote-form {
+    width: 100%;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-title {
+    font-size: var(--section-title);
+    color: var(--gray-200);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Two-col layout for Row 1 */
+  .form-row.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  /* Styling for labels */
+  .quote-form label {
+    font-weight: 600;
+    color: var(--gray-200);
+  }
+
+  /* Input and textarea styling */
+  .quote-form input[type="text"],
+  .quote-form input[type="email"],
+  .quote-form input[type="tel"],
+  .quote-form textarea,
+  .quote-form select {
+    font-family: var(--body-font);
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    color: #000;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .quote-form input[type="text"]:hover,
+  .quote-form input[type="email"]:hover,
+  .quote-form input[type="tel"]:hover,
+  .quote-form textarea:hover,
+  .quote-form select:hover {
+    outline: 2px solid var(--primary-300);
+  }
+
+  .quote-form input[type="text"]:focus,
+  .quote-form input[type="email"]:focus,
+  .quote-form input[type="tel"]:focus,
+  .quote-form textarea:focus,
+  .quote-form select:focus {
+    outline: 2px solid var(--primary-300);
+  }
+
+  /* Button styling */
+  .quote-form .btn {
+    padding: 0.75rem 2rem;
+    background-color: var(--accent-500);
+    color: var(--primary-500);
+    border: none;
+    border-radius: 100rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    align-self: flex-start;
+  }
+
+  .quote-form .btn:hover {
+    background-color: var(--hover-500);
+    transform: translateY(-2px);
+  }
+
+  /* Responsive: Stack columns on small screens */
+  @media (max-width: 768px) {
+    .form-row.two-col {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+</style>

@@ -1,0 +1,36 @@
+---
+import FadeInUp from "../../components/Animations/FadeInUp";
+import BaseHead from "../../components/BaseHead.astro";
+import FormGeneral from "../../components/FormGeneral.astro";
+import NavMain from "../../components/NavMain.astro";
+import SkipMain from "../../components/SkipMain.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <BaseHead
+    title= "Get a Quote | Moore Insurance"
+    description= "Get a personalized insurance quote from Moore Insurance. Fill out our form to get started."
+    image= "https://moore-insurance.com/images/og-quote.jpg"
+  />
+  <body>
+    <SkipMain />
+    <header>
+      <NavMain />
+    </header>
+    <main>
+      <section class= role="banner">
+        <div class="padding-hero">
+          <div class="container">
+            <div class="wrapper-center">
+                <FadeInUp delay={0.125} duration={1} client:load>
+                    <h1 class="page-title center">
+                        Get Your <span class="highlight">Free</span> Quote Today
+                    </h1>
+                </FadeInUp>
+                <FadeInUp delay={0.25} duration={1} client:load>
+                    <FormGeneral />
+                </FadeInUp>
+            </div>
+        </div>
+      </section>

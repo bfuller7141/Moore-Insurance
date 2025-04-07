@@ -20,16 +20,43 @@ export const getStaticPaths = async () => {
 interface ServiceProps {
   pageTitle: { pre: string; highlight: string; post: string; };
   description: string;
-  quoteLink: string;
+  quoteLink?: string;
   aboutServices: string;
   serviceName: string;
   benefits: { text1: string; text2: string; text3: string; };
   benefitImg: string;
   image: string;
   headerImg: string;
+  category: string | string[];
 }
 
-const { pageTitle, description, serviceName, image, aboutServices, benefitImg, headerImg, benefits } = Astro.props as ServiceProps;
+const { pageTitle, description, serviceName, image, aboutServices, benefitImg, headerImg, benefits, quoteLink, category } = Astro.props as ServiceProps;
+
+// Determine the quote URL based on the service's category (or use a provided quoteLink)
+let quoteUrl = "";
+if (quoteLink) {
+  quoteUrl = quoteLink;
+} else if (typeof category === "string") {
+  if (category === "Personal Coverage") {
+    quoteUrl = "/quote/personal";
+  } else if (category === "Auto Coverage") {
+    quoteUrl = "/quote/auto";
+  } else if (category === "Business Coverage") {
+    quoteUrl = "/quote/business";
+  } else {
+    quoteUrl = "/quote";
+  }
+} else if (Array.isArray(category)) {
+  if (category.includes("Personal Coverage")) {
+    quoteUrl = "/quote/personal";
+  } else if (category.includes("Auto Coverage")) {
+    quoteUrl = "/quote/auto";
+  } else if (category.includes("Business Coverage")) {
+    quoteUrl = "/quote/business";
+  } else {
+    quoteUrl = "/quote";
+  }
+}
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -44,24 +71,26 @@ const { pageTitle, description, serviceName, image, aboutServices, benefitImg, h
       <NavMain />
     </header>
     <main>
+      <!-- Hero Section -->
       <section class="hero-sub" role="banner">
         <div class="padding-hero">
           <div class="container">
             <div class="wrapper-center">
-                <FadeInUp delay={0.125} duration={1} client:load>
-                    <h1 class="page-title center">
-                        {pageTitle.pre} <span class="highlight">{pageTitle.highlight}</span> {pageTitle.post}
-                    </h1>
-                </FadeInUp>
-                <FadeInUp delay={0.25} duration={1} client:load>
-                    <p class="body-regular center">
-                        {description}
-                    </p>
-                    <div class="wrapper-btn center">
-                        <a class="btn">Get Your Free Quote</a>
-                    </div>
-                </FadeInUp>
+              <FadeInUp delay={0.125} duration={1} client:load>
+                <h1 class="page-title center">
+                  {pageTitle.pre} <span class="highlight">{pageTitle.highlight}</span> {pageTitle.post}
+                </h1>
+              </FadeInUp>
+              <FadeInUp delay={0.25} duration={1} client:load>
+                <p class="body-regular center">
+                  {description}
+                </p>
+                <div class="wrapper-btn center">
+                  <a class="btn" href={quoteUrl}>Get Your Free Quote</a>
+                </div>
+              </FadeInUp>
             </div>
+          </div>
         </div>
       </section>
 
@@ -73,56 +102,58 @@ const { pageTitle, description, serviceName, image, aboutServices, benefitImg, h
           </div>
         </div>
       </section>
+
+      <!-- About Services Section -->
       <FadeInUp delay={0.25} duration={1} client:load>
         <section>
-            <div class="padding-section">
+          <div class="padding-section">
             <div class="container">
-                <div class="wrapper-col">
+              <div class="wrapper-col">
                 <div class="wrapper">
-                    <h2 class="section-title">
+                  <h2 class="section-title">
                     Your Peace of<br />
                     Mind <span class="highlight">Starts</span> Here
-                    </h2>
-                    <p class="body-regular">
+                  </h2>
+                  <p class="body-regular">
                     {aboutServices}
-                    </p>
-                    <div class="wrapper-feature vertical">
-                        <FeatureItem title={benefits[0]?.text1} />
-                        <FeatureItem title={benefits[1]?.text2} />
-                        <FeatureItem title={benefits[2]?.text3} />
-                    </div>
-                    <div class="wrapper-btn">
-                    <a class="btn">Get Your Free Quote</a>
-                    </div>
+                  </p>
+                  <div class="wrapper-feature vertical">
+                    <FeatureItem title={benefits[0]?.text1} />
+                    <FeatureItem title={benefits[1]?.text2} />
+                    <FeatureItem title={benefits[2]?.text3} />
+                  </div>
+                  <div class="wrapper-btn">
+                    <a class="btn" href={quoteUrl}>Get Your Free Quote</a>
+                  </div>
                 </div>
                 <img src={benefitImg} alt={serviceName} class="img-reg short" />
-                </div>
-                <div class="wrapper-col padding-top">
+              </div>
+              <div class="wrapper-col padding-top">
                 <div class="card">
-                    <h3 class="title-card center">Compare Top Providers</h3>
-                    <p class="body-regular center">
+                  <h3 class="title-card center">Compare Top Providers</h3>
+                  <p class="body-regular center">
                     Moore Insurance shops multiple trusted insurance companies on your behalf—so you get better pricing and a policy that fits your needs.
-                    </p>
+                  </p>
                 </div>
                 <div class="card">
-                    <h3 class="title-card center">Personalized Policy</h3>
-                    <p class="body-regular center">
+                  <h3 class="title-card center">Personalized Policy</h3>
+                  <p class="body-regular center">
                     We take time to understand your risks and needs—then recommend coverage that actually protects what matters most.
-                    </p>
+                  </p>
                 </div>
                 <div class="card">
-                    <h3 class="title-card center">Ongoing Support</h3>
-                    <p class="body-regular center">
-                    From reviewing policies to helping with claims, we're here to provide you with a real person, real answers, and real peace of mind.
-                    </p>
+                  <h3 class="title-card center">Ongoing Support</h3>
+                  <p class="body-regular center">
+                    From reviewing policies to helping with claims, we're here to provide you with real answers and real peace of mind.
+                  </p>
                 </div>
-                </div>
+              </div>
             </div>
-            </div>
+          </div>
         </section>
-    </FadeInUp>
+      </FadeInUp>
 
-      <!-- Call to Action -->
+      <!-- Call to Action Section -->
       <section class="city-bg">
         <div class="padding-section">
           <div class="container">
@@ -132,7 +163,7 @@ const { pageTitle, description, serviceName, image, aboutServices, benefitImg, h
                 What Matters
               </h2>
               <div class="wrapper-btn short-padding">
-                <a class="btn">Get Your Free Quote</a>
+                <a class="btn" href={quoteUrl}>Get Your Free Quote</a>
               </div>
             </div>
           </div>
@@ -147,7 +178,7 @@ const { pageTitle, description, serviceName, image, aboutServices, benefitImg, h
               <ReviewGrid />
               <div class="wrapper-center">
                 <div class="wrapper-btn">
-                  <a class="btn">Get Your Quote</a>
+                  <a class="btn" href={quoteUrl}>Get Your Quote</a>
                   <a class="btn secondary">Leave Us A Review</a>
                 </div>
               </div>
@@ -173,7 +204,7 @@ const { pageTitle, description, serviceName, image, aboutServices, benefitImg, h
         </section>
       </FadeInUp>
 
-      <!-- Final CTA -->
+      <!-- Final Call-to-Action -->
       <FadeInUp delay={0.125} duration={1} client:load>
         <section>
           <div class="padding-section lg-bottom">
@@ -184,7 +215,7 @@ const { pageTitle, description, serviceName, image, aboutServices, benefitImg, h
                   Perfect Policy
                 </h2>
                 <div class="wrapper-btn short-padding">
-                  <a class="btn">Get Your Free Quote</a>
+                  <a class="btn" href={quoteUrl}>Get Your Free Quote</a>
                 </div>
               </div>
             </div>

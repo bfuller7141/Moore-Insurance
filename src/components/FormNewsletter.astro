@@ -100,3 +100,23 @@
     }
   </style>
   
+  <script>
+    // Attach an event listener to the newsletter form
+    document.querySelector('.newsletter-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default submission behavior
+  
+      // Hide the form element
+      this.style.display = 'none';
+  
+      // Create a new element for the success message
+      const successMsg = document.createElement('div');
+      successMsg.className = 'newsletter-success';
+      successMsg.innerHTML = `
+        <p class="body-regular"><strong>Thank you for subscribing!</strong></p>
+        <p class="body-sm">We will send you updates and valuable tips shortly.</p>
+      `;
+  
+      // Append the success message after the form inside the newsletter container
+      this.parentNode.appendChild(successMsg);
+    });
+  </script>

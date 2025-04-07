@@ -1,5 +1,5 @@
 ---
-serviceName: "Commercial Property Insurance"
+serviceName: "Commercial Property"
 image: "/images/services/commercial-property.webp"
 headerImg: "/images/services/headers/commercial-property-header.webp"
 pageTitle:
