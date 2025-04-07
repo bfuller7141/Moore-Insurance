@@ -1,6 +1,6 @@
 ---
 serviceName: "Home Insurance"
-image: "public/images/static/home-insurance.webp"
+image: "/images/static/home-insurance.webp"
 headerImg: "/images/services/headers/home-header.webp"
 pageTitle:
   pre: "Protect"
