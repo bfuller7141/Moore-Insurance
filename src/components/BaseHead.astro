@@ -94,7 +94,10 @@ const jsonLd = {
   <meta property="og:type" content="website" />
 
   <!-- Fonts -->
-  <link rel="stylesheet" href="https://use.typekit.net/xti7dmv.css">
+  <link rel="preload" href="https://use.typekit.net/xti7dmv.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://use.typekit.net/xti7dmv.css" /></noscript>
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+  <link rel="preconnect" href="https://p.typekit.net" crossorigin>
 
   <!--Styles -->
   <link rel="stylesheet" href="/styles/root.css" />
@@ -104,4 +107,11 @@ const jsonLd = {
   <script type="application/ld+json">
     {JSON.stringify(jsonLd, null, 2)}
   </script>
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  
 </head>

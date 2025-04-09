@@ -43,7 +43,7 @@ collections:
 
   - name: "service"
     label: "Services"
-    folder: "/src/content/services"
+    folder: "/src/content/service"
     create: true
     slug: "{{slug}}"
     fields:
@@ -111,7 +111,7 @@ collections:
 
   - name: "faq"
     label: "FAQs"
-    folder: "/src/content/faqs"
+    folder: "/src/content/faq"
     create: true
     slug: "{{slug}}"
     fields:
