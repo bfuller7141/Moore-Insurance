@@ -4,9 +4,9 @@ backend:
   repo: bfuller7141/Moore-Insurance
   api_root: https://gitlab.com/api/v4
 
-logo_url: public/images/logo-color.svg
+logo_url: /images/logo-color.svg
 
-media_folder: "public/images/uploads"
+media_folder: "/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
