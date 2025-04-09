@@ -12,7 +12,7 @@ public_folder: "/images/uploads"
 collections:
   - name: "post"
     label: "Posts"
-    folder: "content/post"
+    folder: "/src/content/post"
     create: true
     slug: "{{slug}}"
     fields:
@@ -46,7 +46,7 @@ collections:
 
   - name: "service"
     label: "Services"
-    folder: "content/services"
+    folder: "/src/content/services"
     create: true
     slug: "{{slug}}"
     fields:
@@ -114,7 +114,7 @@ collections:
 
   - name: "faq"
     label: "FAQs"
-    folder: "content/faqs"
+    folder: "/src/content/faqs"
     create: true
     slug: "{{slug}}"
     fields:
@@ -133,7 +133,7 @@ collections:
 
   - name: "review"
     label: "Reviews"
-    folder: "content/reviews"
+    folder: "/src/content/reviews"
     create: true
     slug: "{{slug}}"
     fields:
