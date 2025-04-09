@@ -20,6 +20,7 @@ collections:
       - { label: "Date", name: "date", widget: "datetime", date_format: "MM/DD/YYYY", time_format: "HH:mm" }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "YouTube Video URL", name: "youtubeUrl", widget: "string", hint: "Paste the full YouTube URL (e.g., https://youtu.be/VIDEO_ID)." }
+      - { label: "headerImg", name: "headerImg", widget: "image", required: false, hint: "Image for the header section" }
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "service"
@@ -41,8 +42,7 @@ collections:
       - { label: "Header Image", name: "headerImg", widget: "image", required: false, hint: "Image for the header section" }
       - { label: "Description", name: "description", widget: "markdown", required: false }
       - { label: "About Services", name: "aboutServices", widget: "markdown", hint: "For your peace of mind starts here", required: false }
-      - 
-        label: "Benefits"
+      - label: "Benefits"
         name: "benefits"
         widget: "list"
         field:

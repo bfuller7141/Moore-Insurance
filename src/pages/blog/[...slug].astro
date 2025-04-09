@@ -55,32 +55,29 @@ function getEmbedUrl(url: string): string {
     <main>
       <FadeInUp delay={0.125} duration={1} client:load>
         <section>
-          <div class="padding-section lg-top">
+          <div class="padding-hero">
             <div class="container">
               <h1 class="page-title blog-title">{title}</h1>
-              {/* Show the header image only if there is no YouTube URL */}
-              {!youtubeUrl && headerImg && (
-                <div class="padding-hero">
-                  <div class="container">
-                    <img src={headerImg} alt={title} class="svc-header-img" />
-                  </div>
-                </div>
-              )}
-              {youtubeUrl && youtubeUrl.trim() !== "" && (
-                <div class="video-container" style="margin-bottom: 1rem;">
-                  <iframe
-                    width="100%"
-                    height="400"
-                    src={getEmbedUrl(youtubeUrl)}
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              )}
+                  {!youtubeUrl && headerImg && (
+                        <img src={headerImg} alt={title} class="svc-header-img blog-img" />
+                  )}
+                  {youtubeUrl && youtubeUrl.trim() !== "" && (
+                    <div class="video-container" style="margin-bottom: 1rem;">
+                      <iframe
+                        width="100%"
+                        height="400"
+                        src={getEmbedUrl(youtubeUrl)}
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                      ></iframe>
+                    </div>
+                  )}
               <!-- Render the blog body as HTML -->
-              <div class="body-regular container blog" set:html={await marked(body)}></div>
+              <div class="wrapper-short-center">
+                <div class="body-regular container blog" set:html={await marked(body)}></div>
+              </div>
             </div>
           </div>
         </section>

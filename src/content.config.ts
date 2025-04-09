@@ -1,15 +1,15 @@
 import { defineCollection, z } from "astro:content";
-import { header } from "motion/react-client";
+import { head } from "motion/react-client";
 
 // Define the "post" collection – note the folder is "posts"
 const postCollection = defineCollection({
   schema: z.object({
     title: z.string(),
-    headerImg: z.string().optional(),
     slug: z.string().optional(), // Ensure the slug is defined in your frontmatter or generated automatically
     date: z.date(),
     author: z.string(),
     youtubeUrl: z.string().optional(),
+    headerImg: z.string().optional(),
     body: z.string(),
   }),
 });
