@@ -3,6 +3,7 @@ backend:
   branch: main
   repo: bfuller7141/Moore-Insurance
   api_root: https://gitlab.com/api/v4
+
 logo_url: public/images/logo-color.svg
 
 media_folder: "public/images/uploads"
@@ -15,42 +16,101 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "slug", name: "slug", widget: "string", hint: "URL-friendly version of the title" }
-      - { label: "Date", name: "date", widget: "datetime", date_format: "MM/DD/YYYY", time_format: "HH:mm" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "YouTube Video URL", name: "youtubeUrl", widget: "string", hint: "Paste the full YouTube URL (e.g., https://youtu.be/VIDEO_ID)." }
-      - { label: "headerImg", name: "headerImg", widget: "image", required: false, hint: "Image for the header section" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        hint: "URL-friendly version of the title"
+      - label: "Date"
+        name: "date"
+        widget: "datetime"
+        date_format: "MM/DD/YYYY"
+        time_format: "HH:mm"
+      - label: "Author"
+        name: "author"
+        widget: "string"
+      - label: "YouTube Video URL"
+        name: "youtubeUrl"
+        widget: "string"
+        hint: "Paste the full YouTube URL (e.g., https://youtu.be/VIDEO_ID)."
+      - label: "Header Image"
+        name: "headerImg"
+        widget: "image"
+        required: false
+        hint: "Image for the header section"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
 
-    - name: "service"
+  - name: "service"
     label: "Services"
     folder: "content/services"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Service Name", name: "serviceName", widget: "string" }
-      - { label: "Image", name: "image", widget: "image" }
-      - 
-        label: "Page Title"
+      - label: "Service Name"
+        name: "serviceName"
+        widget: "string"
+      - label: "Image"
+        name: "image"
+        widget: "image"
+      - label: "Page Title"
         name: "pageTitle"
         widget: "object"
         fields:
-          - { label: "Pre", name: "pre", widget: "string" }
-          - { label: "Highlight", name: "highlight", widget: "string" }
-          - { label: "Post", name: "post", widget: "string", required: false }
-      - { label: "Header Image", name: "headerImg", widget: "image", required: false, hint: "Image for the header section" }
-      - { label: "Description", name: "description", widget: "markdown", required: false }
-      - { label: "About Services", name: "aboutServices", widget: "markdown", hint: "For your peace of mind starts here", required: false }
+          - label: "Pre"
+            name: "pre"
+            widget: "string"
+          - label: "Highlight"
+            name: "highlight"
+            widget: "string"
+          - label: "Post"
+            name: "post"
+            widget: "string"
+            required: false
+      - label: "Header Image"
+        name: "headerImg"
+        widget: "image"
+        required: false
+        hint: "Image for the header section"
+      - label: "Description"
+        name: "description"
+        widget: "markdown"
+        required: false
+      - label: "About Services"
+        name: "aboutServices"
+        widget: "markdown"
+        hint: "For your peace of mind starts here"
+        required: false
       - label: "Benefits"
         name: "benefits"
         widget: "list"
         fields:
-          - { label: "Benefit1", name: "text1", widget: "string" }
-          - { label: "Benefit2", name: "text2", widget: "string" }
-          - { label: "Benefit3", name: "text3", widget: "string" }
-      - { label: "Benefits Image", name: "benefitImg", widget: "image", required: false, hint: "Image for the benefits section" }
-      - { label: "Category", name: "category", widget: "select", multiple: true, options: ["Personal Coverage", "Business Coverage", "Auto Coverage", "Other"] }
+          - label: "Benefit1"
+            name: "text1"
+            widget: "string"
+          - label: "Benefit2"
+            name: "text2"
+            widget: "string"
+          - label: "Benefit3"
+            name: "text3"
+            widget: "string"
+      - label: "Benefits Image"
+        name: "benefitImg"
+        widget: "image"
+        required: false
+        hint: "Image for the benefits section"
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        multiple: true
+        options:
+          - "Personal Coverage"
+          - "Business Coverage"
+          - "Auto Coverage"
+          - "Other"
 
   - name: "faq"
     label: "FAQs"
@@ -58,9 +118,18 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Question", name: "question", widget: "string" }
-      - { label: "Answer", name: "answer", widget: "markdown" }
-      - { label: "Category", name: "category", widget: "select", options: ["General", "Service"] }
+      - label: "Question"
+        name: "question"
+        widget: "string"
+      - label: "Answer"
+        name: "answer"
+        widget: "markdown"
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "General"
+          - "Service"
 
   - name: "review"
     label: "Reviews"
@@ -68,6 +137,14 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Reviewer Name", name: "name", widget: "string" }
-      - { label: "Rating", name: "rating", widget: "number", hint: "Rating as a number (e.g., 5 for five stars)" }
-      - { label: "Review", name: "review", widget: "text", required: false }
+      - label: "Reviewer Name"
+        name: "name"
+        widget: "string"
+      - label: "Rating"
+        name: "rating"
+        widget: "number"
+        hint: "Rating as a number (e.g., 5 for five stars)"
+      - label: "Review"
+        name: "review"
+        widget: "text"
+        required: false
