@@ -5,7 +5,6 @@ import { head } from "motion/react-client";
 const postCollection = defineCollection({
   schema: z.object({
     title: z.string(),
-    slug: z.string().optional(), // Ensure the slug is defined in your frontmatter or generated automatically
     date: z.date(),
     author: z.string(),
     youtubeUrl: z.string().optional(),
