@@ -151,33 +151,57 @@
 </div>
 
 <script>
-  // Dynamically update subject line based on Business Name input
+  const form = document.getElementById("quoteForm");
+
+  // Dynamically update subject based on business name
   document.getElementById("businessName").addEventListener("input", function () {
     const nameValue = this.value.trim();
-    const subjectInput = document.getElementById("subjectInput");
-    subjectInput.value = "Business Coverage Quote Request from " + nameValue;
+    document.getElementById("subjectInput").value =
+      "Business Coverage Quote Request from " + nameValue;
   });
 
-  // Handle form submission with simulated delay and success state
-  document.getElementById("quoteForm").addEventListener("submit", async function (event) {
-    event.preventDefault(); // Prevent default form submission
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-    const form = event.target;
     const submitButton = form.querySelector("button[type='submit']");
-
-    // Update button to "Submitting" state and disable it
     submitButton.disabled = true;
     submitButton.textContent = "Submitting...";
 
-    // Simulate submission delay (e.g., 2 seconds)
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    const formData = new FormData(form);
 
-    // Update button to success state using your green variables
-    submitButton.textContent = "Form successfully submitted";
-    submitButton.style.backgroundColor = "var(--success-500)";
+    // Collect selected checkbox values (e.g., multiple coverages)
+    const checkboxes = form.querySelectorAll('input[name="coverage"]:checked');
+    const selectedCoverages = Array.from(checkboxes)
+      .map((checkbox) => checkbox.value)
+      .join(", ");
 
-    // Display the success message
-    document.getElementById("formSuccessMessage").style.display = "block";
+    formData.delete("coverage");
+    formData.append("coverage", selectedCoverages);
+
+    // Encode the data to match Netlify requirements
+    const encodedData = new URLSearchParams(formData).toString();
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodedData,
+      });
+
+      if (response.ok) {
+        submitButton.textContent = "Form successfully submitted";
+        submitButton.style.backgroundColor = "var(--success-500)";
+        document.getElementById("formSuccessMessage").style.display = "block";
+        form.reset();
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      submitButton.disabled = false;
+      submitButton.textContent = "Submit";
+      alert("There was a problem submitting the form. Please try again.");
+    }
   });
 </script>
 

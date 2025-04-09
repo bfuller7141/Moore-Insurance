@@ -1,5 +1,19 @@
 ---
 import FormNewsletter from '../components/FormNewsletter.astro';
+import { getCollection } from 'astro:content';
+
+const services = await getCollection('service');
+
+const personalServices = services.filter(service =>
+  service.data.category?.includes('Personal Coverage')
+);
+const businessServices = services.filter(service =>
+  service.data.category?.includes('Business Coverage')
+);
+
+const autoServices = services.filter(service =>
+  service.data.category?.includes('Auto Coverage')
+);
 ---
 <footer class="site-footer">
     <div class="padding-section">
@@ -10,19 +24,39 @@ import FormNewsletter from '../components/FormNewsletter.astro';
             <div class="footer-col">
               <div class="body-regular"><strong>Personal</strong></div>
               <ul>
-                <li><a class="body-sm" href="/services/home-insurance">Home Insurance</a></li>
-                <li><a class="body-sm" href="/services/auto-insurance">Auto Insurance</a></li>
-                <li><a class="body-sm" href="/services/golf-cart-insurance">Golf Cart Insurance</a></li>
-                <li><a class="body-sm" href="/services/rv-insurance">RV Insurance</a></li>
+                {personalServices.map(({ data, slug }) => (
+                  <li>
+                    <a class="body-sm" href={`/services/${slug}`}>
+                      {data.serviceName}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
                       
             <div class="footer-col">
               <div class="body-regular"><strong>Business</strong></div>
               <ul>
-                <li><a class="body-sm" href="/services/business-liability-insurance">Business Liability Insurance</a></li>
-                <li><a class="body-sm" href="/services/commercial-auto-insurance">Commercial Auto Insurance</a></li>
-                <li><a class="body-sm" href="/services/contractor-insurance">Contractor Insurance</a></li>
+                {businessServices.map(({ data, slug }) => (
+                  <li>
+                    <a class="body-sm" href={`/services/${slug}`}>
+                      {data.serviceName}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="footer-col">
+              <div class="body-regular"><strong>Auto</strong></div>
+              <ul>
+                {autoServices.map(({ data, slug }) => (
+                  <li>
+                    <a class="body-sm" href={`/services/${slug}`}>
+                      {data.serviceName}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
   
@@ -31,8 +65,8 @@ import FormNewsletter from '../components/FormNewsletter.astro';
               <ul>
                 <li><a class="body-sm" href="/about">About Us</a></li>
                 <li><a class="body-sm" href="/blog">Our Blog</a></li>
-                <li><a class="body-sm" href="/client-portal">Client Portal</a></li>
-                <li><a class="body-sm" href="/quote">Get A Quote</a></li>
+                <li><a class="body-sm" href="https://customerservice.agentinsure.com/EzLynxCustomerService/web/mooreinsur/account/login" target="_blank" rel="noopener noreferrer">Client Portal</a></li>
+                <li><a class="body-sm" href="/quote/general">Get A Quote</a></li>
               </ul>
             </div>
           </div>
@@ -80,7 +114,7 @@ import FormNewsletter from '../components/FormNewsletter.astro';
   
     .footer-top {
       display: grid;
-      grid-template-columns: minmax(20rem, 2fr) 1fr;
+      grid-template-columns: minmax(20rem, 3fr) 1fr;
     }
   
     .footer-left {
@@ -101,6 +135,9 @@ import FormNewsletter from '../components/FormNewsletter.astro';
   
     .footer-left li {
       margin: 0.5rem 0;
+    }
+
+    .footer-right {
     }
   
     .footer-col a:hover {

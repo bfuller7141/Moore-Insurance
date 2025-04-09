@@ -135,33 +135,55 @@
 </div>
 
 <script>
-  // Dynamically update subject field based on full name input
+  const form = document.getElementById("quoteForm");
+
+  // Dynamically update subject field
   document.getElementById("fullName").addEventListener("input", function () {
     const nameValue = this.value.trim();
-    const subjectInput = document.getElementById("subjectInput");
-    subjectInput.value = "Personal Coverage Quote Request from " + nameValue;
+    document.getElementById("subjectInput").value =
+      "Personal Coverage Quote Request from " + nameValue;
   });
 
-  // Handle form submission
-  document.getElementById("quoteForm").addEventListener("submit", async function (event) {
-    event.preventDefault(); // Prevent the default form submission
-    
-    const form = event.target;
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
     const submitButton = form.querySelector("button[type='submit']");
-    
-    // Update the button to indicate submission
     submitButton.disabled = true;
     submitButton.textContent = "Submitting...";
-    
-    // Simulate submission delay
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // After delay, update the button to a success state
-    submitButton.textContent = "Form successfully submitted";
-    submitButton.style.backgroundColor = "var(--success-500)";
-    
-    // Display the success message
-    document.getElementById("formSuccessMessage").style.display = "block";
+
+    // Gather form data
+    const formData = new FormData(form);
+
+    // Combine all checkbox values into a single comma-separated string
+    const checkboxes = form.querySelectorAll('input[name="coverage"]:checked');
+    const selectedCoverages = Array.from(checkboxes)
+      .map((cb) => cb.value)
+      .join(", ");
+    formData.delete("coverage");
+    formData.append("coverage", selectedCoverages);
+
+    // Format data for Netlify
+    const encodedData = new URLSearchParams(formData).toString();
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodedData,
+      });
+
+      if (response.ok) {
+        form.style.display = "none";
+        document.getElementById("formSuccessMessage").style.display = "block";
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("There was an issue submitting the form. Please try again.");
+      submitButton.disabled = false;
+      submitButton.textContent = "Submit";
+    }
   });
 </script>
 

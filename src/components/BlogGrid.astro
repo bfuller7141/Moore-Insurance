@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import BlogCard from "./BlogCard.astro";
+
+// Fetch all blog posts from the "post" collection
+const allPosts = await getCollection("post");
+---
+<section>
+    <div class="padding-section">
+      <div class="container">
+        <div class="blog-grid">
+          {allPosts.map(post => (
+            <BlogCard
+              image={post.data.headerImg ?? "/images/default-blog-card.jpg"}
+              alt={post.data.title ?? "Blog post image"}
+              title={post.data.title}
+              link={`/blog/${post.slug}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-xxxl) var(--spacing-lg);
+    }
+    @media (max-width: 768px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  

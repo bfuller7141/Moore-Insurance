@@ -36,10 +36,10 @@ import FormAuto from "../components/FormAuto.astro"
                                   Whether you’re driving across town or across the state, the right auto insurance gives you peace of mind every time you hit the road. We help Arizona drivers find reliable, affordable coverage that fits their vehicle, their lifestyle, and their budget.
                                 </p>
                                 <div class="wrapper-btn">
-                                    <a class="btn">
+                                    <a class="btn" href="/quote/auto">
                                         Get Your Free Quote
                                     </a>
-                                    <a class="btn secondary">
+                                    <a class="btn secondary" href="#coverage">
                                         See Coverage Options
                                     </a>
                                 </div>
@@ -73,10 +73,10 @@ import FormAuto from "../components/FormAuto.astro"
                         desc="Accidents and claims are stressful. We’re here to answer your questions and walk you through the next steps, anytime you need support."
                       />
                       <div class="wrapper-btn">
-                        <a class="btn">
+                        <a class="btn" href="/quote/auto">
                           Get Your Quote
                         </a>
-                        <a class="btn secondary">
+                        <a class="btn secondary" href="#coverage">
                           Coverage Options
                         </a>
                       </div>
@@ -89,7 +89,7 @@ import FormAuto from "../components/FormAuto.astro"
             </section>
         </FadeInUp>
         <FadeInUp delay={0} duration={1} client:load>
-          <section>
+          <section id="coverage">
             <div class="padding-section">
                 <div class="container">
                   <div class="wrapper-center">
@@ -99,7 +99,7 @@ import FormAuto from "../components/FormAuto.astro"
                   </div>
                   <ServiceGrid categoryFilter="Auto Coverage" />
                   <div class="wrapper-btn center">
-                    <a class="btn">Get Your Quote</a>
+                    <a class="btn" href="/quote/auto">Get Your Quote</a>
                   </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@ import FormAuto from "../components/FormAuto.astro"
                   On The Road
                 </h2>
                 <div class="wrapper-btn short-padding">
-                  <a class="btn">
+                  <a class="btn" href="/quote/auto">
                     Get Your Free Quote
                   </a>
                 </div>
@@ -147,11 +147,10 @@ import FormAuto from "../components/FormAuto.astro"
                 />
                 <div class="wrapper-center">
                   <div class="wrapper-btn">
-                    <a class="btn">
+                    <a class="btn" href="/quote/auto">
                       Get Your Quote
                     </a>
-                    <a class="btn secondary">
-                      Leave Us A Review
+                    <a class="btn secondary" href="https://www.google.com/search?client=opera&q=moore+insurance&sourceid=opera&ie=UTF-8&oe=UTF-8" target="_blank" rel="noopener noreferrer">                      Leave Us A Review
                     </a>
                   </div>
                 </div>

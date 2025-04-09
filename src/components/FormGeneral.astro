@@ -95,33 +95,46 @@
 </div>
 
 <script>
-  // Update subject line dynamically based on Full Name input
+  const form = document.getElementById("quoteForm");
+
+  // Dynamically update the subject based on full name input
   document.getElementById("fullName").addEventListener("input", function () {
     const nameValue = this.value.trim();
-    const subjectInput = document.getElementById("subjectInput");
-    subjectInput.value = "General Quote Request from " + nameValue;
+    document.getElementById("subjectInput").value =
+      "General Quote Request from " + nameValue;
   });
 
-  // Handle form submission with simulated delay and success state
-  document.getElementById("quoteForm").addEventListener("submit", async function (event) {
-    event.preventDefault(); // Prevent default form submission
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-    const form = event.target;
     const submitButton = form.querySelector("button[type='submit']");
-
-    // Set button to "Submitting" state and disable it
     submitButton.disabled = true;
     submitButton.textContent = "Submitting...";
 
-    // Simulate submission delay (adjust time as needed)
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    const formData = new FormData(form);
+    const encodedData = new URLSearchParams(formData).toString();
 
-    // Update button to success state using your green variables
-    submitButton.textContent = "Form successfully submitted";
-    submitButton.style.backgroundColor = "var(--success-500)";
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodedData,
+      });
 
-    // Show success message below the form
-    document.getElementById("formSuccessMessage").style.display = "block";
+      if (response.ok) {
+        submitButton.textContent = "Form successfully submitted";
+        submitButton.style.backgroundColor = "var(--success-500)";
+        document.getElementById("formSuccessMessage").style.display = "block";
+        form.reset();
+      } else {
+        throw new Error("Network response was not ok.");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      submitButton.disabled = false;
+      submitButton.textContent = "Submit";
+      alert("There was a problem submitting the form. Please try again.");
+    }
   });
 </script>
 

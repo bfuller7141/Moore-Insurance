@@ -1,0 +1,59 @@
+---
+interface Props {
+  image: string;
+  alt: string;
+  title: string;
+  link: string;
+}
+
+const { image, alt, title, link } = Astro.props as Props;
+---
+
+<a class="card-blog" href={link}>
+  <div class="wrapper-img-blog">
+    <img class="img-blog" src={image} alt={alt} />
+  </div>
+  <h3 class="body-lg">
+    <strong>{title}</strong>
+  </h3>
+</a>
+
+<style>
+  .card-blog {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    gap: 1.25rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .wrapper-img-blog {
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    border-radius: 1.5rem;
+  }
+  
+  .img-blog {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .body-lg {
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .card-blog:hover .img-blog {
+    transform: scale(1.05);
+  }
+  
+  .card-blog:hover .body-lg {
+    color: var(--accent-500);
+  }
+</style>

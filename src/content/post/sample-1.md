@@ -9,7 +9,9 @@ body: >-
   Your home is one of your most valuable assets. In this post, we share essential tips for choosing the right coverage:
   
   - **Understand Your Policy:** Make sure you know what risks are covered.
+
   - **Preventive Measures:** Regular maintenance can minimize risks.
+  
   - **Review Periodically:** Adjust your coverage as your needs change.
   
   Contact Moore Insurance for personalized advice.

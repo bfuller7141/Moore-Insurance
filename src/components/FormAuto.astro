@@ -1,4 +1,5 @@
 <form
+  id="quoteForm"
   name="auto-coverage-quote"
   method="POST"
   data-netlify="true"
@@ -150,33 +151,59 @@
 </form>
 
 <script>
-  // Dynamically update subject field based on Full Name input
+  const form = document.getElementById("quoteForm");
+
+  // Dynamically update subject field
   document.getElementById("fullName").addEventListener("input", function () {
     const nameValue = this.value.trim();
-    const subjectInput = document.getElementById("subjectInput");
-    subjectInput.value = "Auto Coverage Quote Request from " + nameValue;
+    document.getElementById("subjectInput").value =
+      "Auto Coverage Quote Request from " + nameValue;
   });
 
-  // Handle form submission with simulated delay and success state
-  document.getElementById("quoteForm").addEventListener("submit", async function (event) {
-    event.preventDefault(); // Prevent the default form submission
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-    const form = event.target;
     const submitButton = form.querySelector("button[type='submit']");
-
-    // Update button to "Submitting" state and disable it
     submitButton.disabled = true;
     submitButton.textContent = "Submitting...";
 
-    // Simulate a delay (e.g., 2 seconds)
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    // Collect form data
+    const formData = new FormData(form);
 
-    // Update button to success state using provided green variable
-    submitButton.textContent = "Form successfully submitted";
-    submitButton.style.backgroundColor = "var(--success-500)";
+    // Manually handle checkboxes (combine all selected values into one string)
+    const checkboxes = form.querySelectorAll('input[name="coverage"]:checked');
+    const selectedCoverages = Array.from(checkboxes)
+      .map((checkbox) => checkbox.value)
+      .join(", ");
 
-    // Display the success message
-    document.getElementById("formSuccessMessage").style.display = "block";
+    // Append combined values under the same field name
+    formData.delete("coverage"); // Clear any partial auto-filled values
+    formData.append("coverage", selectedCoverages);
+
+    // Encode to URLSearchParams for Netlify
+    const encodedData = new URLSearchParams(formData).toString();
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodedData,
+      });
+
+      if (response.ok) {
+        submitButton.textContent = "Form successfully submitted";
+        submitButton.style.backgroundColor = "var(--success-500)";
+        document.getElementById("formSuccessMessage").style.display = "block";
+        form.reset();
+      } else {
+        throw new Error("Network response was not ok.");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      submitButton.disabled = false;
+      submitButton.textContent = "Submit";
+      alert("There was a problem submitting the form. Please try again.");
+    }
   });
 </script>
 

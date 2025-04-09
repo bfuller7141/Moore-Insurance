@@ -1,0 +1,67 @@
+---
+import AnimatedHeadline from "../components/Animations/AnimatedHeadline";
+import FadeInUp from "../components/Animations/FadeInUp";
+import BaseHead from "../components/BaseHead.astro";
+import BlogGrid from "../components/BlogGrid.astro";
+import FooterMain from "../components/FooterMain.astro";
+import NavMain from "../components/NavMain.astro";
+import SkipMain from "../components/SkipMain.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <BaseHead
+    title="Personal Insurance Coverage in Arizona | Moore Insurance"
+    description="Protect your home, family, and future with personal insurance from Moore Insurance. We offer homeowners, renters, life, and umbrella coverage tailored to your needs. Get a free quote today."
+    image="https://moore-insurance.com/images/og-image.jpg"
+  />
+  <body>
+    <SkipMain />
+    <header>
+      <NavMain />
+    </header>
+    <main>
+        <section class="hero-sub" role="banner">
+            <div class="padding-hero">
+                <div class="container">
+                    <div class="wrapper-hero">
+                        <AnimatedHeadline client:load>
+                            <h1 class="page-title">Moore <span class="highlight">Insurance</span> Blog</h1>
+                        </AnimatedHeadline>
+                        <FadeInUp delay={0.5} duration={1} client:load>
+                            <div class="wrapper-short">
+                                <p class="body-regular">
+                                    Get helpful tips, honest answers, and real-world advice about insurance, homeownership, and protecting what matters most. Whether you're looking to learn the basics or stay up to date on coverage options, our blog is here to make insurance easier to understand.
+                                </p>
+                            </div>
+                        </FadeInUp>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <FadeInUp delay={0.125} duration={1} client:load>
+            <BlogGrid />
+        </FadeInUp>
+        <FadeInUp delay={0.125} duration={1} client:load>
+            <section>
+              <div class="padding-section lg-bottom">
+                <div class="container">
+                  <div class="wrapper-center">
+                    <h2 class="page-title center">
+                      Let's <span class="highlight">Find</span> Your
+                      <br />
+                      Perfect Policy
+                    </h2>
+                    <div class="wrapper-btn short-padding">
+                      <a class="btn" href="/quote/general">
+                        Get Your Free Quote
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </FadeInUp>
+        </main>
+        <FooterMain />
+      </body>

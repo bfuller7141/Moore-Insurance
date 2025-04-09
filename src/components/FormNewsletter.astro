@@ -3,35 +3,50 @@
     <div class="body-regular"><strong>Subscribe</strong></div>
   
     <!-- Form -->
-    <form class="newsletter-form" onsubmit="event.preventDefault(); /* handle subscription */">
-      <label for="newsletter-email" class="sr-only">Email Address</label>
-      <input
-        type="email"
-        id="newsletter-email"
-        name="newsletter-email"
-        placeholder="john.doe@email.com"
-        required
-      />
-      <button type="submit" aria-label="Subscribe">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 19.54 32.24"
-          width="1.25rem"
-          height="1.25rem"
-          preserveAspectRatio="xMidYMid meet"
-        >
-          <path d="M3.42 0 L0 3.42 L12.62 16.12 L0 28.81 L3.42 32.24 L19.54 16.12 Z" fill="currentColor"/>
-        </svg>
-      </button>
-    </form>
-  
-    <!-- Disclaimer -->
-    <p class="body-sm newsletter-disclaimer">
-      By signing up, you agree to receive occasional emails with valuable insurance tips, updates, and offers. We’ll never share your information, and you can unsubscribe at any time.
-    </p>
-  </div>
+<form
+  name="newsletter"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="newsletter-form"
+>
+  <!-- Required hidden input for Netlify -->
+  <input type="hidden" name="form-name" value="newsletter" />
+
+  <!-- Honeypot -->
+  <p class="hidden">
+    <label>Don’t fill this out if you're human:
+      <input name="bot-field" />
+    </label>
+  </p>
+
+  <label for="newsletter-email" class="sr-only">Email Address</label>
+  <input
+    type="email"
+    id="newsletter-email"
+    name="email"
+    placeholder="john.doe@email.com"
+    required
+  />
+  <button type="submit" aria-label="Subscribe">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 19.54 32.24"
+      width="1.25rem"
+      height="1.25rem"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <path d="M3.42 0 L0 3.42 L12.62 16.12 L0 28.81 L3.42 32.24 L19.54 16.12 Z" fill="currentColor"/>
+    </svg>
+  </button>
+</form>
+
   
   <style>
+    .hidden {
+      display: none;
+    }
+    
     .newsletter-container {
       display: flex;
       flex-direction: column;
@@ -101,22 +116,40 @@
   </style>
   
   <script>
-    // Attach an event listener to the newsletter form
-    document.querySelector('.newsletter-form').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent the default submission behavior
+    const form = document.querySelector('.newsletter-form');
   
-      // Hide the form element
-      this.style.display = 'none';
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
   
-      // Create a new element for the success message
-      const successMsg = document.createElement('div');
-      successMsg.className = 'newsletter-success';
-      successMsg.innerHTML = `
-        <p class="body-regular"><strong>Thank you for subscribing!</strong></p>
-        <p class="body-sm">We will send you updates and valuable tips shortly.</p>
-      `;
+      const formData = new FormData(form);
+      const encodedData = new URLSearchParams(formData).toString();
   
-      // Append the success message after the form inside the newsletter container
-      this.parentNode.appendChild(successMsg);
+      try {
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: encodedData,
+        });
+  
+        if (response.ok) {
+          form.style.display = 'none';
+  
+          const successMsg = document.createElement('div');
+          successMsg.className = 'newsletter-success';
+          successMsg.setAttribute('role', 'status');
+          successMsg.innerHTML = `
+            <p class="body-regular"><strong>Thank you for subscribing!</strong></p>
+            <p class="body-sm">We will send you updates and valuable tips shortly.</p>
+          `;
+  
+          form.parentNode.appendChild(successMsg);
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        alert('Something went wrong. Please try again.');
+        console.error(error);
+      }
     });
   </script>
+  
