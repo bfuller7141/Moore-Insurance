@@ -1,6 +1,5 @@
 ---
 title: How Much Car Insurance Do I Actually Need?
-slug: sample-2
 date: 2023-12-01T00:00:00.000Z
 author: Helen Moore
 youtubeUrl: https://www.youtube.com/watch?v=frSZGLaXTUM
