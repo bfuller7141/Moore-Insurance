@@ -12,8 +12,8 @@ aboutServices: >
   We’ll help you understand what renters insurance covers and how much protection you really need. Whether you’re renting a house, apartment, or condo, we compare policies from top providers to find the best fit for your space and your budget.
 benefits:
   - text1: "Covers Personal Belongings"
-  - text2: "Liability Protection Included"
-  - text3: "Helps With Temporary Living Costs"
+    text2: "Liability Protection Included"
+    text3: "Helps With Temporary Living Costs"
 benefitImg: "/images/services/benefit/benefit-renters.webp"
 category: [ "Personal Coverage" ]
 ---

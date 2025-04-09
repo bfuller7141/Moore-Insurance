@@ -12,8 +12,8 @@ aboutServices: >
   Umbrella insurance kicks in when your auto, home, or other liability coverage reaches its limit. We’ll walk you through how it works and help you decide if it’s the right fit for your lifestyle. With access to top providers, we make it easy to add strong, affordable coverage that gives you peace of mind.
 benefits:
   - text1: "Extends Liability Coverage"
-  - text2: "Protects Against Large Claims"
-  - text3: "Works With Existing Policies"
+    text2: "Protects Against Large Claims"
+    text3: "Works With Existing Policies"
 benefitImg: "/images/services/benefit/benefit-umbrella.webp"
 category: [ "Personal Coverage" ]
 ---

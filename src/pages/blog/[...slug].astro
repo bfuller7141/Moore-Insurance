@@ -1,0 +1,107 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import SkipMain from '../../components/SkipMain.astro';
+import NavMain from '../../components/NavMain.astro';
+import FooterMain from '../../components/FooterMain.astro';
+import FadeInUp from '../../components/Animations/FadeInUp';
+import { marked } from 'marked';
+
+// Generate static paths from the "post" collection
+export const getStaticPaths = async () => {
+  const postEntries = await getCollection('post');
+  postEntries.forEach((post: CollectionEntry<'post'>) =>
+    console.log('Found post slug:', post.slug)
+  );
+  return postEntries.map((post: CollectionEntry<'post'>) => ({
+    params: { slug: post.slug },
+    props: post.data,
+  }));
+};
+
+interface PostProps {
+  title: string;
+  date: Date;
+  author: string;
+  youtubeUrl?: string;
+  body: string;
+  headerImg?: string;
+  slug: string;
+}
+
+const { title, youtubeUrl, body, headerImg } = Astro.props as PostProps;
+
+function getEmbedUrl(url: string): string {
+  if (url.includes("youtu.be")) {
+    return url.replace("youtu.be/", "www.youtube.com/embed/");
+  } else if (url.includes("watch?v=")) {
+    return url.replace("watch?v=", "embed/");
+  }
+  return url;
+}
+---
+<!DOCTYPE html>
+<html lang="en">
+  <BaseHead
+    title={title}
+    description={title}
+    image={headerImg ?? "/images/default-blog-header.jpg"}
+  />
+  <body>
+    <SkipMain />
+    <header>
+      <NavMain />
+    </header>
+    <main>
+      <FadeInUp delay={0.125} duration={1} client:load>
+        <section>
+          <div class="padding-section lg-top">
+            <div class="container">
+              <h1 class="page-title blog-title">{title}</h1>
+              {/* Show the header image only if there is no YouTube URL */}
+              {!youtubeUrl && headerImg && (
+                <div class="padding-hero">
+                  <div class="container">
+                    <img src={headerImg} alt={title} class="svc-header-img" />
+                  </div>
+                </div>
+              )}
+              {youtubeUrl && youtubeUrl.trim() !== "" && (
+                <div class="video-container" style="margin-bottom: 1rem;">
+                  <iframe
+                    width="100%"
+                    height="400"
+                    src={getEmbedUrl(youtubeUrl)}
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              )}
+              <!-- Render the blog body as HTML -->
+              <div class="body-regular container blog" set:html={await marked(body)}></div>
+            </div>
+          </div>
+        </section>
+      </FadeInUp>
+      <section class="city-bg">
+        <div class="padding-section">
+          <div class="container">
+            <div class="wrapper-center">
+              <h2 class="page-title center">
+                Start <span class="highlight">Protecting</span>
+                <br />
+                What Matters
+              </h2>
+              <div class="wrapper-btn short-padding">
+                <a class="btn">Get Your Free Quote</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <FooterMain />
+  </body>
+</html>

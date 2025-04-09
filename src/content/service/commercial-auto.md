@@ -12,8 +12,8 @@ aboutServices: >
   We work with a wide range of industries to find commercial auto policies that match your daily operations. Whether you manage a single work truck or a fleet of vehicles, our team compares top-rated providers to bring you coverage that makes sense for your business. We’ll help you stay compliant, reduce downtime, and stay ready for whatever the road throws your way.
 benefits:
   - text1: "Covers Company-Owned Vehicles"
-  - text2: "Liability protection"
-  - text3: "Meet State Requirements"
+    text2: "Liability protection"
+    text3: "Meet State Requirements"
 benefitImg: "/images/services/benefit/benefit-commercial-auto.webp"
 category: [ "Auto Coverage", "Business Coverage" ]
 ---

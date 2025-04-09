@@ -12,8 +12,8 @@ aboutServices: >
   We’ll help you understand how mortgage insurance works, what your lender requires, and which options fit your needs. Whether you're buying a new home or looking to add protection to your current loan, we’ll compare trusted providers to find a plan that fits your situation and your budget.
 benefits:
   - text1: "Protects Your Home Loan"
-  - text2: "Covers Death, Disability, or Job Loss"
-  - text3: "Keeps Your Family Secure"
+    text2: "Covers Death, Disability, or Job Loss"
+    text3: "Keeps Your Family Secure"
 benefitImg: "/images/services/benefit/benefit-mortgage.webp"
 category: [ "Personal Coverage" ]
 ---

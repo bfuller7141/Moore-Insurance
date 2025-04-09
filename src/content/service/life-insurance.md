@@ -12,8 +12,8 @@ aboutServices: >
   We offer access to a variety of life insurance options, including term life and whole life policies. Our team takes the time to understand your goals, answer your questions, and guide you toward the coverage that makes the most sense for your stage of life. We’re here to make planning easier and more personal.
 benefits:
   - text1: "Financial Security for Loved Ones"
-  - text2: "Flexible Policy Options"
-  - text3: "Affordable Long-Term Protection"
+    text2: "Flexible Policy Options"
+    text3: "Affordable Long-Term Protection"
 benefitImg: "/images/services/benefit/benefit-life.webp"
 category: [ "Personal Coverage" ]
 ---

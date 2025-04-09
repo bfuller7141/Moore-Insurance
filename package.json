@@ -12,6 +12,7 @@
     "@astrojs/react": "^4.2.2",
     "astro": "^5.5.5",
     "decap-cms-app": "^3.6.2",
+    "marked": "^15.0.8",
     "motion": "^12.6.2"
   },
   "devDependencies": {

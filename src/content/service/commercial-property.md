@@ -12,8 +12,8 @@ aboutServices: >
   Every business property has different risks. We work with you to understand what you own, where you're located, and what coverage makes sense. Our team compares policies from trusted providers to find options that offer strong protection without overpaying. If disaster strikes, we’ll be there to help you bounce back with confidence.
 benefits:
   - text1: "Covers Buildings and Assets"
-  - text2: "Protection Against Fire, Theft, and Weather"
-  - text3: "Helps Minimize Business Downtime"
+    text2: "Protection Against Fire, Theft, and Weather"
+    text3: "Helps Minimize Business Downtime"
 benefitImg: "/images/services/benefit/benefit-commercial-property.webp"
 category: [ "Business Coverage" ]
 ---

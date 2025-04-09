@@ -12,8 +12,8 @@ aboutServices: >
   Every home and every homeowner is different. We’ll help you find a policy that fits your property, location, and lifestyle. Whether you're buying your first home or reviewing your current coverage, we compare top providers to make sure you’re getting the protection you need at a fair price.
 benefits:
   - text1: "Covers Home and Personal Belongings"
-  - text2: "Protection Against Fire, Theft, and Storms"
-  - text3: "Helps With Temporary Living Expenses"
+    text2: "Protection Against Fire, Theft, and Storms"
+    text3: "Helps With Temporary Living Expenses"
 benefitImg: "/images/services/benefit/benefit-home.webp"
 category: [ "Personal Coverage" ]
 ---

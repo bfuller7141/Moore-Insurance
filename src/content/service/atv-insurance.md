@@ -12,8 +12,8 @@ aboutServices: >
   At Moore Insurance, we understand that every ATV rider has unique needs. Our team works closely with you to assess your specific requirements and tailor an insurance policy that offers optimal protection. We collaborate with multiple reputable providers to present a range of coverage options, ensuring you receive quality protection at competitive rates.
 benefits:
   - text1: "Protection On and Off the Trail"
-  - text2: "Coverage for Custom Add-Ons"
-  - text3: "Accident and Injury Support"
+    text2: "Coverage for Custom Add-Ons"
+    text3: "Accident and Injury Support"
 benefitImg: "/images/services/benefit/benefit-atv.webp"
 category: [ "Auto Coverage" ]
 ---

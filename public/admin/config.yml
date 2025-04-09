@@ -1,6 +1,9 @@
 backend:
   name: git-gateway
   branch: main
+  repo: bfuller7141/Moore-Insurance
+  api_root: https://gitlab.com/api/v4
+logo_url: public/images/logo-color.svg
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
@@ -8,11 +11,12 @@ public_folder: "/images/uploads"
 collections:
   - name: "post"
     label: "Posts"
-    folder: "content/posts"
+    folder: "content/post"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "slug", name: "slug", widget: "string", hint: "URL-friendly version of the title" }
       - { label: "Date", name: "date", widget: "datetime", date_format: "MM/DD/YYYY", time_format: "HH:mm" }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "YouTube Video URL", name: "youtubeUrl", widget: "string", hint: "Paste the full YouTube URL (e.g., https://youtu.be/VIDEO_ID)." }

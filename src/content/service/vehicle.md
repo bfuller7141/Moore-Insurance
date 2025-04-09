@@ -12,8 +12,8 @@ aboutServices: >
   We compare quotes from top-rated providers to help you find the best policy for your needs. Whether you're looking for basic liability or full coverage with extras like roadside assistance, we’ll walk you through your options and help you choose the right fit without the stress.
 benefits:
   - text1: "Covers Accidents and Damage"
-  - text2: "Liability and Medical Protection"
-  - text3: "Options for Roadside Assistance"
+    text2: "Liability and Medical Protection"
+    text3: "Options for Roadside Assistance"
 benefitImg: "/images/services/benefit/benefit-car.webp"
 category: [ "Auto Coverage" ]
 ---

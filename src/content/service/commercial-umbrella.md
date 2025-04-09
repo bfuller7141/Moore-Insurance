@@ -12,8 +12,8 @@ aboutServices: >
   Commercial umbrella insurance works alongside your existing liability policies, like general liability or commercial auto, to extend coverage when it’s needed most. We’ll help you understand where your current limits stop and how an umbrella policy can fill in the gaps. It’s a smart move for businesses that want stronger protection and long-term peace of mind.
 benefits:
   - text1: "Extends Liability Limits"
-  - text2: "Covers Legal and Settlement Costs"
-  - text3: "Works With Existing Policies"
+    text2: "Covers Legal and Settlement Costs"
+    text3: "Works With Existing Policies"
 benefitImg: "/images/services/benefit/benefit-commercial-umbrella.webp"
 category: [ "Business Coverage" ]
 ---

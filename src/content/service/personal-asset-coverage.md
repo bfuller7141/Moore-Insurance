@@ -12,8 +12,8 @@ aboutServices: >
   We help you identify which items may need extra protection and find policies that make sense for your lifestyle. Whether it’s a single valuable or a collection of assets, we compare trusted carriers to make sure your belongings are properly insured against common risks.
 benefits:
   - text1: "Covers High-Value Personal Items"
-  - text2: "Fills Gaps in Homeowners or Renters Insurance"
-  - text3: "Protection From Theft, Loss, or Damage"
+    text2: "Fills Gaps in Homeowners or Renters Insurance"
+    text3: "Protection From Theft, Loss, or Damage"
 benefitImg: "/images/services/benefit/benefit-personal-asset.webp"
 category: [ "Personal Coverage" ]
 ---
