@@ -1,6 +1,12 @@
 @import url('/styles/root.css');
 
 /* Base Styles */
+
+    ::selection {
+        background-color: var(--accent-500);
+        color: var(--primary-500);
+    }
+
     html {
         font-size: 16px;
         font-family: var(--font-body);
