@@ -1,0 +1,194 @@
+---
+import BaseHead from "../components/BaseHead.astro"
+import SkipMain from "../components/SkipMain.astro"
+import NavMain from "../components/NavMain.astro"
+import AnimatedHeadline from "../components/Animations/AnimatedHeadline"
+import FadeInUp from "../components/Animations/FadeInUp"
+import FeatureItem from "../components/FeatureItem.astro"
+import ReviewGrid from "../components/ReviewGrid.astro"
+import FooterMain from "../components/FooterMain.astro"
+import FormGeneral from "../components/FormGeneral.astro"
+import FAQHealth from "../components/FAQHealth.astro"
+---
+<!DOCTYPE html>
+<html lang="en">
+  <BaseHead
+    title="Health Insurance & Financial Planning in Arizona | Moore Insurance"
+    description="Protect your health and your future with tailored coverage. Nathaniel Mejia at Moore Insurance helps Arizonans with life insurance, annuities, trusts, group health plans, and more. Get a quote today."
+    image="https://moore-insurance.com/images/og-image.jpg"
+  />
+  <body>
+    <SkipMain />
+    <header>
+      <NavMain />
+    </header>
+    <main>
+
+      <section class="hero-sub-2" role="banner">
+        <div class="padding-hero">
+          <div class="container">
+            <div class="wrapper-hero">
+              <AnimatedHeadline client:load>
+                <h1 class="page-title">
+                  <span class="highlight">Health</span> Insurance
+                  <br />
+                  & Financial Planning
+                </h1>
+              </AnimatedHeadline>
+              <FadeInUp delay={0.5} duration={1} client:load>
+                <div class="wrapper-short">
+                  <p class="body-regular">
+                    Get coverage that protects more than today. From group health plans to life insurance, annuities, and living trusts, we help you build a plan that supports your health, income, and peace of mind—now and in retirement.
+                  </p>
+                  <div class="wrapper-btn">
+                    <a class="btn" href="/quote/health">Get Your Free Quote</a>
+                  </div>
+                </div>
+              </FadeInUp>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <FadeInUp delay={0.125} duration={1} client:load>
+        <section class="section-main">
+          <div class="padding-section">
+            <div class="container">
+              <div class="wrapper-col">
+                <div class="wrapper">
+                  <h2 class="section-title">
+                    Meet <span class="highlight">Nathaniel</span> Mejia
+                  </h2>
+                  <p class="body-regular">
+                    With over 15 years of experience in customer service, sales, and strategic account management, Nathaniel Mejia specializes in life insurance and annuities. He helps clients see life insurance as a living asset—offering solutions such as critical illness coverage, retirement income supplements, executive bonus plans, and tax‑advantaged strategies to retain top talent. Nathaniel also provides expert guidance on annuities to help ensure guaranteed income streams and peace of mind during retirement.
+                  </p>
+                  <p class="body-regular">
+                    In addition to his insurance expertise, Nathaniel assists clients with revocable living trusts and group health insurance, delivering comprehensive planning for individuals, families, and business owners. Known for his diligence, organization, and strategic insight, he is committed to helping clients build secure financial futures with confidence.
+                  </p>
+                  <div class="wrapper-btn">
+                    <a class="btn" href="#coverage">Explore Coverage</a>
+                    <a class="btn secondary" href="/quote/health">Start a Quote</a>
+                  </div>
+                </div>
+                <div class="wrapper-img">
+                  <img class="img-reg" src="/images/agents/nathaniel-majia.webp" alt="Portrait of Nathaniel Mejia, health and financial specialist at Moore Insurance." />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </FadeInUp>
+
+      <FadeInUp delay={0} duration={1} client:load>
+        <section id="coverage">
+          <div class="padding-section">
+            <div class="container">
+              <div class="wrapper-center">
+                <h2 class="section-title center">
+                  What We <span class="highlight">Offer</span>
+                </h2>
+              </div>
+
+              <div class="wrapper-col padding-top">
+                <div class="wrapper-img">
+                    <img class="img-reg" src="/images/static/family.webp" alt="A happy couple reviewing their health and financial coverage options with an insurance agent." />
+                </div>
+                <div class="wrapper">
+                  <FeatureItem
+                    title="Life Insurance"
+                    desc="Protection that grows with you—use it as a living asset for critical illness coverage, retirement income supplements, and executive bonus plans."
+                  />
+                  <FeatureItem
+                    title="Annuities"
+                    desc="Secure, guaranteed income for retirement with growth options and no potential for loss."
+                  />
+                  <FeatureItem
+                    title="Revocable Living Trusts"
+                    desc="Help ensure your estate is organized and protected from probate with flexible, living‑trust planning."
+                  />
+                  <FeatureItem
+                    title="Group Health Insurance"
+                    desc="Competitive rates for teams with straightforward enrollment and 24/7 claims support."
+                  />
+                  <FeatureItem
+                    title="Payroll Tax Savings Plan"
+                    desc="Smart, small‑business coverage strategies designed to lower payroll tax burden while maintaining great benefits."
+                  />
+                </div>
+              </div>
+
+              <div class="wrapper-center">
+                <div class="wrapper-btn">
+                  <a class="btn" href="/quote/health">Get Your Quote</a>
+                  <a class="btn secondary" href="#faq">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </FadeInUp>
+
+      <section class="city-bg">
+        <div class="padding-section">
+          <div class="container">
+            <div class="wrapper-center">
+              <h2 class="page-title center">
+                Start <span class="highlight">Protecting</span>
+                <br />
+                Your Health & Future
+              </h2>
+              <div class="wrapper-btn short-padding">
+                <a class="btn" href="/quote/health">Get Your Quote</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- REVIEWS -->
+      <FadeInUp delay={0.125} duration={1} client:load>
+        <section>
+          <div class="padding-section">
+            <div class="container">
+              <ReviewGrid />
+              <div class="wrapper-center">
+                <div class="wrapper-btn">
+                  <a class="btn" href="/quote/health">Get Your Free Quote</a>
+                  <a class="btn secondary" href="https://www.google.com/search?client=opera&q=moore+insurance&sourceid=opera&ie=UTF-8&oe=UTF-8" target="_blank" rel="noopener noreferrer">Leave Us A Review</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </FadeInUp>
+
+      <!-- FORM -->
+      <FadeInUp delay={0.125} duration={1} client:load>
+        <div class="padding-section lg-bottom">
+          <div class="container">
+            <h2 class="section-title center">
+              Get Your <span class="highlight">Free</span> Quote
+            </h2>
+            <FormGeneral />
+          </div>
+        </div>
+      </FadeInUp>
+
+      <FadeInUp delay={0.125} duration={1} client:load>
+        <section id="faq">
+          <div class="padding-section">
+            <div class="container">
+              <div class="wrapper-center">
+                <h2 class="section-title center">
+                Frequently Asked <span class="highlight">Questions</span>
+                </h2>
+              </div>
+              <FAQHealth />
+            </div>
+          </div>
+        </section>
+      </FadeInUp>
+    </main>
+    <FooterMain />
+  </body>
+</html>

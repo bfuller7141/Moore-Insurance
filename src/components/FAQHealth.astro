@@ -1,0 +1,49 @@
+---
+// FAQSection.astro
+import FAQCard from "./FAQCard.astro";
+---
+<div class="faq-section">
+<FAQCard
+question="Who qualifies for small‑group health insurance?"
+answer="Most businesses with at least one eligible W‑2 employee can offer group coverage. Carriers also require a minimum employer contribution and employee participation."
+/>
+<FAQCard
+question="How do life insurance and annuities fit with health coverage?"
+answer="Life insurance can replace income and fund benefits while alive through riders. Annuities can create guaranteed retirement income. Together with health coverage, they form a complete protection plan."
+/>
+<FAQCard
+question="What is a revocable living trust and why consider one?"
+answer="It is an estate tool that helps your assets avoid probate and stay organized during incapacity. You can change it any time while living. We coordinate with your attorney."
+/>
+<FAQCard
+question="How quickly can coverage start?"
+answer="Individual start dates follow marketplace rules. Group plans can often be active the first of the month after enrollment is complete. We outline your timeline at the start."
+/>
+
+<style>
+  .faq-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+</style>
+
+<script type="module">
+  // Wait for the DOM to be ready
+  document.addEventListener("DOMContentLoaded", () => {
+    const faqCards = document.querySelectorAll("details.faq-card");
+
+    faqCards.forEach(card => {
+      card.addEventListener("toggle", function() {
+        // When this card is opened, close all others
+        if (this.open) {
+          faqCards.forEach(other => {
+            if (other !== this && other.open) {
+              other.open = false;
+            }
+          });
+        }
+      });
+    });
+  });
+</script>
