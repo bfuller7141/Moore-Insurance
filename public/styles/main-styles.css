@@ -51,13 +51,31 @@
         font-size: var(--title-xs);
     }
     p {
-        margin: var(margin-small) 0 0 0;
+        margin: var(--spacing-sm) 0 var(--spacing-lg) 0;
         padding: 0;
         font-weight: 400;
         font-family: var(--font-body);
         font-size: var(--fs-body);
         color: var(--gray-200);
-        line-height: 1.5;
+        line-height: 1.65;
+    }
+
+    main p + p {
+        margin-top: var(--spacing-lg);
+    }
+
+    main ul,
+    main ol {
+        margin-top: var(--spacing-lg);
+        margin-bottom: var(--spacing-xl);
+    }
+
+    main li {
+        line-height: 1.65;
+    }
+
+    main li + li {
+        margin-top: var(--spacing-sm);
     }
     a {
         text-decoration: underline;
@@ -111,6 +129,33 @@
         background-repeat: no-repeat;
         background-attachment: scroll, fixed;
     }
+
+    .hero-break-mobile {
+        display: none;
+    }
+
+    @media (max-width: 767px) {
+        .hero-break-mobile {
+            display: inline;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .hero .padding-hero {
+            min-height: 100svh;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-block: var(--section-spacing-vertical-md);
+        }
+
+        .hero .padding-hero > .container {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+
     .hero-sub {
         background-image:
         linear-gradient(to bottom, transparent 50%, var(--primary-500) 100%),
@@ -390,7 +435,8 @@
         font-size: var(--fs-body);
         font-weight: 400;
         color: var(--gray-200);
-        margin: var(--spacing-xs) 0 var(--spacing-lg) 0;
+        line-height: 1.65;
+        margin: var(--spacing-sm) 0 var(--spacing-xl) 0;
     }
     .body-sm {
         font-size: var(--fs-bodysm);

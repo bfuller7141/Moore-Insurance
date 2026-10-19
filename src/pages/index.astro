@@ -10,12 +10,35 @@ import FAQHome from "../components/FAQHome.astro";
 import FooterMain from "../components/FooterMain.astro";
 import AnimatedHeadline from "../components/Animations/AnimatedHeadline";
 import FadeInUp from "../components/Animations/FadeInUp"
+
+const homepageFaqs = [
+  {
+    question: "What areas does Moore Insurance serve?",
+    answer: "Moore Insurance is based in Surprise, Arizona, and serves clients throughout the West Valley, including Goodyear, Peoria, Buckeye, Avondale, and Litchfield Park. We help Arizona residents and businesses compare insurance coverage from multiple carriers.",
+  },
+  {
+    question: "What types of insurance does Moore Insurance offer?",
+    answer: "We offer auto, homeowners, life, renters, and business insurance, along with coverage for motorcycles, RVs, golf carts, and other insurance needs. Our agents can help you review your options and request quotes.",
+  },
+  {
+    question: "Why choose an independent insurance agency?",
+    answer: "Independent insurance agencies work with multiple insurance companies rather than offering products from just one carrier. This allows us to compare available policies, rates, deductibles, and coverage options based on your needs.",
+  },
+  {
+    question: "Can I bundle my home and auto insurance?",
+    answer: "Yes. Depending on the insurance company, combining your home and auto policies may qualify you for a multi-policy discount. We can compare bundled and separate policies to help you evaluate your options.",
+  },
+  {
+    question: "Does Moore Insurance charge a fee for insurance quotes?",
+    answer: "No. Moore Insurance provides insurance quotes without an additional quote fee. Our agency is generally compensated through commissions from insurance carriers when policies are purchased.",
+  },
+];
 ---
 <!DOCTYPE html>
 <html lang="en">
   <BaseHead
-    title="Moore Insurance | Find the Right Coverage at the Right Price"
-    description="Moore Insurance helps families in Arizona get personalized insurance coverage at competitive rates. Get a free quote and protect what matters most."
+    title="Insurance Agency in Surprise, AZ | Moore Insurance"
+    description="Moore Insurance is an independent insurance agency in Surprise, AZ. Compare auto, home and business insurance options with help from our local team."
     image="https://moore-insurance.com/images/og-image.jpg"
   />
   <body>
@@ -29,11 +52,10 @@ import FadeInUp from "../components/Animations/FadeInUp"
           <div class="container">
             <div class="wrapper-hero">
               <AnimatedHeadline client:idle>
-                Find The <span class="highlight">Right</span>
+                Your Local<span class="hero-break-mobile"><br /></span>
+                <span class="highlight"> Insurance</span>
                 <br />
-                Coverage For
-                <br />
-                The <span class="highlight">Right</span> Price
+                Agency in Surprise
               </AnimatedHeadline>
               <FadeInUp delay={0.5} duration={1} client:idle>
                 <div class="wrapper-btn">
@@ -85,20 +107,20 @@ import FadeInUp from "../components/Animations/FadeInUp"
                     <span class="highlight">Moore</span> Insurance?
                   </h2>
                   <FeatureItem
-                    title="Personalized Service"
-                    desc="Your family is unique, and so are your insurance needs. We'll help you choose coverage that fits your lifestyle and your budget."
+                    title="Coverage That Fits Your Needs"
+                    desc="We help Arizona families and businesses find insurance based on their needs, budget, and the coverage they already have."
                   />
                   <FeatureItem
-                    title="More Choices, Better Prices"
-                    desc="We’re independent brokers, which means we compare policies from multiple companies to find the best value for you."
+                    title="Compare Multiple Insurance Companies"
+                    desc="As an independent insurance agency, we compare options from multiple carriers to help you find competitive rates and the coverage you need."
                   />
                   <FeatureItem
-                    title="Clear & Honest Advise"
-                    desc="We keep things simple and transparent, ensuring you understand your options and exactly what you’re paying for."
+                    title="Straightforward Insurance Advice"
+                    desc="We explain your coverage options, deductibles, and premiums so you can understand what your policy includes before making a decision."
                   />
                   <FeatureItem
-                    title="Friendly, Ongoing Support"
-                    desc="Questions come up and life happens. We're always ready to help, making sure you're confident about your insurance coverage."
+                    title="Local Agents, Ongoing Support"
+                    desc="Our team in Surprise is available to answer questions, review your coverage, and help when your insurance needs change."
                   />
                   <div class="wrapper-btn">
                     <a class="btn" href="/quote/general">
@@ -197,9 +219,9 @@ import FadeInUp from "../components/Animations/FadeInUp"
             <div class="wrapper-center">
               <FadeInUp delay={0.125} duration={1} client:idle>
                 <h2 class="section-title center">
-                  Coverage for <span class="highlight">Every</span>
+                  Auto, <span class="highlight">Home</span> & Business
                   <br />
-                  Part of Your Life
+                  Insurance in Arizona
                 </h2>
               </FadeInUp>
             </div>
@@ -208,7 +230,7 @@ import FadeInUp from "../components/Animations/FadeInUp"
                 <ServiceCard
                   image="/images/static/home-insurance.webp"
                   alt="A car insurance policy document with a car key and a calculator on a wooden table."
-                  title="Personal Insurance"
+                  title="Home & Personal Insurance"
                   link="/personal"
                 />
                 <ServiceCard
@@ -265,9 +287,9 @@ import FadeInUp from "../components/Animations/FadeInUp"
           <div class="container">
             <div class="wrapper-center">
               <h2 class="page-title center">
-                Start <span class="highlight">Protecting</span>
+                Compare Your
                 <br />
-                What Matters
+                <span class="highlight">Insurance</span> Options
               </h2>
               <div class="wrapper-btn short-padding">
                 <a class="btn" href="/quote/general">
@@ -308,7 +330,7 @@ import FadeInUp from "../components/Animations/FadeInUp"
                   <br />
                   Asked Questions
                 </h2>
-                <FAQHome />
+                <FAQHome faqs={homepageFaqs} />
               </div>
             </div>
           </div>
@@ -320,9 +342,9 @@ import FadeInUp from "../components/Animations/FadeInUp"
             <div class="container">
               <div class="wrapper-center">
                 <h2 class="page-title center">
-                  Let's <span class="highlight">Find</span> Your
+                  Get an Insurance Quote
                   <br />
-                  Perfect Policy
+                  From Our <span class="highlight">Local</span> Team
                 </h2>
                 <div class="wrapper-btn short-padding">
                   <a class="btn" href="/quote/general">
