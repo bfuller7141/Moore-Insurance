@@ -6,6 +6,7 @@ pageTitle:
   pre: "Protect"
   highlight: "What"
   post: "You Value"
+seoDescription: "Compare insurance options for jewelry, electronics, collectibles, and other valuable belongings with Moore Insurance in Surprise, Arizona."
 description: >
   Your personal belongings hold both financial and emotional value. Personal asset coverage helps protect those items from loss, theft, or damage. Moore Insurance works with Arizona families to insure high-value belongings like jewelry, electronics, collectibles, and more—so you're covered beyond standard homeowners or renters insurance.
 aboutServices: >

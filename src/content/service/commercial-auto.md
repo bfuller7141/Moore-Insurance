@@ -6,6 +6,7 @@ pageTitle:
   pre: "Keep Your"
   highlight: "Business"
   post: "Moving"
+seoDescription: "Compare commercial auto insurance for Arizona businesses with Moore Insurance. Review coverage for company cars, work trucks, vans, and fleets."
 description: >
   When your business depends on vehicles to get the job done, having the right commercial auto insurance isn’t optional — it’s essential. Moore Insurance helps Arizona business owners protect their work trucks, vans, and company vehicles with reliable coverage built to handle the risks of the road. From minor accidents to major claims, we make sure your business stays protected and on the move.
 aboutServices: >

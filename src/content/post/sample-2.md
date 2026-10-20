@@ -1,5 +1,6 @@
 ---
 title: "How Much Car Insurance Do I Actually Need?"
+description: "Learn how liability limits, umbrella policies, personal assets, and the choice between captive and independent agents can shape your auto insurance coverage."
 date: 2023-12-01T00:00:00.000Z
 author: "Helen Moore"
 youtubeUrl: "https://www.youtube.com/watch?v=frSZGLaXTUM"

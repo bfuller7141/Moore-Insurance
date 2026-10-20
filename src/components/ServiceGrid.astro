@@ -6,7 +6,12 @@ import ServiceCard from "./ServiceCard.astro";
 const allServices = await getCollection("service");
 console.log("All Services:", allServices);
 
-const { categoryFilter } = Astro.props;
+interface Props {
+  categoryFilter?: string;
+  titleOverrides?: Record<string, string>;
+}
+
+const { categoryFilter, titleOverrides } = Astro.props as Props;
 
 const filteredServices = categoryFilter
   ? allServices.filter(service => {
@@ -27,8 +32,8 @@ console.log("Filtered Services:", filteredServices);
     <ServiceCard
       image={service.data.image}
       alt={service.data.serviceName}
-      title={service.data.serviceName}
-      link={`/services/${service.slug}`}
+      title={titleOverrides?.[service.slug] ?? service.data.serviceName}
+      link={`/services/${service.slug}/`}
     />
   ))}
 </div>

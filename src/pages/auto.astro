@@ -13,8 +13,8 @@ import FormAuto from "../components/FormAuto.astro"
 <!DOCTYPE html>
 <html lang="en">
   <BaseHead
-    title="Home"
-    description="This is the home page"
+    title="Auto & Vehicle Insurance in Arizona | Moore Insurance"
+    description="Explore car, motorcycle, RV, golf cart and ATV insurance with Moore Insurance in Surprise, AZ. Compare vehicle coverage options with our local agents."
     image="https://moore-insurance.com/images/og-image.jpg"
   />
   <body>
@@ -28,15 +28,15 @@ import FormAuto from "../components/FormAuto.astro"
                 <div class="container">
                     <div class="wrapper-hero">
                         <AnimatedHeadline client:load>
-                            <h1 class="page-title">Auto <span class="highlight">Coverage</span></h1>
+                            Auto & <span class="highlight">Vehicle Insurance</span> in Arizona
                         </AnimatedHeadline>
                         <FadeInUp delay={0.5} duration={1} client:load>
                             <div class="wrapper-short">
                                 <p class="body-regular">
-                                  Whether you’re driving across town or across the state, the right auto insurance gives you peace of mind every time you hit the road. We help Arizona drivers find reliable, affordable coverage that fits their vehicle, their lifestyle, and their budget.
+                                  Moore Insurance helps Arizona drivers compare insurance options for cars, motorcycles, RVs, golf carts, ATVs, and business vehicles. Based in Surprise, our independent agency works with multiple insurance companies to help you review available coverage, deductibles, and rates.
                                 </p>
                                 <div class="wrapper-btn">
-                                    <a class="btn" href="/quote/auto">
+                                    <a class="btn" href="/quote/auto/">
                                         Get Your Free Quote
                                     </a>
                                     <a class="btn secondary" href="#coverage">
@@ -56,24 +56,24 @@ import FormAuto from "../components/FormAuto.astro"
                   <div class="wrapper-col">
                     <div class="wrapper">
                       <h2 class="section-title">
-                        Moore Insurance
+                        Why Choose Moore Insurance
                         <br />
-                        Policy <span class="highlight">Advantage</span>
+                        for <span class="highlight">Vehicle Coverage?</span>
                       </h2>
                       <FeatureItem
-                        title="Coverage That Fits"
-                        desc="From daily commutes to weekend getaways, we help you find an auto policy that matches how and where you drive."
+                        title="Coverage for Different Vehicles"
+                        desc="From everyday cars to recreational vehicles, we help you explore insurance options based on the vehicle you own and how you use it."
                       />
                       <FeatureItem
-                        title="Savings Without The Guesswork"
-                        desc="We shop multiple top-rated providers to find the right price for the coverage you actually need."
+                        title="Compare Multiple Insurance Companies"
+                        desc="As an independent agency, we compare available policies from multiple carriers so you can review rates, deductibles, and coverage options."
                       />
                       <FeatureItem
-                        title="Here When You Need Us"
-                        desc="Accidents and claims are stressful. We’re here to answer your questions and walk you through the next steps, anytime you need support."
+                        title="Local Agents, Ongoing Support"
+                        desc="Our team in Surprise can answer policy questions, help with coverage changes, and explain the next steps when you need to file a claim."
                       />
                       <div class="wrapper-btn">
-                        <a class="btn" href="/quote/auto">
+                        <a class="btn" href="/quote/auto/">
                           Get Your Quote
                         </a>
                         <a class="btn secondary" href="#coverage">
@@ -94,12 +94,15 @@ import FormAuto from "../components/FormAuto.astro"
                 <div class="container">
                   <div class="wrapper-center">
                     <h2 class="section-title">
-                      Coverage for <span class="highlight">Every</span> Part of Life
+                      Explore Our <span class="highlight">Vehicle Insurance</span> Options
                     </h2>
                   </div>
-                  <ServiceGrid categoryFilter="Auto Coverage" />
+                  <ServiceGrid
+                    categoryFilter="Auto Coverage"
+                    titleOverrides={{ "commercial-auto": "Commercial Auto Insurance" }}
+                  />
                   <div class="wrapper-btn center">
-                    <a class="btn" href="/quote/auto">Get Your Quote</a>
+                    <a class="btn" href="/quote/auto/">Get Your Quote</a>
                   </div>
                 </div>
             </div>
@@ -111,10 +114,10 @@ import FormAuto from "../components/FormAuto.astro"
               <div class="container">
                 <div class="wrapper-center">
                   <h2 class="section-title center">
-                    What is <span class="highlight">Auto</span> Coverage?
+                    What Does <span class="highlight">Vehicle Insurance</span> Cover?
                   </h2>
                   <p class="body-regular center">
-                    Auto coverage is insurance that protects you, your vehicle, and others on the road. It can help cover costs from accidents, theft, weather damage, and more. Most policies include liability coverage, which pays for damage you may cause, as well as options like collision, comprehensive, and uninsured motorist protection. The right auto insurance helps you stay financially protected and legally covered every time you drive.
+                    Vehicle insurance can help cover costs related to accidents, injuries, theft, and vehicle damage, depending on the policy. Available coverage varies by vehicle type and may include liability, collision, comprehensive, uninsured motorist, and other options. Cars, motorcycles, RVs, golf carts, ATVs, and commercial vehicles may have different insurance requirements and coverage options. Our agents can help you understand those differences and compare available policies.
                   </p>
                 </div>
               </div>
@@ -126,12 +129,12 @@ import FormAuto from "../components/FormAuto.astro"
             <div class="container">
               <div class="wrapper-center">
                 <h2 class="page-title center">
-                  Stay <span class="highlight">Protected</span>
+                  Compare <span class="highlight">Vehicle Insurance</span>
                   <br />
-                  On The Road
+                  Options
                 </h2>
                 <div class="wrapper-btn short-padding">
-                  <a class="btn" href="/quote/auto">
+                  <a class="btn" href="/quote/auto/">
                     Get Your Free Quote
                   </a>
                 </div>
@@ -147,7 +150,7 @@ import FormAuto from "../components/FormAuto.astro"
                 />
                 <div class="wrapper-center">
                   <div class="wrapper-btn">
-                    <a class="btn" href="/quote/auto">
+                    <a class="btn" href="/quote/auto/">
                       Get Your Quote
                     </a>
                     <a class="btn secondary" href="https://www.google.com/search?client=opera&q=moore+insurance&sourceid=opera&ie=UTF-8&oe=UTF-8" target="_blank" rel="noopener noreferrer">                      Leave Us A Review

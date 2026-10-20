@@ -1,5 +1,6 @@
 ---
 title: "Role of Insurance Brokers"
+description: "Learn how insurance brokers assess client needs, compare policies from multiple providers, explain coverage options, and assist throughout the insurance process."
 date: 2023-12-01T00:00:00.000Z
 author: "Helen Moore"
 youtubeUrl: ""

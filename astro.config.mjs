@@ -4,6 +4,7 @@ import react from '@astrojs/react';
 
 export default defineConfig({
   site: 'https://www.mooreinsure.net',
+  trailingSlash: 'always',
   integrations: [react()],
 
 });

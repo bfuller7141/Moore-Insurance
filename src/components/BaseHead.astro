@@ -5,6 +5,9 @@ interface Props {
   image?: string;
 }
 
+import "../styles/root.css";
+import "../styles/main-styles.css";
+
 const {
   title = "Moore Insurance Agency",
   description = "Independent insurance broker serving Surprise, Arizona. Specializes in helping families with household incomes over $100k and multiple cars find the right coverage.",
@@ -17,7 +20,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "InsuranceAgency",
   "name": "Moore Insurance Agency LLC",
-  "description": {description},
+  "description": description,
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "15282 W Brookside Ln, Suite 110",
@@ -99,14 +102,8 @@ const jsonLd = {
   <link rel="preconnect" href="https://use.typekit.net" crossorigin>
   <link rel="preconnect" href="https://p.typekit.net" crossorigin>
 
-  <!--Styles -->
-  <link rel="stylesheet" href="/styles/root.css" />
-  <link rel="stylesheet" href="/styles/main-styles.css" />
-
   <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-    {JSON.stringify(jsonLd, null, 2)}
-  </script>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">

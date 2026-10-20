@@ -1,3 +1,16 @@
+---
+interface Props {
+  coverageLabels?: {
+    generalLiability?: string;
+    commercialAuto?: string;
+    commercialProperty?: string;
+    workersComp?: string;
+    commercialUmbrella?: string;
+  };
+}
+
+const { coverageLabels = {} } = Astro.props as Props;
+---
 <form
   id="quoteForm"
   name="business-coverage-quote"
@@ -98,23 +111,23 @@
     <div class="coverage-grid">
       <label>
         <input type="checkbox" name="coverage" value="General Liability" />
-        General Liability
+        {coverageLabels.generalLiability ?? "General Liability"}
       </label>
       <label>
         <input type="checkbox" name="coverage" value="Commercial Auto" />
-        Commercial Auto
+        {coverageLabels.commercialAuto ?? "Commercial Auto"}
       </label>
       <label>
         <input type="checkbox" name="coverage" value="Commercial Property" />
-        Commercial Property
+        {coverageLabels.commercialProperty ?? "Commercial Property"}
       </label>
       <label>
         <input type="checkbox" name="coverage" value="Workers Comp" />
-        Workers Comp
+        {coverageLabels.workersComp ?? "Workers Comp"}
       </label>
       <label>
         <input type="checkbox" name="coverage" value="Commercial Umbrella" />
-        Commercial Umbrella
+        {coverageLabels.commercialUmbrella ?? "Commercial Umbrella"}
       </label>
       <label>
         <input type="checkbox" name="coverage" value="Cyber Insurance" />

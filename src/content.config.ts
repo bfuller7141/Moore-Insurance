@@ -5,6 +5,7 @@ import { head } from "motion/react-client";
 const postCollection = defineCollection({
   schema: z.object({
     title: z.string(),
+    description: z.string(),
     date: z.date(),
     author: z.string(),
     youtubeUrl: z.string().optional(),
@@ -24,7 +25,15 @@ const serviceCollection = defineCollection({
       highlight: z.string(),
       post: z.string().optional(),
     }),
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
     description: z.string().optional(),
+    aboutTitle: z.object({
+      line1: z.string(),
+      line2Pre: z.string().optional(),
+      highlight: z.string(),
+      line2Post: z.string().optional(),
+    }).optional(),
     aboutServices: z.string().optional(),
     benefits: z.array(
       z.object({
@@ -33,6 +42,29 @@ const serviceCollection = defineCollection({
         text3: z.string(),
       })
     ),
+    comparisonCards: z.array(
+      z.object({
+        title: z.string(),
+        description: z.string(),
+      })
+    ).length(3).optional(),
+    midpageTitle: z.object({
+      line1: z.string(),
+      highlight: z.string(),
+      line2: z.string(),
+    }).optional(),
+    faqs: z.array(
+      z.object({
+        question: z.string(),
+        answer: z.string(),
+      })
+    ).length(5).optional(),
+    finalCtaTitle: z.object({
+      line1: z.string(),
+      highlight: z.string(),
+      afterHighlight: z.string().optional(),
+      line2: z.string(),
+    }).optional(),
     benefitImg: z.string().optional(),
     category: z.union([
       z.enum(["Personal Coverage", "Business Coverage", "Auto Coverage", "Other"]),

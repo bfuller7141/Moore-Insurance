@@ -26,7 +26,7 @@ const autoServices = services.filter(service =>
               <ul>
                 {personalServices.map(({ data, slug }) => (
                   <li>
-                    <a class="body-sm" href={`/services/${slug}`}>
+                    <a class="body-sm" href={`/services/${slug}/`}>
                       {data.serviceName}
                     </a>
                   </li>
@@ -39,7 +39,7 @@ const autoServices = services.filter(service =>
               <ul>
                 {businessServices.map(({ data, slug }) => (
                   <li>
-                    <a class="body-sm" href={`/services/${slug}`}>
+                    <a class="body-sm" href={`/services/${slug}/`}>
                       {data.serviceName}
                     </a>
                   </li>
@@ -52,7 +52,7 @@ const autoServices = services.filter(service =>
               <ul>
                 {autoServices.map(({ data, slug }) => (
                   <li>
-                    <a class="body-sm" href={`/services/${slug}`}>
+                    <a class="body-sm" href={`/services/${slug}/`}>
                       {data.serviceName}
                     </a>
                   </li>
@@ -63,10 +63,10 @@ const autoServices = services.filter(service =>
             <div class="footer-col">
               <div class="body-regular"><strong>Our Company</strong></div>
               <ul>
-                <li><a class="body-sm" href="/about">About Us</a></li>
-                <li><a class="body-sm" href="/blog">Our Blog</a></li>
+                <li><a class="body-sm" href="/about/">About Us</a></li>
+                <li><a class="body-sm" href="/blog/">Our Blog</a></li>
                 <li><a class="body-sm" href="https://customerservice.agentinsure.com/EzLynxCustomerService/web/mooreinsur/account/login" target="_blank" rel="noopener noreferrer">Client Portal</a></li>
-                <li><a class="body-sm" href="/quote/general">Get A Quote</a></li>
+                <li><a class="body-sm" href="/quote/general/">Get A Quote</a></li>
               </ul>
             </div>
           </div>
@@ -81,11 +81,11 @@ const autoServices = services.filter(service =>
             <img src="/images/logo.svg" alt="Moore Insurance Agency" />
           </div>
           <div class="footer-legal body-sm">
-            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/privacy-policy/">Privacy Policy</a>
             <span>|</span>
-            <a href="/terms-of-service">Terms of Service</a>
+            <a href="/terms-of-service/">Terms of Service</a>
             <span>|</span>
-            <a href="/accessibility-policy">Accessibility Policy</a>
+            <a href="/accessibility-policy/">Accessibility Policy</a>
           </div>
           <div class="footer-social">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
@@ -203,4 +203,3 @@ const autoServices = services.filter(service =>
       }
     }
   </style>
-  

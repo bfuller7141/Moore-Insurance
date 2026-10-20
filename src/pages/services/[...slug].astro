@@ -19,18 +19,78 @@ export const getStaticPaths = async () => {
 
 interface ServiceProps {
   pageTitle: { pre: string; highlight: string; post: string; };
+  seoTitle?: string;
+  seoDescription?: string;
   description: string;
   quoteLink?: string;
+  aboutTitle?: { line1: string; line2Pre?: string; highlight: string; line2Post?: string; };
   aboutServices: string;
   serviceName: string;
-  benefits: { text1: string; text2: string; text3: string; };
+  benefits: { text1: string; text2: string; text3: string; }[];
+  comparisonCards?: { title: string; description: string; }[];
+  midpageTitle?: { line1: string; highlight: string; line2: string; };
+  faqs?: { question: string; answer: string; }[];
+  finalCtaTitle?: { line1: string; highlight: string; afterHighlight?: string; line2: string; };
   benefitImg: string;
   image: string;
   headerImg: string;
   category: string | string[];
 }
 
-const { pageTitle, description, serviceName, image, aboutServices, benefitImg, headerImg, benefits, quoteLink, category } = Astro.props as ServiceProps;
+const {
+  pageTitle,
+  seoTitle,
+  seoDescription,
+  description,
+  serviceName,
+  image,
+  aboutTitle,
+  aboutServices,
+  benefitImg,
+  headerImg,
+  benefits,
+  comparisonCards,
+  midpageTitle,
+  faqs,
+  finalCtaTitle,
+  quoteLink,
+  category,
+} = Astro.props as ServiceProps;
+
+const resolvedAboutTitle = aboutTitle ?? {
+  line1: 'Your Peace of',
+  line2Pre: 'Mind',
+  highlight: 'Starts',
+  line2Post: 'Here',
+};
+
+const resolvedComparisonCards = comparisonCards ?? [
+  {
+    title: 'Compare Top Providers',
+    description: 'Moore Insurance shops multiple trusted insurance companies on your behalf—so you get better pricing and a policy that fits your needs.',
+  },
+  {
+    title: 'Personalized Policy',
+    description: 'We take time to understand your risks and needs—then recommend coverage that actually protects what matters most.',
+  },
+  {
+    title: 'Ongoing Support',
+    description: "From reviewing policies to helping with claims, we're here to provide you with real answers and real peace of mind.",
+  },
+];
+
+const resolvedMidpageTitle = midpageTitle ?? {
+  line1: 'Start',
+  highlight: 'Protecting',
+  line2: 'What Matters',
+};
+
+const resolvedFinalCtaTitle = finalCtaTitle ?? {
+  line1: "Let's",
+  highlight: 'Find',
+  afterHighlight: 'Your',
+  line2: 'Perfect Policy',
+};
 
 // Determine the quote URL based on the service's category (or use a provided quoteLink)
 let quoteUrl = "";
@@ -38,21 +98,21 @@ if (quoteLink) {
   quoteUrl = quoteLink;
 } else if (typeof category === "string") {
   if (category === "Personal Coverage") {
-    quoteUrl = "/quote/personal";
+    quoteUrl = "/quote/personal/";
   } else if (category === "Auto Coverage") {
-    quoteUrl = "/quote/auto";
+    quoteUrl = "/quote/auto/";
   } else if (category === "Business Coverage") {
-    quoteUrl = "/quote/business";
+    quoteUrl = "/quote/business/";
   } else {
     quoteUrl = "/quote";
   }
 } else if (Array.isArray(category)) {
   if (category.includes("Personal Coverage")) {
-    quoteUrl = "/quote/personal";
+    quoteUrl = "/quote/personal/";
   } else if (category.includes("Auto Coverage")) {
-    quoteUrl = "/quote/auto";
+    quoteUrl = "/quote/auto/";
   } else if (category.includes("Business Coverage")) {
-    quoteUrl = "/quote/business";
+    quoteUrl = "/quote/business/";
   } else {
     quoteUrl = "/quote";
   }
@@ -61,8 +121,8 @@ if (quoteLink) {
 <!DOCTYPE html>
 <html lang="en">
   <BaseHead
-    title={`${pageTitle.pre} ${pageTitle.highlight} ${pageTitle.post}`}
-    description={description}
+    title={seoTitle ?? `${pageTitle.pre} ${pageTitle.highlight} ${pageTitle.post}`}
+    description={seoDescription ?? description}
     image={image}
   />
   <body>
@@ -111,8 +171,8 @@ if (quoteLink) {
               <div class="wrapper-col">
                 <div class="wrapper">
                   <h2 class="section-title">
-                    Your Peace of<br />
-                    Mind <span class="highlight">Starts</span> Here
+                    {resolvedAboutTitle.line1}<br />
+                    {resolvedAboutTitle.line2Pre} <span class="highlight">{resolvedAboutTitle.highlight}</span> {resolvedAboutTitle.line2Post}
                   </h2>
                   <p class="body-regular">
                     {aboutServices}
@@ -130,21 +190,21 @@ if (quoteLink) {
               </div>
               <div class="wrapper-col padding-top">
                 <div class="card">
-                  <h3 class="title-card center">Compare Top Providers</h3>
+                  <h3 class="title-card center">{resolvedComparisonCards[0].title}</h3>
                   <p class="body-regular center">
-                    Moore Insurance shops multiple trusted insurance companies on your behalf—so you get better pricing and a policy that fits your needs.
+                    {resolvedComparisonCards[0].description}
                   </p>
                 </div>
                 <div class="card">
-                  <h3 class="title-card center">Personalized Policy</h3>
+                  <h3 class="title-card center">{resolvedComparisonCards[1].title}</h3>
                   <p class="body-regular center">
-                    We take time to understand your risks and needs—then recommend coverage that actually protects what matters most.
+                    {resolvedComparisonCards[1].description}
                   </p>
                 </div>
                 <div class="card">
-                  <h3 class="title-card center">Ongoing Support</h3>
+                  <h3 class="title-card center">{resolvedComparisonCards[2].title}</h3>
                   <p class="body-regular center">
-                    From reviewing policies to helping with claims, we're here to provide you with real answers and real peace of mind.
+                    {resolvedComparisonCards[2].description}
                   </p>
                 </div>
               </div>
@@ -159,8 +219,8 @@ if (quoteLink) {
           <div class="container">
             <div class="wrapper-center">
               <h2 class="page-title center">
-                Start <span class="highlight">Protecting</span><br />
-                What Matters
+                {resolvedMidpageTitle.line1} <span class="highlight">{resolvedMidpageTitle.highlight}</span><br />
+                {resolvedMidpageTitle.line2}
               </h2>
               <div class="wrapper-btn short-padding">
                 <a class="btn" href={quoteUrl}>Get Your Free Quote</a>
@@ -197,7 +257,7 @@ if (quoteLink) {
                   Some <span class="highlight">Frequently</span><br />
                   Asked Questions
                 </h2>
-                <FAQHome />
+                <FAQHome faqs={faqs} />
               </div>
             </div>
           </div>
@@ -211,8 +271,8 @@ if (quoteLink) {
             <div class="container">
               <div class="wrapper-center">
                 <h2 class="page-title center">
-                  Let's <span class="highlight">Find</span> Your<br />
-                  Perfect Policy
+                  {resolvedFinalCtaTitle.line1} <span class="highlight">{resolvedFinalCtaTitle.highlight}</span> {resolvedFinalCtaTitle.afterHighlight}<br />
+                  {resolvedFinalCtaTitle.line2}
                 </h2>
                 <div class="wrapper-btn short-padding">
                   <a class="btn" href={quoteUrl}>Get Your Free Quote</a>

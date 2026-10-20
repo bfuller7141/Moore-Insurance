@@ -1,3 +1,14 @@
+---
+interface Props {
+  coverageLabels?: {
+    home?: string;
+    personalAsset?: string;
+    umbrella?: string;
+  };
+}
+
+const { coverageLabels = {} } = Astro.props as Props;
+---
 <form
   id="quoteForm"
   name="personal-coverage-quote"
@@ -82,7 +93,7 @@
     <div class="coverage-grid">
       <label>
         <input type="checkbox" name="coverage" value="Home Insurance" />
-        Home Insurance
+        {coverageLabels.home ?? "Home Insurance"}
       </label>
       <label>
         <input type="checkbox" name="coverage" value="Renters Insurance" />
@@ -94,7 +105,7 @@
       </label>
       <label>
         <input type="checkbox" name="coverage" value="Personal Asset Coverage" />
-        Personal Asset Coverage
+        {coverageLabels.personalAsset ?? "Personal Asset Coverage"}
       </label>
       <label>
         <input type="checkbox" name="coverage" value="Life Insurance" />
@@ -102,7 +113,7 @@
       </label>
       <label>
         <input type="checkbox" name="coverage" value="Umbrella Coverage" />
-        Umbrella Coverage
+        {coverageLabels.umbrella ?? "Umbrella Coverage"}
       </label>
     </div>
   </div>

@@ -13,8 +13,8 @@ import FormBusiness from "../components/FormBusiness.astro"
 <!DOCTYPE html>
 <html lang="en">
   <BaseHead
-    title="Business Insurance Coverage in Arizona | Moore Insurance"
-    description="Protect your business with insurance that fits your needs. Moore Insurance helps Arizona business owners find the right coverage for property, liability, employees, and more. Get a quote today."
+    title="Business Insurance in Arizona | Moore Insurance"
+    description="Explore business insurance options with Moore Insurance in Surprise, AZ. Compare general liability, commercial property, workers' comp and more."
     image="https://moore-insurance.com/images/og-image.jpg"
   />
   <body>
@@ -28,15 +28,15 @@ import FormBusiness from "../components/FormBusiness.astro"
                 <div class="container">
                     <div class="wrapper-hero">
                         <AnimatedHeadline client:load>
-                            <h1 class="page-title">Business <span class="highlight">Coverage</span></h1>
+                            Business <span class="highlight">Insurance</span> in Arizona
                         </AnimatedHeadline>
                         <FadeInUp delay={0.5} duration={1} client:load>
                             <div class="wrapper-short">
                                 <p class="body-regular">
-                                  Whether you run a small local shop or manage a growing operation, your business deserves the right protection. We help Arizona business owners find smart and reliable coverage for property, liability, employees, and more. That way, you can stay focused on the work without worrying about the what-ifs.
+                                  Moore Insurance helps Arizona business owners compare insurance options for liability, property, employees, vehicles, and other business risks. Based in Surprise, our independent agency works with multiple insurance companies to help businesses review available coverage, policy limits, deductibles, and rates.
                                 </p>
                                 <div class="wrapper-btn">
-                                    <a class="btn" href="/quote/business">
+                                    <a class="btn" href="/quote/business/">
                                         Get Your Free Quote
                                     </a>
                                     <a class="btn secondary" href="#coverage">
@@ -56,24 +56,24 @@ import FormBusiness from "../components/FormBusiness.astro"
                   <div class="wrapper-col">
                     <div class="wrapper">
                       <h2 class="section-title">
-                        Moore Insurance
+                        Why Choose Moore Insurance
                         <br />
-                        Policy <span class="highlight">Advantage</span>
+                        for <span class="highlight">Business Coverage?</span>
                       </h2>
                       <FeatureItem
-                        title="Coverage That Works For You"
-                        desc="We help you find business insurance that fits your operations, not someone else’s checklist. Whether you need general liability or workers’ comp, we’ve got you covered."
+                        title="Insurance for Your Business Operations"
+                        desc="Your industry, employees, property, and daily operations can affect your insurance needs. We help you review coverage options based on how your business operates."
                       />
                       <FeatureItem
-                        title="Straightforward Guidance"
-                        desc="You don’t have time to dig through insurance fine print. We explain your options clearly so you can make confident decisions without second-guessing."
+                        title="Compare Coverage and Costs"
+                        desc="We compare available policies from multiple insurance carriers and explain differences in premiums, coverage limits, deductibles, and exclusions."
                       />
                       <FeatureItem
-                        title="Support You Can Count On"
-                        desc="Business moves fast. When your coverage needs change or a question comes up, we’re here to help you adjust and move forward with confidence."
+                        title="Local Agents, Ongoing Support"
+                        desc="Our team in Surprise can help answer questions, review policy changes, and explain the next steps when your business needs assistance with a claim."
                       />
                       <div class="wrapper-btn">
-                        <a class="btn" href="/quote/business">
+                        <a class="btn" href="/quote/business/">
                           Get Your Quote
                         </a>
                         <a class="btn secondary" href="#coverage">
@@ -94,12 +94,21 @@ import FormBusiness from "../components/FormBusiness.astro"
                 <div class="container">
                   <div class="wrapper-center">
                     <h2 class="section-title">
-                      Coverage for <span class="highlight">Every</span> Part of Life
+                      Explore Our <span class="highlight">Business Insurance</span> Options
                     </h2>
                   </div>
-                  <ServiceGrid categoryFilter="Business Coverage" />
+                  <ServiceGrid
+                    categoryFilter="Business Coverage"
+                    titleOverrides={{
+                      "commercial-auto": "Commercial Auto Insurance",
+                      "commercial-umbrella": "Commercial Umbrella Insurance",
+                      "commercial-property": "Commercial Property Insurance",
+                      "general-liability": "General Liability Insurance",
+                      "workers-comp": "Workers' Compensation Insurance",
+                    }}
+                  />
                   <div class="wrapper-btn center">
-                    <a class="btn" href="quote/business">Get Your Quote</a>
+                    <a class="btn" href="/quote/business/">Get Your Quote</a>
                   </div>
                 </div>
             </div>
@@ -111,10 +120,10 @@ import FormBusiness from "../components/FormBusiness.astro"
               <div class="container">
                 <div class="wrapper-center">
                   <h2 class="section-title center">
-                    What is <span class="highlight">Business</span> Coverage?
+                    What Does <span class="highlight">Business Insurance</span> Cover?
                   </h2>
                   <p class="body-regular center">
-                    Business coverage is a group of insurance policies that protect different parts of your business. This can include your building, equipment, employees, and the work you do every day. The goal is to help you avoid major losses when something unexpected happens, like an accident, lawsuit, or property damage. Whether you run a small shop, a service-based business, or something in between, the right coverage helps you stay protected and focused on growth.
+                    Business insurance includes several types of policies that address different risks associated with operating a business. General liability insurance can help cover certain third-party injury and property damage claims, while commercial property insurance can cover damage to insured buildings, equipment, and other business property. Workers' compensation, commercial auto, cyber insurance, and umbrella policies address other types of risks. Coverage needs depend on your industry, operations, employees, and business assets. Policy terms, limits, and exclusions determine what is covered.
                   </p>
                 </div>
               </div>
@@ -126,12 +135,12 @@ import FormBusiness from "../components/FormBusiness.astro"
             <div class="container">
               <div class="wrapper-center">
                 <h2 class="page-title center">
-                  Start <span class="highlight">Protecting</span>
+                  Compare <span class="highlight">Business Insurance</span>
                   <br />
-                  Your Business
+                  Options
                 </h2>
                 <div class="wrapper-btn short-padding">
-                  <a class="btn" href="/quote/business">
+                  <a class="btn" href="/quote/business/">
                     Get Your Quote
                   </a>
                 </div>
@@ -147,7 +156,7 @@ import FormBusiness from "../components/FormBusiness.astro"
                 />
                 <div class="wrapper-center">
                   <div class="wrapper-btn">
-                    <a class="btn" href="/quote/business">
+                    <a class="btn" href="/quote/business/">
                       Get Your Free Quote
                     </a>
                     <a class="btn secondary" href="https://www.google.com/search?client=opera&q=moore+insurance&sourceid=opera&ie=UTF-8&oe=UTF-8" target="_blank" rel="noopener noreferrer">                      Leave Us A Review
@@ -164,7 +173,15 @@ import FormBusiness from "../components/FormBusiness.astro"
               <h2 class="section-title center">
                 Get Your <span class="highlight">Free</span> Quote
               </h2>
-              <FormBusiness />
+              <FormBusiness
+                coverageLabels={{
+                  generalLiability: "General Liability Insurance",
+                  commercialAuto: "Commercial Auto Insurance",
+                  commercialProperty: "Commercial Property Insurance",
+                  workersComp: "Workers' Compensation Insurance",
+                  commercialUmbrella: "Commercial Umbrella Insurance",
+                }}
+              />
             </div>
           </div>
         </FadeInUp>
