@@ -69,6 +69,16 @@ const autoServices = services.filter(service =>
                 <li><a class="body-sm" href="/quote/general/">Get A Quote</a></li>
               </ul>
             </div>
+
+            <div class="footer-col footer-contact">
+              <div class="body-regular"><strong>Contact</strong></div>
+              <address class="body-sm">
+                <span>15282 W Brookside Ln</span>
+                <span>Surprise, AZ 85374</span>
+                <a href="tel:+16235561576">(623) 556-1576</a>
+                <a href="mailto:helen@mooreinsure.net">helen@mooreinsure.net</a>
+              </address>
+            </div>
           </div>
           <div class="footer-right">
             <FormNewsletter />
@@ -142,6 +152,14 @@ const autoServices = services.filter(service =>
   
     .footer-col a:hover {
       color: var(--accent-500);
+    }
+
+    .footer-contact address {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      font-style: normal;
     }
   
     .footer-bottom {

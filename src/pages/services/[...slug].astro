@@ -57,6 +57,34 @@ const {
   category,
 } = Astro.props as ServiceProps;
 
+const siteUrl = Astro.site ?? new URL('https://www.mooreinsure.net');
+const serviceUrl = new URL(Astro.url.pathname, siteUrl).href;
+const serviceId = `${serviceUrl}#service`;
+const categories = Array.isArray(category) ? category : [category];
+const categoryInfo = categories.includes('Personal Coverage')
+  ? { name: 'Personal Insurance', path: '/personal/' }
+  : categories.includes('Auto Coverage')
+    ? { name: 'Auto & Vehicle Insurance', path: '/auto/' }
+    : categories.includes('Business Coverage')
+      ? { name: 'Business Insurance', path: '/business/' }
+      : undefined;
+const serviceBreadcrumbs = [
+  { name: 'Home', path: '/' },
+  ...(categoryInfo ? [categoryInfo] : []),
+  { name: serviceName, path: Astro.url.pathname },
+];
+const serviceSchema = {
+  "@type": "Service",
+  "@id": serviceId,
+  name: serviceName,
+  serviceType: serviceName,
+  description: seoDescription ?? description,
+  url: serviceUrl,
+  image: new URL(image, siteUrl).href,
+  provider: { "@id": `${new URL('/', siteUrl).href}#organization` },
+  areaServed: { "@type": "AdministrativeArea", name: "Arizona" },
+};
+
 const resolvedAboutTitle = aboutTitle ?? {
   line1: 'Your Peace of',
   line2Pre: 'Mind',
@@ -124,6 +152,10 @@ if (quoteLink) {
     title={seoTitle ?? `${pageTitle.pre} ${pageTitle.highlight} ${pageTitle.post}`}
     description={seoDescription ?? description}
     image={image}
+    breadcrumbs={serviceBreadcrumbs}
+    faqs={faqs}
+    structuredData={serviceSchema}
+    primaryEntityId={serviceId}
   />
   <body>
     <SkipMain />

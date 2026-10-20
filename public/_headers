@@ -1,5 +1,6 @@
 /*
   Content-Security-Policy: frame-ancestors 'self'
+  Link: </llms.txt>; rel="describedby"; type="text/markdown"
   Referrer-Policy: strict-origin-when-cross-origin
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
@@ -14,3 +15,7 @@
 
 /styles/*
   Cache-Control: public, max-age=604800
+
+/llms.txt
+  Cache-Control: public, max-age=3600
+  Content-Type: text/markdown; charset=utf-8

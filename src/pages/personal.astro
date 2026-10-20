@@ -15,7 +15,9 @@ import FooterMain from "../components/FooterMain.astro"
   <BaseHead
     title="Personal Insurance in Arizona | Moore Insurance"
     description="Explore home, renters, life and umbrella insurance with Moore Insurance in Surprise, AZ. Compare personal insurance options with our local agents."
-    image="https://moore-insurance.com/images/og-image.jpg"
+    image="/images/static/home-insurance.webp"
+    pageType="CollectionPage"
+    breadcrumbs={[{ name: "Home", path: "/" }, { name: "Personal Insurance", path: "/personal/" }]}
   />
   <body>
     <SkipMain />

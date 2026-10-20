@@ -9,13 +9,49 @@ import ReviewGrid from "../components/ReviewGrid.astro"
 import FooterMain from "../components/FooterMain.astro"
 import FormGeneral from "../components/FormGeneral.astro"
 import FAQHealth from "../components/FAQHealth.astro"
+
+const healthFaqs = [
+  {
+    question: "Who qualifies for small-group health insurance?",
+    answer: "Most businesses with at least one eligible W-2 employee can offer group coverage. Carriers also require a minimum employer contribution and employee participation.",
+  },
+  {
+    question: "How do life insurance and annuities fit with health coverage?",
+    answer: "Life insurance can replace income and fund benefits while alive through riders. Annuities can create guaranteed retirement income. Together with health coverage, they form a complete protection plan.",
+  },
+  {
+    question: "What is a revocable living trust and why consider one?",
+    answer: "It is an estate tool that helps your assets avoid probate and stay organized during incapacity. You can change it any time while living. We coordinate with your attorney.",
+  },
+  {
+    question: "How quickly can coverage start?",
+    answer: "Individual start dates follow marketplace rules. Group plans can often be active the first of the month after enrollment is complete. We outline your timeline at the start.",
+  },
+];
+const siteUrl = Astro.site ?? new URL("https://www.mooreinsure.net");
+const healthUrl = new URL("/grouphealth/", siteUrl).href;
+const healthServiceId = `${healthUrl}#service`;
+const healthServiceSchema = {
+  "@type": "Service",
+  "@id": healthServiceId,
+  name: "Health Insurance and Financial Planning",
+  serviceType: "Health insurance and financial planning",
+  description: "Group health insurance, life insurance, annuities, living trusts, and related planning services for Arizona families and businesses.",
+  url: healthUrl,
+  provider: { "@id": `${new URL("/", siteUrl).href}#organization` },
+  areaServed: { "@type": "AdministrativeArea", name: "Arizona" },
+};
 ---
 <!DOCTYPE html>
 <html lang="en">
   <BaseHead
     title="Arizona Health Insurance & Financial Planning | Moore"
     description="Explore group health insurance, life insurance, annuities, and financial planning services for Arizona families and businesses with Moore Insurance."
-    image="https://moore-insurance.com/images/og-image.jpg"
+    image="/images/static/family.webp"
+    breadcrumbs={[{ name: "Home", path: "/" }, { name: "Health Insurance & Financial Planning", path: "/grouphealth/" }]}
+    faqs={healthFaqs}
+    structuredData={healthServiceSchema}
+    primaryEntityId={healthServiceId}
   />
   <body>
     <SkipMain />
@@ -181,7 +217,7 @@ import FAQHealth from "../components/FAQHealth.astro"
                 Frequently Asked <span class="highlight">Questions</span>
                 </h2>
               </div>
-              <FAQHealth />
+              <FAQHealth faqs={healthFaqs} />
             </div>
           </div>
         </section>

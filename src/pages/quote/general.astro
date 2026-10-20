@@ -11,7 +11,9 @@ import SkipMain from "../../components/SkipMain.astro";
   <BaseHead
     title="Request an Insurance Quote | Moore Insurance"
     description="Request a personalized insurance quote from Moore Insurance in Surprise, Arizona. Tell our local team what type of coverage you need to get started."
-    image= "https://moore-insurance.com/images/og-quote.jpg"
+    image="/images/backgrounds/home-hero.webp"
+    pageType="ContactPage"
+    breadcrumbs={[{ name: "Home", path: "/" }, { name: "Request a Quote", path: "/quote/general/" }]}
   />
   <body>
     <SkipMain />
