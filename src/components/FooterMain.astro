@@ -1,5 +1,4 @@
 ---
-import FormNewsletter from '../components/FormNewsletter.astro';
 import { getCollection } from 'astro:content';
 
 const services = await getCollection('service');
@@ -70,6 +69,8 @@ const autoServices = services.filter(service =>
               </ul>
             </div>
 
+          </div>
+          <div class="footer-right">
             <div class="footer-col footer-contact">
               <div class="body-regular"><strong>Contact</strong></div>
               <address class="body-sm">
@@ -79,9 +80,6 @@ const autoServices = services.filter(service =>
                 <a href="mailto:helen@mooreinsure.net">helen@mooreinsure.net</a>
               </address>
             </div>
-          </div>
-          <div class="footer-right">
-            <FormNewsletter />
           </div>
         </div>
   
