@@ -12,7 +12,7 @@ const allPosts = await getCollection("post");
           {allPosts.map(post => (
             <BlogCard
               image={post.data.headerImg ?? "/images/default-blog-card.jpg"}
-              alt={post.data.title ?? "Blog post image"}
+              alt={post.data.headerImgAlt ?? post.data.title ?? "Blog post image"}
               title={post.data.title}
               link={`/blog/${post.slug}/`}
             />

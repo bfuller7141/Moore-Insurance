@@ -21,16 +21,18 @@ export const getStaticPaths = async () => {
 
 interface PostProps {
   title: string;
+  seoTitle?: string;
   description: string;
   date: Date;
   author: string;
   youtubeUrl?: string;
   body: string;
   headerImg?: string;
+  headerImgAlt?: string;
   slug: string;
 }
 
-const { title, description, date, author, youtubeUrl, body, headerImg } = Astro.props as PostProps;
+const { title, seoTitle, description, date, author, youtubeUrl, body, headerImg, headerImgAlt } = Astro.props as PostProps;
 const siteUrl = Astro.site ?? new URL('https://www.mooreinsure.net');
 const articleUrl = new URL(Astro.url.pathname, siteUrl).href;
 const articleId = `${articleUrl}#article`;
@@ -59,7 +61,7 @@ function getEmbedUrl(url: string): string {
 <!DOCTYPE html>
 <html lang="en">
   <BaseHead
-    title={title}
+    title={seoTitle ?? title}
     description={description}
     image={headerImg ?? "/images/backgrounds/home-hero.webp"}
     breadcrumbs={[
@@ -82,7 +84,7 @@ function getEmbedUrl(url: string): string {
             <div class="container">
               <h1 class="page-title blog-title">{title}</h1>
                   {!youtubeUrl && headerImg && (
-                        <img src={headerImg} alt={title} class="svc-header-img blog-img" />
+                        <img src={headerImg} alt={headerImgAlt ?? title} class="svc-header-img blog-img" />
                   )}
                   {youtubeUrl && youtubeUrl.trim() !== "" && (
                     <div class="video-container" style="margin-bottom: 1rem;">
